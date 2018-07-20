@@ -1,0 +1,238 @@
+@charset "utf-8";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #000;
+  color: #fff;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+h1 {
+  margin-right: 3rem;
+}
+
+h2 {
+  text-align: center;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+a:focus,
+a:hover {
+  color: #fff;
+}
+
+kbd {
+  padding: 0.25rem;
+  background: #000;
+  border: 1px solid #222;
+}
+
+/* Form */
+
+form {
+  
+}
+
+.form-item {
+  display: inline-block;
+}
+
+/* Main content */
+
+.main-content {
+  flex-grow: 1;
+}
+
+/* Main header */
+
+.main-header {
+  padding: 1rem;
+  border-bottom: 1px solid #333;
+  text-align: center;
+}
+
+.main-title,
+.load-form {
+  display: inline-block;
+}
+
+/* Game */
+
+.waiting .game,
+.waiting .main-aside {
+  display: none;
+}
+
+.game {
+  flex-grow: 1;
+  padding: 1rem;
+}
+
+.maze {
+  display: grid;
+  gap: 0.1rem;
+  margin: 0 auto;
+  border: 1px solid #444;
+}
+
+.cell {
+  background-color: #111;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 0.0625rem;
+}
+
+.cell:before,
+.cell:after {
+  display: block;
+  margin: 0 auto;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.cell:before {
+  content: attr(data-icon);
+}
+
+.wall-t {
+  border-top-color: #fff;
+}
+
+.wall-r {
+  border-right-color: #fff;
+}
+
+.wall-b {
+  border-bottom-color: #fff;
+}
+
+.wall-l {
+  border-left-color: #fff;
+}
+
+.dark .unseen {
+  background-color: #000;
+  border-color: #000;
+}
+
+.dark .unseen:before,
+.current:before {
+  display: none;
+}
+
+.current:after {
+  content: '🤺';
+}
+
+.win {
+  background: green;
+}
+
+.lose {
+  background: red;
+}
+
+/* Fight */
+
+.fight-mode .maze {
+  display: none;
+}
+
+.fight {
+  display: none;
+  width: 31rem;
+  margin: 1rem auto;
+  text-align: center;
+}
+
+.fight-mode .fight {
+  display: flex;
+}
+
+.fight-hero,
+.fight-opponent {
+  width: 15rem;
+  height: 15rem;
+  padding: 1rem;
+  background: #111;
+  border: 1px solid #333;
+}
+
+.fight-hero {
+  margin-right: 1em;
+}
+
+.fight-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.fight-hp {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.fight-icon {
+  font-size: 6rem;
+}
+
+/* Aside */
+
+.main-aside {
+  flex-basis: 20rem;
+  height: 100vh;
+  overflow: auto;
+  padding: 1rem;
+  background: #111;
+  border-left: 1px solid #333;
+}
+
+.main-aside h2 {
+  text-align: left;
+}
+
+.metrix {
+  margin-bottom: 1rem;
+}
+
+.message {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #222;
+  color: #fff;
+}
+
+.green .text {
+  color: green;
+}
+
+.red .text {
+  color: red;
+}
+
+.icon {
+  flex-basis: 4rem;
+  flex-grow: 1;
+  margin-right: 0.5rem;
+  font-size: 1.6rem;
+  text-align: center;
+}
+
+.text {
+  flex-basis: 14rem;
+}

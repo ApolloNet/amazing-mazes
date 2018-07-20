@@ -1,0 +1,49 @@
+{
+  "name": "The little adventure",
+  "hero": {
+    "name": "Salim",
+    "icon": "🚶",
+    "hp": 100,
+    "strength": 100
+  },
+  "cells": [
+    ["tl", "tb", "tr"],
+    ["rl", "trl", "rl"],
+    ["bl", "rb", "rbl"]
+  ],
+  "events": [
+    {
+      "r": 2,
+      "c": 2,
+      "name": "start",
+      "message": "Find the hidden treasure<br>but beware of the vampire"
+    },
+    {
+      "r": 1,
+      "c": 0,
+      "name": "metrix",
+      "message": "You found a Talisman",
+      "object": "talisman",
+      "metrix": "hp",
+      "effect": "earn",
+      "points": 5,
+      "icon": "🉤"
+    },
+    {
+      "r": 1,
+      "c": 1,
+      "name": "win",
+      "message": "You found the hidden treasure"
+    },
+    {
+      "r": 2,
+      "c": 1,
+      "name": "metrix",
+      "message": "You defeated a Vampire Boss",
+      "metrix": "hp",
+      "effect": "lose",
+      "points": 50,
+      "icon": "🧛"
+    }
+  ]
+}

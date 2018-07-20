@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="fr" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Amazing Mazes</title>
+  <meta name="viewport" content="initial-scale=1.0, width=device-width">
+  <link rel="stylesheet" href="/css/bootstrap-reboot.css">
+  <link rel="stylesheet" href="/css/app.css">
+</head>
+
+<body class="waiting">
+  <div class="main-content">
+    <header class="main-header">
+      <h1 class="main-title">🞋 Amazing Mazes</h1>
+      <form class="load-form" id="loadForm" action="/index.html" method="get">
+        <div class="form-item">
+          <select name="load" id="loadSelect">
+            <option value="">- Select a level -</option>
+          </select>
+        </div>
+        <div class="form-item">
+          <input type="submit" value="Load maze">
+        </div>
+      </form>
+    </header>
+    <main id="game" class="game">
+      <h2 id="maze-title"></h2>
+      <div id="maze" class="maze"></div>
+      <div id="fight" class="fight">
+        <div id="fight-hero" class="fight-hero">
+          <div id="fight-hero-name" class="fight-name"></div>
+          <div id="fight-hero-icon" class="fight-icon"></div>
+          <div id="fight-hero-hp" class="fight-hp"></div>
+        </div>
+        <div id="fight-opponent" class="fight-opponent">
+          <div id="fight-opponent-name" class="fight-name"></div>
+          <div id="fight-opponent-icon" class="fight-icon"></div>
+          <div id="fight-opponent-hp" class="fight-hp"></div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <aside class="main-aside">
+      <h2>Hero</h2>
+      <div class="metrix">
+        <div class="message">
+          <span id="hero-icon" class="icon"></span>
+          <span class="text">Hero: <span id="hero-name"></span></span>
+        </div>
+        <div class="message">
+          <span class="icon">💚</span>
+          <span class="text">HP: <span id="hp"></span></span>
+        </div>
+        <div class="message">
+          <span class="icon">💪</span>
+          <span class="text">Strength: <span id="strength"></span></span>
+        </div>
+      </div>
+      <h2>Messages</h2>
+      <div id="messages" class="messages"></div>
+    </aside>
+  <script src="d3-fetch.v1.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

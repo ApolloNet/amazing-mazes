@@ -1,0 +1,66 @@
+{
+  "name": "Second maze",
+  "hero": {
+    "name": "Robert",
+    "icon": "𐇐",
+    "hp": 100,
+    "strength": 50
+  },
+  "cells": [
+    ["trl", "tbl", "tb", "tr"],
+    ["rl", "tl", "tb", "rb"],
+    ["l", "r", "tl", "tr"],
+    ["rbl", "bl", "rb", "rbl"]
+  ],
+  "start": {
+    "r": 3,
+    "c": 3
+  },
+  "events": [
+    {
+      "r": 3,
+      "c": 3,
+      "name": "start",
+      "message": "Find your beloved princess<br>but beware of holes",
+      "icon": "👸"
+    },
+    {
+      "r": 0,
+      "c": 1,
+      "name": "win",
+      "message": "You found your beloved princess",
+      "icon": "👸"
+    },
+    {
+      "r": 0,
+      "c": 0,
+      "name": "metrix",
+      "message": "You fell into a hole",
+      "metrix": "hp",
+      "effect": "lose",
+      "points": 30,
+      "icon": "🕳",
+      "once": 0
+    },
+    {
+      "r": 1,
+      "c": 1,
+      "name": "object",
+      "message": "You found a torch and see further",
+      "object": "torch",
+      "effect": "earn",
+      "icon": "🔦"
+    },
+    {
+      "r": 1,
+      "c": 0,
+      "name": "metrix",
+      "message": "You found a Talisman",
+      "object": "talisman",
+      "metrix": "hp",
+      "effect": "earn",
+      "points": 5,
+      "icon": "🉤"
+    }
+  ]
+}

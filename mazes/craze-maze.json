@@ -1,0 +1,68 @@
+{
+  "name": "Craze maze",
+  "light": 0,
+  "hero": {
+    "name": "",
+    "hp": 100,
+    "strength": 100
+  },
+  "cells": [
+    ["tl", "tb", "tb", "tb", "tb", "tb", "tb", "tb", "tb", "tb", "t", "tb", "tb", "tb", "tb", "tb", "tb", "tb", "tr"],
+    ["rl", "tl", "tb", "t", "tr", "tbl", "t", "tb", "trb", "trl", "rl", "tl", "t", "t", "tb", "tb", "tb", "tr", "rl"],
+    ["rl", "rl", "trl", "rl", "bl", "tb", "b", "tb", "tb", "rb", "rl", "rl", "rl", "rl", "tl", "tb", "tb", "rb", "rl"],
+    ["rl", "bl", "rb", "rl", "tbl", "tb", "t", "tb", "tb", "t", "r", "rl", "rl", "rl", "bl", "t", "tb", "trb", "rl"],
+    ["l", "tb", "tb", "b", "tb", "t", "b", "tb", "trb", "rl", "rbl", "rl", "rl", "rl", "tl", "rb", "tl", "tr", "rl"],
+    ["rl", "tl", "tb", "tb", "tr", "rl", "tbl", "tb", "tb", "b", "tb", "rb", "rl", "rl", "bl", "tr", "rbl", "rl", "rl"],
+    ["rl", "bl", "tb", "tr", "rl", "l", "tb", "t", "tb", "tb", "tb", "t", "r", "rl", "trl", "l", "tb", "r", "rl"],
+    ["rl", "trl", "trl", "rl", "rl", "rl", "trl", "rbl", "tl", "t", "tr", "rl", "l", "b", "rb", "rbl", "tl", "rb", "rl"],
+    ["rl", "l", "r", "rl", "l", "", "", "tb", "", "", "r", "rl", "rl", "tbl", "tb", "tb", "", "trb", "rl"],
+    ["rl", "rl", "bl", "r", "rl", "rl", "rbl", "trl", "bl", "b", "rb", "rl", "rl", "tl", "tb", "trb", "rbl", "trl", "rl"],
+    ["rl", "rl", "tl", "b", "rb", "bl", "tb", "", "tb", "tb", "t", "", "r", "bl", "tb", "tb", "tr", "rl", "rl"],
+    ["rl", "rl", "bl", "tb", "t", "tb", "trb", "rl", "tl", "tb", "rb", "rl", "rl", "tl", "tb", "trb", "rl", "rl", "rl"],
+    ["rl", "bl", "tb", "tb", "b", "tb", "tb", "rb", "bl", "tb", "trb", "rbl", "bl", "b", "tb", "tb", "b", "rb", "rl"],
+    ["bl", "tb", "tb", "tb", "tb", "tb", "tb", "tb", "tb", "tb", "tb", "tb", "tb", "tb", "tb", "tb", "tb", "tb", "rb"]
+  ],
+  "events": [
+    {
+      "r": 3,
+      "c": 4,
+      "name": "start",
+      "message": "Find the hidden treasure"
+    },
+    {
+      "r": 8,
+      "c": 13,
+      "name": "win",
+      "message": "You found the hidden treasure"
+    },
+    {
+      "r": 8,
+      "c": 7,
+      "name": "reveal",
+      "message": "A big fire lit in the middle of the room",
+      "icon": "🔥",
+      "cells": [
+        {"r": 7, "c": 8},
+        {"r": 7, "c": 9},
+        {"r": 7, "c": 10},
+        {"r": 8, "c": 8},
+        {"r": 8, "c": 9},
+        {"r": 8, "c": 10},
+        {"r": 9, "c": 8},
+        {"r": 9, "c": 9},
+        {"r": 9, "c": 10}
+      ]
+    },
+    {
+      "r": 8,
+      "c": 9,
+      "name": "metrix",
+      "message": "You were burnt by the fire",
+      "metrix": "hp",
+      "effect": "lose",
+      "points": 10,
+      "icon": "🔥",
+      "once": 0
+    }
+  ]
+}

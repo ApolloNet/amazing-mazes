@@ -1,0 +1,105 @@
+{
+  "name": "Ponika",
+  "hero": {
+    "name": "Tooth",
+    "icon": "🐊",
+    "hp": 100,
+    "strength": 100
+  },
+  "cells": [
+    ["tbl", "tb", "tr", "tl", "tb", "tr"],
+    ["tl", "tb", "rb", "rl", "trbl", "rl"],
+    ["rl", "tl", "tb", "", "tb", "r"],
+    ["rl", "rl", "trl", "l", "tr", "rl"],
+    ["rl", "bl", "r", "rl", "rl", "rl"],
+    ["bl", "tb", "rb", "rbl", "bl", "rb"]
+  ],
+  "events": [
+    {
+      "r": 5,
+      "c": 3,
+      "name": "start",
+      "message": "Hi! You are Tooth, a smart crododile. Find the hidden treasure"
+    },
+    {
+      "r": 0,
+      "c": 0,
+      "name": "win",
+      "message": "You found the hidden treasure"
+    },
+    {
+      "r": 4,
+      "c": 3,
+      "name": "message",
+      "message": "Beware of the dragon",
+      "icon": "🖹"
+    },
+    {
+      "r": 2,
+      "c": 3,
+      "name": "object",
+      "message": "You found a torch and see further",
+      "effect": "earn",
+      "object": "torch",
+      "icon": "🔦"
+    },
+    {
+      "r": 3,
+      "c": 2,
+      "name": "metrix",
+      "message": "You found a dagger",
+      "object": "dagger",
+      "metrix": "strength",
+      "effect": "earn",
+      "points": 10,
+      "icon": "🗡"
+    },
+    {
+      "r": 1,
+      "c": 5,
+      "name": "metrix",
+      "message": "You found a Talisman",
+      "object": "talisman",
+      "metrix": "hp",
+      "effect": "earn",
+      "points": 20,
+      "icon": "🉤"
+    },
+    {
+      "r": 3,
+      "c": 0,
+      "name": "fight",
+      "message": "You woke up a dragon",
+      "opponent": "Dragon",
+      "hp": 100,
+      "attacks": [
+        {
+          "name": "Red fire",
+          "hp": 50
+        },
+        {
+          "name": "Tail stroke",
+          "hp": 10
+        }
+      ],
+      "icon": "🐉"
+    },
+    {
+      "r": 5,
+      "c": 5,
+      "name": "fight",
+      "message": "Rat attacks",
+      "opponent": "Rat",
+      "hp": 7,
+      "attacks": [
+        {
+          "name": "Bit your left foot",
+          "hp": 2
+        }
+      ],
+      "whoplays": "opponent",
+      "icon": "🐁",
+      "once": 0
+    }
+  ]
+}

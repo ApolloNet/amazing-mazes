@@ -1,0 +1,61 @@
+{
+  "name": "Lost in transition",
+  "light": 1,
+  "hero": {
+    "hp": 100,
+    "strength": 100
+  },
+  "cells": [
+    ["tl", "tb", "tb", "tb", "tb", "tb", "t", "tb", "tb", "tr"],
+    ["rl", "tl", "tr", "tl", "tb", "tb", "b", "tb", "tr", "rl"],
+    ["l", "rb", "rbl", "rl", "tl", "tr", "tl", "t", "rb", "rl"],
+    ["rl", "tl", "tr", "l", "rb", "bl", "rb", "rl", "trl", "rl"],
+    ["rl", "rl", "rl", "rl", "tl", "tb", "tr", "rl", "bl", "rb"],
+    ["l", "r", "rl", "rl", "l", "tr", "bl", "b", "tb", "trb"],
+    ["rbl", "rbl", "bl", "rb", "bl", "b", "tb", "tb", "tb", "trb"]
+  ],
+  "events": [
+    {
+      "r": 0,
+      "c": 0,
+      "name": "start",
+      "message": "Find the hidden treasure"
+    },
+    {
+      "r": 6,
+      "c": 9,
+      "name": "win",
+      "message": "You found the hidden treasure"
+    },
+    {
+      "r": 0,
+      "c": 3,
+      "name": "light",
+      "once": 0
+    },
+    {
+      "r": 2,
+      "c": 2,
+      "name": "move",
+      "message": "You teleported",
+      "to": {
+        "r": 3,
+        "c": 8
+      },
+      "icon": "🗲",
+      "once": 0
+    },
+    {
+      "r": 3,
+      "c": 8,
+      "name": "move",
+      "message": "You teleported",
+      "to": {
+        "r": 2,
+        "c": 2
+      },
+      "icon": "🗲",
+      "once": 0
+    }
+  ]
+}
