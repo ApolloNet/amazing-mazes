@@ -5,7 +5,7 @@ Amazing mazes is little game engine created just for fun.
 Play at [https://apollonet.github.io/amazing-mazes/](https://apollonet.github.io/amazing-mazes/)
 
 
-## Create a new maze
+# Create a new maze
 
 ✎ First, grab a pencil and an eraser and draw your maze on [graph paper](https://en.wikipedia.org/wiki/Graph_paper).
 
@@ -27,14 +27,14 @@ A maze is defined in Json format, with these settings:
 `events` (array): events attached to cells. See below for detailed informations
 
 
-## Icons
+# Icons
 
 You can find unicode icons at [https://unicode-table.com/](https://unicode-table.com/), for instance.
 
 Simply copy / paste. It's just text.
 
 
-## Hero
+# Hero
 
 The hero is defined with the following params.
 
@@ -52,7 +52,7 @@ Each one has defaults. Just add the ones you want to override in your json maze 
 - `hp` (int): hp damages
 
 
-## Cells
+# Cells
 
 `cells` is an array of arrays. Each sub-array is a **row**. In each row, each item is a **cell**, defined by a string. That string defines the walls of the cell. It can only contain four letters:
 
@@ -74,7 +74,7 @@ And here is a little maze that has 3 rows and 3 columns:
 ```
 
 
-## Events
+# Events
 
 Each event will be attached to a cell. It is used for different purposes.
 It is defined like this:
@@ -107,16 +107,16 @@ For rows and columns, we start counting at zero. It is real computer programming
 - `0`: the event occurs each time the hero comes to that event's cell
 - `1`: the event occurs only one time (default)
 
-### Required events
+## Required events
 
 Only `start` and `win` events are mandatory to create a simple maze game.
 
 
-## Start event
+# Start event
 
 The start event is used on the cell the game starts.
 
-### Example
+## Example
 
 ```
 "r": 3,
@@ -130,11 +130,11 @@ The game starts at the cell at the 4th row, 5th column.
 The message "Find the hidden treasure" is displayed along with the default icon.
 
 
-## Win event
+# Win event
 
 The start event is used on the cell the game is won.
 
-### Example
+## Example
 
 ```
 "r": 8,
@@ -151,25 +151,25 @@ The message "You found the hidden treasure" is displayed along with the icon �
 The game is over: play again or choose another maze...
 
 
-## Fight event
+# Fight event
 
 Well, this is not just a maze game.
 
-### Params
+## Params
 
 - `opponent` (string): name of the opponent (mandatory)
 - `hp` (int): health points of the opponent (mandatory)
 - `attacks` (array): attacks of the opponent (mandatory)
 - `rewards` (array): objects earned if the opponent is defeated
 
-### Attacks
+## Attacks
 
 Each attack is an object defined with:
 
 - `name` (string): name of the attack
 - `hp` (int): number of health points inflicted
 
-### Rewards
+## Rewards
 
 Each reward is an object defined with these params. Have a look at the _Metrix event_ for more infos.
 
@@ -180,7 +180,7 @@ Each reward is an object defined with these params. Have a look at the _Metrix e
 - `points` (int)
 - `icon` (string)
 
-### Example
+## Example
 
 ```
 "r": 3,
@@ -219,11 +219,11 @@ The message "You woke up a dragon" is displayed with the icon 🐉.
 The opponent is Dragon, it has 100 hp. Its attacks are
 
 
-## Light event
+# Light event
 
 Switch on/off the entire maze.
 
-### Example
+## Example
 
 ```
 "r": 0,
@@ -239,11 +239,11 @@ But the cells where the hero already passed are still visible.
 This is the same `light` that was defined at the top of the settings.
 
 
-## Message event
+# Message event
 
 The event can be used to display a message written on a paper that was found, a warning from a sign, etc...
 
-### Example
+## Example
 
 ```
 "r": 4,
@@ -256,11 +256,11 @@ The event can be used to display a message written on a paper that was found, a 
 At cell at the 5th row, 4th column, the message "Beware of the dragon" is displayed with the icon "🖹".
 
 
-## Metrix event
+# Metrix event
 
 It is used to add or remove some hp or strength to the hero.
 
-### Params
+## Params
 
 The metrix event needs mandatory setings:
 
@@ -269,7 +269,7 @@ The metrix event needs mandatory setings:
 - `effect` (string): Values can be `earn` or `lose`
 - `points` (int): How many points are gained or losen on which metrix
 
-### Example
+## Example
 
 ```
 "r": 1,
@@ -288,11 +288,11 @@ At cell 2nd row and 1st column, the message displayed is "You found a Talisman" 
 And the hero `earn` `5` `hp`.
 
 
-## Move event
+# Move event
 
 This event can be used as a fall, a teleportation...
 
-### Example
+## Example
 
 ```
 "r": 2,
@@ -314,11 +314,11 @@ The message "You teleported" is displayed with the icon 🗲.
 The event is not triggered once. If the hero returns to this cell, the event occurs again: hero is moved, message is displayed...
 
 
-## Object event
+# Object event
 
 The object event is used to add an object to the hero's objects.
 
-### Example
+## Example
 
 ```
 "r": 2,
@@ -333,13 +333,13 @@ The object event is used to add an object to the hero's objects.
 A "🔦" torch is added to the hero objects when he comes on the cell at the 3rd row, 4th column.
 
 
-## Protected event
+# Protected event
 
 The protected event can be used to lock cells that are reachable only if the hero has a certain object.
 
 The simple usage is: a cell has a door, it needs a key to be unlocked.
 
-### Params
+## Params
 
 `success` (object) is needed. It is defined as :
 
@@ -347,7 +347,7 @@ The simple usage is: a cell has a door, it needs a key to be unlocked.
 - `message` (string): the message to display when it's unlocked
 - `icon` (string): the icon to display when it's unlocked
 
-### Example
+## Example
 
 ```
 "r": 8,
@@ -380,17 +380,17 @@ Of course, an object event was used elsewhere in the maze, with the `old key` ob
 ```
 
 
-## Reveal event
+# Reveal event
 
 It can be used to light on arbitrary cells : a room, a corridor...
 
-### Params
+## Params
 
 The reveal event needs a mandatory setting:
 
 `cells` (array): Each item of this array is an object that defines a cell with its row (`r`) and column (`c`)
 
-### Example
+## Example
 
 ```
 "r": 8,
@@ -414,11 +414,11 @@ The reveal event needs a mandatory setting:
 When the hero is on the cell at 9th row, 8th column, the "room" defined by the `cells` array are lit.
 
 
-## Add a new maze to the game
+# Add a new maze to the game
 
 Add your maze to the `/js/config.mazefiles.js`.
 
 
-## TODO
+# TODO
 
 There a TODO.md file next to this README.md file. Just sayin.
