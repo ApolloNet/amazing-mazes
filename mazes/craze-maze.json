@@ -2,7 +2,8 @@
   "name": "Craze maze",
   "light": 0,
   "hero": {
-    "name": "",
+    "name": "Namae",
+    "icon": "𐇕",
     "hp": 100,
     "strength": 100
   },

@@ -12,7 +12,7 @@ Create mazes/adventures in space, school, street, office, ...
 
 ## Maze
 
-- Display the hero icon in the maze
+- Transmutation event ?
 - Allow multiple events on a cell ?
 - Doors that can be opened with a code
 - Add object that contains an object: drawer, safe, coffin...

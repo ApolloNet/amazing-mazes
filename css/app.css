@@ -97,15 +97,15 @@ form {
   border-width: 0.0625rem;
 }
 
-.cell:before,
-.cell:after {
+.cell::before,
+.cell::after {
   display: block;
   margin: 0 auto;
   font-size: 1.2rem;
   text-align: center;
 }
 
-.cell:before {
+.cell::before {
   content: attr(data-icon);
 }
 
@@ -130,13 +130,13 @@ form {
   border-color: #000;
 }
 
-.dark .unseen:before,
-.current:before {
+.dark .unseen::before,
+.current::before {
   display: none;
 }
 
-.current:after {
-  content: '🤺';
+.current::after {
+  content: attr(data-current);
 }
 
 .win {
@@ -211,7 +211,7 @@ form {
   overflow: auto;
   padding: 1rem;
   background-color: #111;
-  border-left: 1px solid #333;
+  border-right: 1px solid #333;
 }
 
 .main-aside h2 {

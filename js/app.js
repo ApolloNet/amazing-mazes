@@ -235,8 +235,10 @@ const maze = {
     ;
     [].forEach.call(cellsDivs, (cellDiv) => {
       cellDiv.classList.remove('current')
+      cellDiv.setAttribute('data-current', '')
     })
     cellDiv.classList.add('current')
+    cellDiv.setAttribute('data-current', hero.icon)
   },
   updateSeenCell: (r, c) => {
     const cellDiv = maze.getCellDiv(r, c)
