@@ -37,7 +37,7 @@ a:hover {
 
 kbd {
   padding: 0.25rem;
-  background: #000;
+  background-color: #000;
   border: 1px solid #222;
 }
 
@@ -140,11 +140,31 @@ form {
 }
 
 .win {
-  background: green;
+  background-color: green;
 }
 
 .lose {
-  background: red;
+  background-color: red;
+}
+
+/* Character */
+
+.character {
+  width: 15rem;
+  height: 15rem;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background-color: #111;
+  border: 1px solid #333;
+  text-align: center;
+}
+
+.character-strength {
+  display: none;
+}
+
+.game-over .fight-hero {
+  background-color: #211;
 }
 
 /* Fight */
@@ -157,48 +177,40 @@ form {
   display: none;
   width: 31rem;
   margin: 1rem auto;
-  text-align: center;
 }
 
 .fight-mode .fight {
   display: flex;
 }
 
-.fight-hero,
-.fight-opponent {
-  width: 15rem;
-  height: 15rem;
-  padding: 1rem;
-  background: #111;
-  border: 1px solid #333;
+.fight .character {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
 }
 
-.fight-hero {
-  margin-right: 1em;
-}
-
-.fight-name {
+.character-name {
   font-size: 1.5rem;
   font-weight: bold;
 }
 
-.fight-hp {
+.character-hp {
   font-size: 1.5rem;
   font-weight: bold;
 }
 
-.fight-icon {
+.character-icon {
   font-size: 6rem;
 }
 
 /* Aside */
 
 .main-aside {
+  order: -1;
   flex-basis: 20rem;
   height: 100vh;
   overflow: auto;
   padding: 1rem;
-  background: #111;
+  background-color: #111;
   border-left: 1px solid #333;
 }
 
@@ -206,8 +218,9 @@ form {
   text-align: left;
 }
 
-.metrix {
-  margin-bottom: 1rem;
+.main-aside .character {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .message {

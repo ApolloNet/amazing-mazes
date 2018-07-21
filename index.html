@@ -32,36 +32,26 @@
       <h2 id="maze-title"></h2>
       <div id="maze" class="maze"></div>
       <div id="fight" class="fight">
-        <div id="fight-hero" class="fight-hero">
-          <div id="fight-hero-name" class="fight-name"></div>
-          <div id="fight-hero-icon" class="fight-icon"></div>
-          <div id="fight-hero-hp" class="fight-hp"></div>
+        <div id="fight-hero" class="character fight-hero">
+          <div id="fight-hero-name" class="character-name"></div>
+          <div id="fight-hero-icon" class="character-icon"></div>
+          <div id="fight-hero-hp" class="character-hp"></div>
         </div>
-        <div id="fight-opponent" class="fight-opponent">
-          <div id="fight-opponent-name" class="fight-name"></div>
-          <div id="fight-opponent-icon" class="fight-icon"></div>
-          <div id="fight-opponent-hp" class="fight-hp"></div>
+        <div id="fight-opponent" class="character fight-opponent">
+          <div id="fight-opponent-name" class="character-name"></div>
+          <div id="fight-opponent-icon" class="character-icon"></div>
+          <div id="fight-opponent-hp" class="character-hp"></div>
         </div>
       </div>
     </main>
   </div>
   <aside class="main-aside">
-    <h2>Hero</h2>
-    <div class="metrix">
-      <div class="message">
-        <span id="hero-icon" class="icon"></span>
-        <span class="text">Hero: <span id="hero-name"></span></span>
-      </div>
-      <div class="message">
-        <span class="icon">💚</span>
-        <span class="text">HP: <span id="hp"></span></span>
-      </div>
-      <div class="message">
-        <span class="icon">💪</span>
-        <span class="text">Strength: <span id="strength"></span></span>
-      </div>
+    <div id="hero" class="character fight-hero">
+      <div id="hero-name" class="character-name"></div>
+      <div id="hero-icon" class="character-icon"></div>
+      <div id="hero-hp" class="character-hp"></div>
+      <div id="hero-strength" class="character-strength"></div>
     </div>
-    <h2>Messages</h2>
     <div id="messages" class="messages"></div>
   </aside>
   <script src="js/d3-fetch.v1.min.js"></script>

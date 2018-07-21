@@ -40,11 +40,13 @@ const game = {
     })
   },
   listenToKeyboard: () => {
-    document.addEventListener('keydown', (event) => {
-      if (game.status !== 1) {
-        return
+    document.addEventListener('keydown', (e) => {
+      if (game.status === 1) {
+        hero.move(e.key)
       }
-      hero.move(event.key)
+      if (game.status === 2 && e.keyCode === 32) {
+        fight.play()
+      }
     })
   },
   getRandomNumber: (max) => {
@@ -52,7 +54,9 @@ const game = {
   },
   over: () => {
     if (hero.hp <= 0) {
+      const body = $('body')
       game.status = 0
+      body.classList.add('game-over')
       maze.updateCellDiv(maze.current.r, maze.current.c, 'lose')
       game.writeMessage('Game over', 'red', '🕱')
       game.writeMessage('<a href="' + document.location + '">Try again?</a>', '', '🗘')
@@ -440,7 +444,6 @@ const action = {
     game.writeMessage(event.message, '', event.icon)
   },
   metrix: (event) => {
-    console.log(event)
     const points = parseInt(event.points)
     hero[event.metrix] = (event.effect === 'earn') ? (hero[event.metrix] + points) : (hero[event.metrix] - points)
     if (hero[event.metrix] < 0 ) {
@@ -455,7 +458,7 @@ const action = {
     game.writeMessage(message, messageColor, event.icon)
   },
   metrixDiv: (metrix) => {
-    const metrixDiv = $('#' + metrix)
+    const metrixDiv = $('#hero-' + metrix)
     metrixDiv.innerHTML = hero[metrix]
   },
   move: (event) => {
@@ -503,11 +506,10 @@ const fight = {
     game.status = 2
     game.writeMessage(event.message, '', event.icon)
     game.writeMessage('Fight mode on<br>You must defeat ' + event.opponent, 'red', '💥')
-    game.writeMessage('Press <kbd>Space bar</kbd>', '', '⌨')
+    game.writeMessage('Press <kbd>Space bar</kbd> to fight', '', '⌨')
     fight.changeBodyClass()
     fight.initData(event)
     fight.initMarkup()
-    fight.listenToKeyboard()
   },
   initData: (event) => {
     // TODO: There sure is a gracious way to do that.
@@ -541,16 +543,6 @@ const fight = {
     opponentIcon.innerHTML = fight.icon
     opponentHp.innerHTML = fight.hp
   },
-  listenToKeyboard: () => {
-    document.addEventListener('keydown', (event) => {
-      if (game.status !== 2) {
-        return
-      }
-      if (event.keyCode === 32) {
-        fight.play()
-      }
-    })
-  },
   play: () => {
     if (fight.whoplays === 'hero') {
       fight.heroAttacks()
@@ -566,6 +558,9 @@ const fight = {
     const attack = hero.attacks[attackNumber]
     const message = attack.name + '<br>' + fight.opponent + ' loses ' + attack.hp + ' HP'
     fight.hp -= attack.hp
+    if (fight.hp < 0) {
+      fight.hp = 0
+    }
     opponentHp.innerHTML = fight.hp
     game.writeMessage(message, '', hero.icon)
   },
@@ -592,15 +587,17 @@ const fight = {
       return
     }
     fight.whoplays = (fight.whoplays === 'hero') ? 'opponent' : 'hero'
-    game.writeMessage('Press <kbd>Space bar</kbd>', '', '⌨')
   },
   win: () => {
     game.status = 1
-    game.writeMessage('You defeated ' + fight.opponent, '', '✌')
+    game.writeMessage('You defeated ' + fight.opponent, 'red', '✌')
+    fight.changeBodyClass()
+    if (!fight.rewards) {
+      return
+    }
     fight.rewards.forEach((reward) => {
       action.metrix(reward)
     })
-    fight.changeBodyClass()
   }
 }
 
