@@ -14,7 +14,7 @@ body {
 }
 
 h1 {
-  margin-right: 3rem;
+  
 }
 
 h2 {
@@ -66,8 +66,10 @@ form {
 }
 
 .main-title,
-.load-form {
+.load-form,
+.fork-me {
   display: inline-block;
+  margin-right: 3rem;
 }
 
 /* Game */

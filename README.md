@@ -2,6 +2,8 @@
 
 Amazing mazes is little game engine created just for fun.
 
+Play at [https://apollonet.github.io/amazing-mazes/](https://apollonet.github.io/amazing-mazes/)
+
 ## Create a new maze
 
 A maze is defined in Json format, with these settings:

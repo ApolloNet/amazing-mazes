@@ -28,7 +28,6 @@ Create mazes/adventures in space, school, street, office, ...
 ## Code
 
 - Document default icons
-- Github, github page, fork me
 - Is 'earn' the righ verb ? Win ? Gain ?
 - Code architecture. ES modules ?
 - Eslint settings at the project root.
