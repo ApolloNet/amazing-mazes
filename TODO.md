@@ -21,7 +21,6 @@ Create mazes/adventures in space, school, street, office, ...
 ## Misc
 
 - English language review
-- Document whoplays
 - Document default icons
 - Document functions, params, returns... What is the JS standard ?
 - Is 'earn' the righ verb ? Win ? Gain ?
