@@ -16,7 +16,6 @@ Create mazes/adventures in space, school, street, office, ...
 ## Maze
 
 - Allow multiple events on a cell ?
-- Add keys and doors
 - Doors that can be opened with a code
 - Win objects after winning a fight ?
 - Add object that contains an object: drawer, safe, coffin...
@@ -25,8 +24,10 @@ Create mazes/adventures in space, school, street, office, ...
 - Rotate hero icon when he goes left/right, is it possible with 
 - Add defense points ? magic points ?
 
-## Code
+## Misc
 
+- Arguments "maze.current.r, maze.current.c" are passed to many functions: functions can get those datas by themselves
+- Documentation : they/their instaed of he/his
 - Document default icons
 - Is 'earn' the righ verb ? Win ? Gain ?
 - Code architecture. ES modules ?

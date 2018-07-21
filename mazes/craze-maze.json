@@ -36,6 +36,26 @@
       "message": "You found the hidden treasure"
     },
     {
+      "r": 2,
+      "c": 2,
+      "name": "object",
+      "message": "You found an old key",
+      "icon": "🗝",
+      "object": "old key"
+    },
+    {
+      "r": 8,
+      "c": 6,
+      "name": "protected",
+      "message": "The door is locked. You should find a key",
+      "icon": "🚪",
+      "success": {
+        "object": "old key",
+        "message": "You unlocked the door with the old key",
+        "icon": "🗝"
+      }
+    },
+    {
       "r": 8,
       "c": 7,
       "name": "reveal",
