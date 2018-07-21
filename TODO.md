@@ -20,7 +20,6 @@ Create mazes/adventures in space, school, street, office, ...
 
 ## Misc
 
-- Document special objects: torch
 - English language review
 - Document whoplays
 - Document default icons
@@ -31,3 +30,4 @@ Create mazes/adventures in space, school, street, office, ...
 - Validate the structure & data of the json to help the forks
 - What about touch buttons for mobile screens ?
 - Add browser support detection for modern JS, CSS grid layout...
+- Translation ?

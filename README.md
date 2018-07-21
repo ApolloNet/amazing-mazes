@@ -418,6 +418,11 @@ The reveal event needs a mandatory setting:
 When the hero is on the cell at 9th row, 8th column, the "room" defined by the `cells` array are lit.
 
 
+# Special objects
+
+- `torch`: lights on the nearby cells.
+
+
 # Add a new maze to the game
 
 Add your maze to the `/js/config.mazefiles.js`.
