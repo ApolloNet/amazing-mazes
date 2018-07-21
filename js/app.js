@@ -340,12 +340,23 @@ const hero = {
   initAttacks: (data) => {
     hero.attacks = data.hero.attacks ? data.hero.attacks : heroDefaultAttacks
   },
+  updateMetrixDiv: (metrix) => {
+    const metrixDiv = $('#hero-' + metrix)
+    metrixDiv.innerHTML = hero[metrix]
+  },
+  updateCharacterDiv: (effect) => {
+    const heroDiv = $('#hero')
+    heroDiv.classList.add('character-' + effect)
+    window.setTimeout(() => {
+      heroDiv.classList.remove('character-' + effect)
+    }, 500)
+    
+  },
   move: (key) => {
     const direction = hero.getDirectionFromKey(key)
     if (!direction) {
       return
     }
-    hero.encounter()
     const thereIsAWall = maze.isThereAWall(maze.current.r, maze.current.c, direction.shortname)
     if (thereIsAWall) {
       hero.hitAWall()
@@ -365,7 +376,6 @@ const hero = {
     game.over()
   },
   encounter: () => {
-    // Todo: No random event on a cell that already has an event
     const cell = maze.getCell(maze.current.r, maze.current.c)
     if (cell.event) {
       return
@@ -417,6 +427,7 @@ const action = {
   init: (r, c) => {
     const cell = maze.getCell(r, c)
     if (!cell.event) {
+      hero.encounter()
       return
     }
     if (action[cell.event.name]) {
@@ -431,6 +442,7 @@ const action = {
   },
   learn: (event) => {
     hero.attacks.push(event.attack)
+    hero.updateCharacterDiv('earn')
     const message = event.message + '<br><em>' + event.attack.name + '</em> : ' + event.attack.hp + ' HP'
     game.writeMessage(message, '', event.icon)
   },
@@ -449,17 +461,14 @@ const action = {
     if (hero[event.metrix] < 0 ) {
       hero[event.metrix] = 0
     }
-    action.metrixDiv(event.metrix)
+    hero.updateCharacterDiv(event.effect)
+    hero.updateMetrixDiv(event.metrix)
     if (!event.message) {
       return
     }
     const message = event.message + '<br>you ' + event.effect + ' ' + event.points + ' '+ event.metrix
     const messageColor = (event.effect === 'lose') ? 'red' : ''
     game.writeMessage(message, messageColor, event.icon)
-  },
-  metrixDiv: (metrix) => {
-    const metrixDiv = $('#hero-' + metrix)
-    metrixDiv.innerHTML = hero[metrix]
   },
   move: (event) => {
     maze.setCurrent(event.to.r, event.to.c)
@@ -488,6 +497,7 @@ const action = {
   win: (event) => {
     game.status = 0
     maze.updateCellDiv(event.r, event.c, 'win')
+    hero.updateCharacterDiv('earn')
     game.writeMessage(event.message, 'green', event.icon)
     game.writeMessage('<a href="' + document.location + '">Replay?</a>', '', '🗘')
   },

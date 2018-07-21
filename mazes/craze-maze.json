@@ -125,7 +125,7 @@
       "c": 7,
       "name": "reveal",
       "message": "A big fire lit in the middle of the room",
-      "icon": "🔥",
+      "icon": "👁",
       "cells": [
         {"r": 7, "c": 8},
         {"r": 7, "c": 9},

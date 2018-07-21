@@ -13,14 +13,11 @@ Create mazes/adventures in space, school, street, office, ...
 
 ## Maze
 
+- Inventory : Display objects that the hero has
+- Allow multiple events on a cell ?
 - Transmutation event ?
 - Move faster ? 🚴 🏇
-- Allow multiple events on a cell ?
-- Inventory : Display objects that the hero has
-- How to hilight hp win/lose : change text color from green to red ? popup ?
-- Rotate hero icon when he goes left/right, is it possible with 
-- Add defense points ? magic points ?
-- Doors that can be opened with a code
+- Rotate hero icon when he goes left/right, is it possible with CSS ?
 
 ## Misc
 

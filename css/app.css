@@ -157,6 +157,7 @@ form {
   background-color: #111;
   border: 1px solid #333;
   text-align: center;
+  transition: background-color 0.5s ease;
 }
 
 .character-name {
@@ -175,6 +176,14 @@ form {
 
 .character-strength {
   display: none;
+}
+
+.character-earn {
+  background-color: #141;
+}
+
+.character-lose {
+  background-color: #411;
 }
 
 .game-over .fight-hero {
