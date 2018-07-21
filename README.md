@@ -90,6 +90,7 @@ For rows and columns, we start counting at zero. It is real computer programming
 - `start`: defines where the game starts (required)
 - `win`: defines where the game ends (required)
 - `fight`: fight an opponent
+- `learn`: learn an attack
 - `light`: switches the lights of the entire maze on or off
 - `message`: simply emit a message
 - `metrix`: changes a metrix value (hp, strength...). See details below.
