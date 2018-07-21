@@ -6,6 +6,8 @@ Play at [https://apollonet.github.io/amazing-mazes/](https://apollonet.github.io
 
 ## Create a new maze
 
+Look in the /mazes directory for examples.
+
 A maze is defined in Json format, with these settings:
 
 `name` (string): name of the maze
@@ -105,12 +107,12 @@ Example:
 "c": 13,
 "name": "win",
 "message": "You found the hidden treasure",
-"icon": "👸"
+"icon": "👑"
 ```
 
 The game is won when the hero arrives at the cell at the 9th row, 14th column.
 
-The message "You found the hidden treasure" is displayed along with the icon 👸.
+The message "You found the hidden treasure" is displayed along with the icon 👑.
 
 The game is over: play again or choose another maze...
 
