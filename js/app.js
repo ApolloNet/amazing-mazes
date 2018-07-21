@@ -124,7 +124,7 @@ const game = {
   },
   listenToKeyboard: () => {
     document.addEventListener('keydown', (event) => {
-      if (game.status === 0) {
+      if (game.status !== 1) {
         return
       }
       hero.move(event.key)
@@ -595,15 +595,13 @@ const action = {
  * Fight.
  */
 const fight = {
-  status: 0,
   whoplays: 'hero',
   opponent: '',
   icon: '',
   hp: '',
   attacks: [],
   init: (event) => {
-    game.status = 0
-    fight.status = 1
+    game.status = 2
     game.writeMessage(event.message, '', event.icon)
     game.writeMessage('Fight mode on<br>You must defeat ' + event.opponent, 'red', '💥')
     game.writeMessage('Press <kbd>Space bar</kbd>', '', '⌨')
@@ -621,7 +619,7 @@ const fight = {
   },
   changeBodyClass: () => {
     const body = $('body')
-    if (fight.status === 1) {
+    if (game.status === 2) {
       body.classList.add('fight-mode')
     }
     else {
@@ -644,7 +642,7 @@ const fight = {
   },
   listenToKeyboard: () => {
     document.addEventListener('keydown', (event) => {
-      if (fight.status !== 1) {
+      if (game.status !== 2) {
         return
       }
       if (event.keyCode === 32) {
@@ -685,7 +683,6 @@ const fight = {
   },
   next: () => {
     if (hero.hp <= 0) {
-      fight.status = 0
       game.over()
       return
     }
@@ -698,7 +695,6 @@ const fight = {
   },
   win: () => {
     game.status = 1
-    fight.status = 0
     game.writeMessage('You defeated ' + fight.opponent, '', '✌')
     fight.changeBodyClass()
   }

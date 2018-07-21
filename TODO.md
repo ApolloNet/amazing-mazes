@@ -11,7 +11,6 @@ Create mazes/adventures in space, school, street, office, ...
 - Fight game play: how to get it more fun ? Images don't move. A tempo is needed somehow ?
 - Choose your attack in a set of attacks you got ?
 - Use strength, what for ?
-- When fight is on, game status = 2 ?
 
 ## Maze
 
