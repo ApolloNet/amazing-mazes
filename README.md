@@ -115,7 +115,7 @@ Only `start` and `win` events are mandatory to create a simple maze game.
 
 # Start event
 
-The start event is used on the cell the game starts.
+The start event is used on the cell where the game starts.
 
 ## Example
 
@@ -133,7 +133,7 @@ The message "Find the hidden treasure" is displayed along with the default icon.
 
 # Win event
 
-The start event is used on the cell the game is won.
+The start event is used on the cell where the game is won.
 
 ## Example
 
