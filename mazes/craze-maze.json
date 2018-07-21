@@ -5,7 +5,21 @@
     "name": "Namae",
     "icon": "𐇕",
     "hp": 100,
-    "strength": 100
+    "strength": 100,
+    "attacks": [
+      {
+        "name": "Wind magic",
+        "hp": 60
+      },
+      {
+        "name": "Cloud strom",
+        "hp": 40
+      },
+      {
+        "name": "Inner sun burst",
+        "hp": 99
+      }
+    ]
   },
   "cells": [
     ["tl", "tb", "tb", "tb", "tb", "tb", "tb", "tb", "tb", "tb", "t", "tb", "tb", "tb", "tb", "tb", "tb", "tb", "tr"],
@@ -55,6 +69,56 @@
         "message": "You unlocked the door with the old key",
         "icon": "🗝"
       }
+    },
+    {
+      "r": 4,
+      "c": 10,
+      "name": "object",
+      "message": "You found a little glowing star that shines in the darkness",
+      "effect": "earn",
+      "object": "torch",
+      "icon": "🟍"
+    },
+    {
+      "r": 1,
+      "c": 17,
+      "name": "message",
+      "message": "A little ghost floats in a corner looking at you",
+      "icon": "👻",
+      "once": 0
+    },
+    {
+      "r": 8,
+      "c": 16,
+      "name": "fight",
+      "message": "That T-Rex won't let you pass",
+      "opponent": "T-Rex",
+      "icon": "🦖",
+      "hp": 200,
+      "attacks": [
+        {
+          "name": "Long teeth bite",
+          "hp": 5
+        },
+        {
+          "name": "Tail stroke",
+          "hp": 10
+        },
+        {
+          "name": "Roooaaar",
+          "hp": 0
+        }
+      ],
+      "rewards": [
+        {
+          "message": "Hmm, delicious!",
+          "object": "chicken drumstick,",
+          "metrix": "hp",
+          "effect": "earn",
+          "points": 50,
+          "icon": "🍗"
+        }
+      ]
     },
     {
       "r": 8,

@@ -4,6 +4,7 @@ Create mazes/adventures in space, school, street, office, ...
 
 ## Fight
 
+- Add optional icon on attacks
 - Opponents, multiple
 - Enhance fight display: progress bar instead of HP numbers
 - Fight game play: how to get it more fun ? Images don't move. A tempo is needed somehow ?
@@ -13,17 +14,17 @@ Create mazes/adventures in space, school, street, office, ...
 ## Maze
 
 - Transmutation event ?
+- Move faster ? 🚴 🏇
 - Allow multiple events on a cell ?
-- Doors that can be opened with a code
-- Add object that contains an object: drawer, safe, coffin...
-- Add object that contains an opponent ?
 - Inventory : Display objects that the hero has
 - How to hilight hp win/lose : change text color from green to red ? popup ?
 - Rotate hero icon when he goes left/right, is it possible with 
 - Add defense points ? magic points ?
+- Doors that can be opened with a code
 
 ## Misc
 
+- Document special objects: torch
 - English language review
 - Document whoplays
 - Document default icons

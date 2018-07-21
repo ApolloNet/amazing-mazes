@@ -159,6 +159,20 @@ form {
   text-align: center;
 }
 
+.character-name {
+  font-size: 1.7rem;
+  font-weight: bold;
+}
+
+.character-hp {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.character-icon {
+  font-size: 6rem;
+}
+
 .character-strength {
   display: none;
 }
@@ -186,20 +200,6 @@ form {
 .fight .character {
   margin-left: 0.5rem;
   margin-right: 0.5rem;
-}
-
-.character-name {
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
-.character-hp {
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
-.character-icon {
-  font-size: 6rem;
 }
 
 /* Aside */

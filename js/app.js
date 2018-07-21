@@ -227,7 +227,9 @@ const maze = {
   updateCurrentCell: () => {
     maze.updateCurrentCellCSS()
     maze.updateSeenCell(maze.current.r, maze.current.c)
-    maze.updateNearbyCells(maze.current.r, maze.current.c)
+    if (hero.hasObject('torch')) {
+      maze.updateNearbyCells(maze.current.r, maze.current.c)
+    }
   },
   updateCurrentCellCSS: () => {
     const cellsDivs = document.querySelectorAll('.cell')
@@ -250,9 +252,6 @@ const maze = {
     cellDiv.classList.remove('unseen')
   },
   updateNearbyCells: (r, c) => {
-    if (!hero.hasObject('torch')) {
-      return
-    }
     borders.map((border) => {
       const nearbyCell = {
         r: (r + border.r),
@@ -362,8 +361,7 @@ const hero = {
     }
     maze.setCurrentFromDirection(direction)
     action.init(maze.current.r, maze.current.c)
-    maze.updateSeenCell(maze.current.r, maze.current.c)
-    maze.updateNearbyCells(maze.current.r, maze.current.c)
+    maze.updateCurrentCell(maze.current.r, maze.current.c)
     game.over()
   },
   encounter: () => {
