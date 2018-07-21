@@ -439,18 +439,13 @@ const action = {
     game.writeMessage(event.message, '', event.icon)
   },
   metrix: (event) => {
+    console.log(event)
     const points = parseInt(event.points)
-    // Data.
     hero[event.metrix] = (event.effect === 'earn') ? (hero[event.metrix] + points) : (hero[event.metrix] - points)
     if (hero[event.metrix] < 0 ) {
       hero[event.metrix] = 0
     }
-    // HTML.
     action.metrixDiv(event.metrix)
-    // Message.
-    if (!event.message) {
-      return
-    }
     const message = event.message + '<br>you ' + event.effect + ' ' + event.points + ' '+ event.metrix
     const messageColor = (event.effect === 'lose') ? 'red' : ''
     game.writeMessage(message, messageColor, event.icon)
@@ -511,11 +506,13 @@ const fight = {
     fight.listenToKeyboard()
   },
   initData: (event) => {
+    // TODO: There sure is a gracious way to do that.
     fight.whoplays = event.whoplays ? event.whoplays : fight.whoplays
     fight.opponent = event.opponent
     fight.icon = event.icon
     fight.hp = event.hp
     fight.attacks = event.attacks
+    fight.rewards = event.rewards
   },
   changeBodyClass: () => {
     const body = $('body')
@@ -596,6 +593,9 @@ const fight = {
   win: () => {
     game.status = 1
     game.writeMessage('You defeated ' + fight.opponent, '', '✌')
+    fight.rewards.forEach((reward) => {
+      action.metrix(reward)
+    })
     fight.changeBodyClass()
   }
 }

@@ -4,6 +4,7 @@ Create mazes/adventures in space, school, street, office, ...
 
 ## Fight
 
+- Learn: display attack name and hp
 - Opponents, multiple
 - Enhance fight display: progress bar instead of HP numbers
 - Fight game play: how to get it more fun ? Images don't move. A tempo is needed somehow ?
@@ -14,7 +15,6 @@ Create mazes/adventures in space, school, street, office, ...
 
 - Allow multiple events on a cell ?
 - Doors that can be opened with a code
-- Win objects after winning a fight ?
 - Add object that contains an object: drawer, safe, coffin...
 - Inventory : Display objects that the hero has
 - How to hilight hp win/lose : change text color from green to red ? popup ?
@@ -23,7 +23,8 @@ Create mazes/adventures in space, school, street, office, ...
 
 ## Misc
 
-- Doc: whoplays
+- English language review
+- Document whoplays
 - Document default icons
 - Document functions, params, returns... What is the JS standard ?
 - Is 'earn' the righ verb ? Win ? Gain ?

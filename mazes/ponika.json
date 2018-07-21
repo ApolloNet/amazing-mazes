@@ -71,7 +71,7 @@
       "message": "You learnt a new attack",
       "attack": {
         "name": "Croco punch",
-        "hp": 5
+        "hp": 20
       }
     },
     {
@@ -91,6 +91,7 @@
       "name": "fight",
       "message": "You woke up a dragon",
       "opponent": "Dragon",
+      "icon": "🐉",
       "hp": 100,
       "attacks": [
         {
@@ -102,7 +103,16 @@
           "hp": 10
         }
       ],
-      "icon": "🐉"
+      "rewards": [
+        {
+          "message": "You found a Broccoli",
+          "object": "broccoli",
+          "metrix": "hp",
+          "effect": "earn",
+          "points": 20,
+          "icon": "🥦"
+        }
+      ]
     },
     {
       "r": 5,
