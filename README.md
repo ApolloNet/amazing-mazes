@@ -64,14 +64,15 @@ It is defined like this:
 
 `name` (string): One of these: 
 
-- `start`: defines the start cell
-- `win`: defines the win cell
+- `start`: defines where the game starts (required)
+- `win`: defines where the game ends (required)
+- `fight`: fight an opponent
+- `light`: switches the lights of the entire maze on or off
 - `message`: simply emit a message
 - `metrix`: changes a metrix value (hp, strength...). See details below.
-- `object`: adds an object to the hero's objects
-- `fight`: fight an opponent
 - `move`: moves the hero to another cell
-- `light`: switches the lights of the entire maze on or off
+- `object`: adds an object to the hero's objects
+- `protected`: the hero can only come on this cell if he has
 - `reveal`: switches the lights on of the some cells
 
 `message` (string): The message displayed when the hero comes to that event's cell. HTML markup libe `<br>` can be used here.
@@ -82,6 +83,10 @@ It is defined like this:
 
 - `0`: the event occurs each time the hero comes to that event's cell
 - `1`: the event occurs only one time (default)
+
+## Required events
+
+Only `start` and `win` events are mandatory to create a simple maze game.
 
 ### Start event
 
@@ -115,6 +120,64 @@ The game is won when the hero arrives at the cell at the 9th row, 14th column.
 The message "You found the hidden treasure" is displayed along with the icon 👑.
 
 The game is over: play again or choose another maze...
+
+### Fight event
+
+The fight event event is defined with mandatory settings :
+
+- `opponent` (string): name of the opponent
+- `hp` (int): health points of the opponent
+- `attacks` (array): attacks of the opponent
+
+Each attack is an object defined with :
+
+- `name` (string): name of the attack
+- `hp` (int): number of health points inflicted
+
+Example:
+
+```
+"r": 3,
+"c": 0,
+"name": "fight",
+"message": "You woke up a dragon",
+"opponent": "Dragon",
+"hp": 100,
+"attacks": [
+  {
+    "name": "Red fire",
+    "hp": 50
+  },
+  {
+    "name": "Tail stroke",
+    "hp": 10
+  }
+],
+"icon": "🐉"
+```
+
+At cell at 4th row, 1st column, you enter the fight mode.
+
+The message "You woke up a dragon" is displayed with the icon 🐉.
+
+The opponent is Dragon, it has 100 hp. Its attacks are
+
+### Light event
+
+Example:
+
+```
+"r": 0,
+"c": 3,
+"name": "light",
+"once": 0
+```
+
+At cell at 1st row, 4th column, the `light` of the entire maze is switched on/off.
+
+But the cells where the hero already passed are still visible.
+
+This is the same `light` that was defined at the top of the settings.
 
 ### Message event
 
@@ -160,63 +223,6 @@ At cell 2nd row and 1st column, the message displayed is "You found a Talisman" 
 
 And the hero `earn` `5` `hp`.
 
-### Object event
-
-Example:
-
-```
-"r": 2,
-"c": 3,
-"name": "object",
-"message": "You found a torch and see further",
-"effect": "earn",
-"object": "torch",
-"icon": "🔦"
-```
-
-A "🔦" torch is added to the hero objects when he comes on the cell at the 3rd row, 4th column.
-
-### Fight event
-
-The fight event event is defined with mandatory settings :
-
-- `opponent` (string): name of the opponent
-- `hp` (int): health points of the opponent
-- `attacks` (array): attacks of the opponent
-
-Each attack is an object defined with :
-
-- `name` (string): name of the attack
-- `hp` (int): number of health points inflicted
-
-Example:
-
-```
-"r": 3,
-"c": 0,
-"name": "fight",
-"message": "You woke up a dragon",
-"opponent": "Dragon",
-"hp": 100,
-"attacks": [
-  {
-    "name": "Red fire",
-    "hp": 50
-  },
-  {
-    "name": "Tail stroke",
-    "hp": 10
-  }
-],
-"icon": "🐉"
-```
-
-At cell at 4th row, 1st column, you enter the fight mode.
-
-The message "You woke up a dragon" is displayed with the icon 🐉.
-
-The opponent is Dragon, it has 100 hp. Its attacks are
-
 ### Move event
 
 This event can be used as a fall, a teleportation...
@@ -242,22 +248,67 @@ The message "You teleported" is displayed with the icon 🗲.
 
 The event is not triggered once. If the hero returns to this cell, the event occurs again: hero is moved, message is displayed...
 
-### Light event
+### Object event
 
 Example:
 
 ```
-"r": 0,
+"r": 2,
 "c": 3,
-"name": "light",
-"once": 0
+"name": "object",
+"message": "You found a torch and see further",
+"effect": "earn",
+"object": "torch",
+"icon": "🔦"
 ```
 
-At cell at 1st row, 4th column, the `light` of the entire maze is switched on/off.
+A "🔦" torch is added to the hero objects when he comes on the cell at the 3rd row, 4th column.
 
-But the cells where the hero already passed are still visible.
+### Protected event
 
-This is the same `light` that was defined at the top of the settings.
+The protected event can be used to lock cells that are reachable only if the hero has a certain object.
+
+The simple usage is: a cell has a door, it needs a key to be unlocked.
+
+Settings:
+
+`success` (object) is needed. It is defined as :
+
+- `object` (string): the object's name that can unlock this protected cell
+- `message` (string): the message to display when it's unlocked
+- `icon` (string): the icon to display when it's unlocked
+
+Example:
+
+```
+"r": 8,
+"c": 6,
+"name": "protected",
+"message": "The door is locked. You should find a key",
+"icon": "🚪",
+"success": {
+  "object": "old key",
+  "message": "You unlocked the door with the old key",
+  "icon": "🗝"
+}
+```
+
+The cell at 9th row, 7th column is not reachable if you don't have the `old key` object.
+
+If you try to move there, the message "The door is locked. You should find a key" is displayed with the icon 🚪.
+
+But if you have found the `old key`, you move there and the message "You unlocked the door with the old key" is displayed with the icon 🗝.
+
+Of course, an object event was used elsewhere in the maze, with the `old key` object. Something lihe this :
+
+```
+"r": 2,
+"c": 2,
+"name": "object",
+"message": "You found an old key",
+"icon": "🗝",
+"object": "old key"
+```
 
 ### Reveal event
 
@@ -288,7 +339,7 @@ Example:
 ]
 ```
 
-When the hero is on the cell at 9th row, 8th column, the room defined by the `cells` array are lit.
+When the hero is on the cell at 9th row, 8th column, the "room" defined by the `cells` array are lit.
 
 ## TODO
 

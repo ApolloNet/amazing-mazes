@@ -295,6 +295,14 @@ const maze = {
     const walls = maze.getCellWalls(r, c)
     return walls.includes(direction) || false
   },
+  openTheDoor: (nextCell) => {
+    const heroHasTheObject = hero.hasObject(nextCell.event.success.object)
+    if (!heroHasTheObject) {
+      game.writeMessage(nextCell.event.message, '', nextCell.event.icon)
+      return false
+    }
+    return true
+  },
   updateCurrentCell: () => {
     maze.updateCurrentCellCSS()
     maze.updateSeenCell(maze.current.r, maze.current.c)
@@ -365,6 +373,12 @@ const maze = {
     maze.current.r += direction.r
     maze.current.c += direction.c
     maze.updateCurrentCell()
+  },
+  getNextCell: (direction) => {
+    const nextCellR = maze.current.r + direction.r
+    const nextCellC = maze.current.c + direction.c
+    const nextCell = maze.getCell(nextCellR, nextCellC)
+    return nextCell
   }
 }
 
@@ -436,6 +450,14 @@ const hero = {
       hero.hitAWall()
       return
     }
+    const nextCell = maze.getNextCell(direction)
+    const thereIsADoor = (nextCell.event && nextCell.event.name === 'protected')
+    if (thereIsADoor) {
+      const doorIsOpen = maze.openTheDoor(nextCell)
+      if (!doorIsOpen) {
+        return
+      }
+    }
     maze.setCurrentFromDirection(direction)
     action.init(maze.current.r, maze.current.c)
     maze.updateSeenCell(maze.current.r, maze.current.c)
@@ -504,11 +526,14 @@ const action = {
       maze.removeEventCell(r, c)
     }
   },
-  start: (event) => {
-    maze.setCurrent(event.r, event.c)
-    game.writeMessage('Maze is loaded', '', '🞋')
-    game.writeMessage('<kbd>↑</kbd> <kbd>→</kbd> <kbd>↓</kbd> <kbd>←</kbd> to move', '', '⌨')
-    game.writeMessage(event.message, '', event.icon)
+  fight: (event) => {
+    fight.init(event)
+  },
+  light: () => {
+    maze.light = maze.light === 0 ? 1 : 0
+    const onoff = (maze.light === 0) ? 'off' : 'on'
+    maze.switchLight()
+    game.writeMessage('You switched ' + onoff + ' the lights', '', icons.light)
   },
   message: (event) => {
     game.writeMessage(event.message, '', event.icon)
@@ -534,20 +559,17 @@ const action = {
     const metrixDiv = $('#' + metrix)
     metrixDiv.innerHTML = hero[metrix]
   },
-  object: (event) => {
-    hero.objects.push(event.object)
-    game.writeMessage(event.message, '', event.icon)
-  },
   move: (event) => {
     maze.setCurrent(event.to.r, event.to.c)
     maze.updateCurrentCell()
     game.writeMessage(event.message, '', event.icon)
   },
-  light: () => {
-    maze.light = maze.light === 0 ? 1 : 0
-    const onoff = (maze.light === 0) ? 'off' : 'on'
-    maze.switchLight()
-    game.writeMessage('You switched ' + onoff + ' the lights', '', icons.light)
+  object: (event) => {
+    hero.objects.push(event.object)
+    game.writeMessage(event.message, '', event.icon)
+  },
+  protected: (event) => {
+    game.writeMessage(event.success.message, '', event.success.icon)
   },
   reveal: (event) => {
     event.cells.forEach((cell) => {
@@ -555,8 +577,11 @@ const action = {
     })
     game.writeMessage(event.message, '', event.icon)
   },
-  fight: (event) => {
-    fight.init(event)
+  start: (event) => {
+    maze.setCurrent(event.r, event.c)
+    game.writeMessage('Maze is loaded', '', '🞋')
+    game.writeMessage('<kbd>↑</kbd> <kbd>→</kbd> <kbd>↓</kbd> <kbd>←</kbd> to move', '', '⌨')
+    game.writeMessage(event.message, '', event.icon)
   },
   win: (event) => {
     game.status = 0
