@@ -5,7 +5,6 @@ Create mazes/adventures in space, school, street, office, ...
 ## Fight
 
 - Opponents, multiple
-- Hero attacks overridable in the json
 - Attacks can be learned during the game
 - Enhance fight display: progress bar instead of HP numbers
 - Fight game play: how to get it more fun ? Images don't move. A tempo is needed somehow ?
@@ -25,7 +24,9 @@ Create mazes/adventures in space, school, street, office, ...
 
 ## Misc
 
+- Doc: whoplays
 - Document default icons
+- Document functions, params, returns... What is the JS standard ?
 - Is 'earn' the righ verb ? Win ? Gain ?
 - Code architecture
 - CSS variables for colors and margins ?

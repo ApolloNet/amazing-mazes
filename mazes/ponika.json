@@ -4,7 +4,17 @@
     "name": "Tooth",
     "icon": "🐊",
     "hp": 100,
-    "strength": 100
+    "strength": 100,
+    "attacks": [
+        {
+          "name": "Tail stroke",
+          "hp": 30
+        },
+        {
+          "name": "Long teeth bite",
+          "hp": 50
+        }
+    ]
   },
   "cells": [
     ["tbl", "tb", "tr", "tl", "tb", "tr"],

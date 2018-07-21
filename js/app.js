@@ -4,6 +4,7 @@
 import mazeFiles from './config.mazefiles.js'
 import borders from './config.borders.js'
 import encounters from './config.encounters.js'
+import heroDefaultAttacks from './config.attacks.js'
 import icons from './config.icons.js'
 import {$} from './helpers.js'
 
@@ -306,35 +307,11 @@ const hero = {
   icon: '🤺',
   hp: 0,
   strength: 0,
-  attacks: [
-    {
-      'name': 'Kick',
-      'hp': 50
-    },
-    {
-      'name': 'Punch',
-      'hp': 40
-    },
-    {
-      'name': 'Headbutt',
-      'hp': 30
-    },
-    {
-      'name': 'Pull the ears',
-      'hp': 20
-    },
-    {
-      'name': 'Fail',
-      'hp': 0
-    },
-    {
-      'name': 'Kaméaméa',
-      'hp': 80
-    }
-  ],
+  attacks: [],
   objects: [],
   init: (data) => {
     hero.initNameAndIcon(data)
+    hero.initAttacks(data)
     action.metrix({
       'metrix': 'hp',
       'effect': 'earn',
@@ -354,6 +331,9 @@ const hero = {
     hero.icon = data.hero.icon ? data.hero.icon : hero.icon
     iconDiv.innerHTML = hero.icon
     nameDiv.innerHTML = hero.name
+  },
+  initAttacks: (data) => {
+    hero.attacks = data.hero.attacks ? data.hero.attacks : heroDefaultAttacks
   },
   move: (key) => {
     const direction = hero.getDirectionFromKey(key)

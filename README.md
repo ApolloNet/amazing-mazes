@@ -17,12 +17,7 @@ A maze is defined in Json format, with these settings:
 - `0`: light of the entire maze is off (default)
 - `1`: light of the entire maze is on
 
-`hero` (object):
-
-- `name` (string): name of the hero (default: `Frodorik`)
-- `icon` (string): a unicode icon that represents the hero (default: `🤺`)
-- `hp` (int): number of health points at start (default: `0`)
-- `strength` (int): number of strength point at start (default: `0`)
+`hero` (object): See below for detailed informations
 
 `cells` (array): cells of the maze. See below for detailed informations
 
@@ -31,6 +26,25 @@ A maze is defined in Json format, with these settings:
 ## Icons
 
 You can find unicode icons at [https://unicode-table.com/](https://unicode-table.com/), for instance.
+
+Simply copy / paste. It's just text.
+
+## Hero
+
+The hero is defined with the following params.
+
+Each one has defaults. Just add the ones you want to override in your json maze file.
+
+- `name` (string): name of the hero (default: `Frodorik`)
+- `icon` (string): a unicode icon that represents the hero (default: `🤺`)
+- `hp` (int): number of health points at start (default: `0`)
+- `strength` (int): number of strength point at start (default: `0`)
+- `attacks` (array): attacks used in fights (defaults are stored in the /js/config.attacks.js file)
+
+`attacks` is an array of objects. Each one contains :
+
+- `name` (string): name of the attack
+- `hp` (int): hp damages
 
 ## Cells
 
@@ -340,6 +354,10 @@ Example:
 ```
 
 When the hero is on the cell at 9th row, 8th column, the "room" defined by the `cells` array are lit.
+
+## Add a new maze to the game
+
+Add your maze to the `/js/config.mazefiles.js`.
 
 ## TODO
 
