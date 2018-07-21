@@ -427,7 +427,8 @@ const action = {
   },
   learn: (event) => {
     hero.attacks.push(event.attack)
-    game.writeMessage(event.message, '', event.icon)
+    const message = event.message + '<br><em>' + event.attack.name + '</em> : ' + event.attack.hp + ' HP'
+    game.writeMessage(message, '', event.icon)
   },
   light: () => {
     maze.light = maze.light === 0 ? 1 : 0
@@ -446,6 +447,9 @@ const action = {
       hero[event.metrix] = 0
     }
     action.metrixDiv(event.metrix)
+    if (!event.message) {
+      return
+    }
     const message = event.message + '<br>you ' + event.effect + ' ' + event.points + ' '+ event.metrix
     const messageColor = (event.effect === 'lose') ? 'red' : ''
     game.writeMessage(message, messageColor, event.icon)
