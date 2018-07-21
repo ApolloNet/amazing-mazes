@@ -6,7 +6,9 @@ Play at [https://apollonet.github.io/amazing-mazes/](https://apollonet.github.io
 
 ## Create a new maze
 
-Look in the /mazes directory for examples.
+✎ First, grab a pencil and an eraser and draw your maze on [graph paper](https://en.wikipedia.org/wiki/Graph_paper).
+
+Then, have a look at the /mazes directory for examples.
 
 A maze is defined in Json format, with these settings:
 
@@ -72,9 +74,11 @@ And here is a little maze that has 3 rows and 3 columns:
 Each event will be attached to a cell. It is used for different purposes.
 It is defined like this:
 
-`r` (int): Row of the cell the event will be attached to. We start counting at zero, it is real computer programming here ;-)
+`r` (int): Row of the cell the event will be attached to.
 
 `c` (int): Column of the cell will be attached to. Starts at zero too.
+
+For rows and columns, we start counting at zero. It is real computer programming here ;-)
 
 `name` (string): One of these: 
 
