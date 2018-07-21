@@ -27,8 +27,7 @@ Create mazes/adventures in space, school, street, office, ...
 
 - Document default icons
 - Is 'earn' the righ verb ? Win ? Gain ?
-- Code architecture. ES modules ?
-- Eslint settings at the project root.
+- Code architecture
 - CSS variables for colors and margins ?
 - Validate the structure & data of the json to help the forks
 - What about touch buttons for mobile screens ?

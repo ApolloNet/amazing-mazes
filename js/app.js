@@ -1,95 +1,11 @@
-'use strict'
-
 /**
- * Maze files.
+ * Imports.
  */
-const mazeFiles = {
-  'The little adventure': 'the-little-adventure.json',
-  'Second maze': 'second-maze.json',
-  'Ponika': 'ponika.json',
-  'Lost in transition': 'lost-in-transition.json',
-  'Craze maze': 'craze-maze.json'
-}
-
-/**
- * Borders.
- */
-const borders = [
-  {
-    'name': 'north',
-    'shortname': 't',
-    'key': 'ArrowUp',
-    'r': -1,
-    'c': 0
-  },
-  {
-    'name': 'east',
-    'shortname': 'r',
-    'key': 'ArrowRight',
-    'r': 0,
-    'c': 1
-  },
-  {
-    'name': 'south',
-    'shortname': 'b',
-    'key': 'ArrowDown',
-    'r': 1,
-    'c': 0
-  },
-  {
-    'name': 'west',
-    'shortname': 'l',
-    'key': 'ArrowLeft',
-    'r': 0,
-    'c': -1
-  }
-]
-
-/**
- * Random encounters.
- */
-const encounters = [
-  {
-    'message': 'A rat bit your left foot',
-    'metrix': 'hp',
-    'points': 2,
-    'icon': '🐁'
-  },
-  {
-    'message': 'A little scorpion stung you',
-    'metrix': 'strength',
-    'points': 1,
-    'icon': '🦂'
-  },
-  {
-    'message': 'You were caught in a trap',
-    'metrix': 'hp',
-    'points': 5,
-    'icon': '⛮'
-  },
-  {
-    'message': 'An little ogre tried to catch you',
-    'metrix': 'hp',
-    'points': 3,
-    'icon': '👹'
-  }
-]
-
-/**
- * Default icons.
- */
-const icons = {
-  'start': '🢒',
-  'win': '👑',
-  'light': '💡'
-}
-
-/**
- * Helpers.
- */
-function $(selector) {
-  return document.querySelector(selector)
-}
+import mazeFiles from './config.mazefiles.js'
+import borders from './config.borders.js'
+import encounters from './config.encounters.js'
+import icons from './config.icons.js'
+import {$} from './helpers.js'
 
 /**
  * Game.
