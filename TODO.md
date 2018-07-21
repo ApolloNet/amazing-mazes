@@ -26,8 +26,6 @@ Create mazes/adventures in space, school, street, office, ...
 
 ## Misc
 
-- Arguments "maze.current.r, maze.current.c" are passed to many functions: functions can get those datas by themselves
-- Documentation : they/their instaed of he/his
 - Document default icons
 - Is 'earn' the righ verb ? Win ? Gain ?
 - Code architecture. ES modules ?
