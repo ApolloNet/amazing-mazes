@@ -9,14 +9,17 @@
     "attacks": [
       {
         "name": "Wind magic",
+        "icon": "🌬",
         "hp": 60
       },
       {
         "name": "Cloud strom",
+        "icon": "🌩",
         "hp": 40
       },
       {
         "name": "Inner sun burst",
+        "icon": "🌣",
         "hp": 99
       }
     ]

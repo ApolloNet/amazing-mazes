@@ -48,8 +48,9 @@ Each one has defaults. Just add the ones you want to override in your json maze 
 
 `attacks` is an array of objects. Each one contains :
 
-- `name` (string): name of the attack
-- `hp` (int): hp damages
+- `name` (string): name of the attack (required)
+- `icon` (string): icon of the attack (default: hero icon)
+- `hp` (int): hp damages (required)
 
 
 # Cells
@@ -158,17 +159,19 @@ Well, this is not just a maze game.
 
 ## Params
 
-- `opponent` (string): name of the opponent (mandatory)
-- `hp` (int): health points of the opponent (mandatory)
-- `attacks` (array): attacks of the opponent (mandatory)
+- `opponent` (string): name of the opponent (required)
+- `icon` (string): icon of the opponent (required)
+- `hp` (int): health points of the opponent (required)
+- `attacks` (array): attacks of the opponent (required)
 - `rewards` (array): objects earned if the opponent is defeated
 
 ## Attacks
 
 Each attack is an object defined with:
 
-- `name` (string): name of the attack
-- `hp` (int): number of health points inflicted
+- `name` (string): name of the attack (required)
+- `icon` (string): icon of the attack (default: opponent icon)
+- `hp` (int): number of health points inflicted (required)
 
 ## Rewards
 

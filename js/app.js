@@ -567,25 +567,27 @@ const fight = {
     const attackNumber = game.getRandomNumber(hero.attacks.length)
     const attack = hero.attacks[attackNumber]
     const message = attack.name + '<br>' + fight.opponent + ' loses ' + attack.hp + ' HP'
+    const icon = attack.icon ? attack.icon : hero.icon
     fight.hp -= attack.hp
     if (fight.hp < 0) {
       fight.hp = 0
     }
     opponentHp.innerHTML = fight.hp
-    game.writeMessage(message, '', hero.icon)
+    game.writeMessage(message, '', icon)
   },
   opponentAttacks: () => {
     const heroHp = $('#fight-hero-hp')
     const attackNumber = game.getRandomNumber(fight.attacks.length)
     const attack = fight.attacks[attackNumber]
     const message = attack.name + '<br>you lose ' + attack.hp + ' HP'
+    const icon = attack.icon ? attack.icon : fight.icon
     action.metrix({
       'metrix': 'hp',
       'effect': 'lose',
       'points': attack.hp
     })
     heroHp.innerHTML = hero.hp
-    game.writeMessage(message, '', fight.icon)
+    game.writeMessage(message, '', icon)
   },
   next: () => {
     if (hero.hp <= 0) {

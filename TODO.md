@@ -4,7 +4,6 @@ Create mazes/adventures in space, school, street, office, ...
 
 ## Fight
 
-- Add optional icon on attacks
 - Opponents, multiple
 - Enhance fight display: progress bar instead of HP numbers
 - Fight game play: how to get it more fun ? Images don't move. A tempo is needed somehow ?
