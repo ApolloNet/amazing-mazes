@@ -12,9 +12,11 @@ Create mazes/adventures in space, school, street, office, ...
 
 ## Maze
 
+- Display the hero icon in the maze
 - Allow multiple events on a cell ?
 - Doors that can be opened with a code
 - Add object that contains an object: drawer, safe, coffin...
+- Add object that contains an opponent ?
 - Inventory : Display objects that the hero has
 - How to hilight hp win/lose : change text color from green to red ? popup ?
 - Rotate hero icon when he goes left/right, is it possible with 
