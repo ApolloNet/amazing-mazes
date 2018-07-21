@@ -135,7 +135,7 @@ const maze = {
     data.events.forEach((event) => {
       const index = maze.getCellIndex(event.r, event.c)
       event.once = event.once === 0 ? 0 : 1
-      if (!event.icon) {
+      if (!event.icon && icons[event.name]) {
         event.icon = icons[event.name]
       }
       maze.cells[index].event = event
@@ -424,6 +424,10 @@ const action = {
   },
   fight: (event) => {
     fight.init(event)
+  },
+  learn: (event) => {
+    hero.attacks.push(event.attack)
+    game.writeMessage(event.message, '', event.icon)
   },
   light: () => {
     maze.light = maze.light === 0 ? 1 : 0

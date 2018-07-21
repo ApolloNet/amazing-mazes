@@ -65,6 +65,16 @@
       "icon": "🗡"
     },
     {
+      "r": 5,
+      "c": 1,
+      "name": "learn",
+      "message": "You learnt a new attack",
+      "attack": {
+        "name": "Croco punch",
+        "hp": 5
+      }
+    },
+    {
       "r": 1,
       "c": 5,
       "name": "metrix",

@@ -5,7 +5,6 @@ Create mazes/adventures in space, school, street, office, ...
 ## Fight
 
 - Opponents, multiple
-- Attacks can be learned during the game
 - Enhance fight display: progress bar instead of HP numbers
 - Fight game play: how to get it more fun ? Images don't move. A tempo is needed somehow ?
 - Choose your attack in a set of attacks you got ?
