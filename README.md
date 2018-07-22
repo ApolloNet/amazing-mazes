@@ -432,3 +432,8 @@ Add your maze to the `/js/config.mazefiles.js`.
 # TODO
 
 There a TODO.md file next to this README.md file. Just sayin.
+
+
+# Licence
+
+This little work is under _GNU GPLv3_ licence.
