@@ -114,6 +114,9 @@ form {
   content: attr(data-current);
   transform: scale(-1, 1);
 }
+.direction-left::after {
+  transform: scale(1, 1);
+}
 
 .wall-t {
   border-top-color: #fff;

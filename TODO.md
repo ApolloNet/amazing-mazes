@@ -23,7 +23,6 @@
 - Allow multiple events on a cell ?
 - Transmutation event ?
 - Move faster ? 🚴 🏇
-- Rotate hero icon when he goes left/right, is it possible with CSS ?
 - Protected event with an input text to unlock (ie: you found letters one by one, they form a word...)
 - Real images in alternative to unicode
 

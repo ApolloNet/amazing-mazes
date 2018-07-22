@@ -316,6 +316,7 @@ const hero = {
   strength: 0,
   attacks: [],
   objects: [],
+  direction: 'right',
   init: (data) => {
     hero.initNameAndIcon(data)
     hero.initAttacks(data)
@@ -361,6 +362,7 @@ const hero = {
     }
     const thereIsAWall = maze.isThereAWall(maze.current.r, maze.current.c, direction.shortname)
     if (thereIsAWall) {
+      hero.rotate(direction.name)
       hero.hitAWall()
       return
     }
@@ -375,7 +377,20 @@ const hero = {
     maze.setCurrentFromDirection(direction)
     action.init(maze.current.r, maze.current.c)
     maze.updateCurrentCell(maze.current.r, maze.current.c)
+    hero.rotate(direction.name)
     game.over()
+  },
+  rotate: (directionName) => {
+    const currentCellDiv = $('.current')
+    if (directionName === 'left' || directionName === 'right') {
+      hero.direction = directionName
+    }
+    if (hero.direction === 'left') {
+      currentCellDiv.classList.add('direction-left')
+    }
+    if (hero.direction === 'right') {
+      currentCellDiv.classList.remove('direction-left')
+    }
   },
   encounter: () => {
     const cell = maze.getCell(maze.current.r, maze.current.c)
