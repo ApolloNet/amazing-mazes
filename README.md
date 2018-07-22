@@ -162,7 +162,7 @@ Well, this is not just a maze game.
 - `opponent` (string): name of the opponent (required)
 - `icon` (string): icon of the opponent (required)
 - `hp` (int): health points of the opponent (required)
-- `whoplays` (string): who attack first, "opponent" or "hero"
+- `whoplays` (string): who attack first, "opponent" or "hero" (default: "hero")
 - `attacks` (array): attacks of the opponent (required)
 - `rewards` (array): objects earned if the opponent is defeated
 
