@@ -11,20 +11,22 @@ Play at [https://apollonet.github.io/amazing-mazes/](https://apollonet.github.io
 
 Then, have a look at the /mazes directory for examples.
 
+## The Json file
+
 A maze is defined in Json format, with these settings:
 
-`name` (string): name of the maze
+`name` (string, required): name of the maze
 
-`light` (int):
+`light` (int, optional):
 
-- `0`: light of the entire maze is off (default)
-- `1`: light of the entire maze is on
+- "0": light off the entire maze (default)
+- "1": light on the entire maze
 
-`hero` (object): See below for detailed informations
+`hero` (object, optional): See below for detailed informations
 
-`cells` (array): cells of the maze. See below for detailed informations
+`cells` (array, required): cells of the maze. See below for detailed informations
 
-`events` (array): events attached to cells. See below for detailed informations
+`events` (array, required): events attached to cells. See below for detailed informations
 
 
 # Icons
@@ -40,17 +42,27 @@ The hero is defined with the following params.
 
 Each one has defaults. Just add the ones you want to override in your json maze file.
 
-- `name` (string): name of the hero (default: `Frodorik`)
-- `icon` (string): a unicode icon that represents the hero (default: `🤺`)
-- `hp` (int): number of health points at start (default: `0`)
-- `strength` (int): number of strength point at start (default: `0`)
-- `attacks` (array): attacks used in fights (defaults are stored in the /js/config.attacks.js file)
+`name` (string, optional, default: "Frodorik"): name of the hero
 
-`attacks` is an array of objects. Each one contains :
+`icon` (string, optional, default: 🤺): a unicode icon that represents the hero
 
-- `name` (string): name of the attack (required)
-- `icon` (string): icon of the attack (default: hero icon)
-- `hp` (int): hp damages (required)
+`hp` (int, optional, default: 0): number of health points at start
+
+`strength` (int, optional, default: 0): number of strength point at start
+
+`attacks` (array, optional): attacks used in fights
+
+## Attacks
+
+Attacks is an array of objects. Each one contains :
+
+`name` (string, required): name of the attack
+
+`hp` (int, required): hp damages
+
+`icon` (string, optional, default: hero icon): icon of the attack
+
+Defaults are stored in the /js/config.attacks.js file
 
 
 # Cells
@@ -80,34 +92,34 @@ And here is a little maze that has 3 rows and 3 columns:
 Each event will be attached to a cell. It is used for different purposes.
 It is defined like this:
 
-`r` (int): Row of the cell the event will be attached to.
+`r` (int, required): Row of the cell the event will be attached to.
 
-`c` (int): Column of the cell will be attached to. Starts at zero too.
+`c` (int, required): Column of the cell will be attached to. Starts at zero too.
 
 For rows and columns, we start counting at zero. It is real computer programming here ;-)
 
-`name` (string): One of these: 
+`name` (string, required): One of these: 
 
-- `start`: defines where the game starts (required)
-- `win`: defines where the game ends (required)
+- `start`: defines where the game starts
+- `win`: defines where the game ends
 - `fight`: fight an opponent
 - `learn`: learn an attack
 - `light`: switches the lights of the entire maze on or off
-- `message`: simply emit a message
+- `message`: display a message
 - `metrix`: changes a metrix value (hp, strength...). See details below.
 - `move`: moves the hero to another cell
 - `object`: adds an object to the hero's objects
-- `protected`: the hero can only come on this cell if he has
+- `protected`: the hero can only come on this cell if he has got the appropriate object
 - `reveal`: switches the lights on of the some cells
 
-`message` (string): The message displayed when the hero comes to that event's cell. HTML markup libe `<br>` can be used here.
+`message` (string, required): The message displayed when the hero comes to that event's cell. HTML markup libe `<br>` can be used here.
 
-`icon` (string): A unicode icon displayed when the hero comes to that event's cell.
+`icon` (string, optional): A unicode icon displayed when the hero comes to that event's cell.
 
-`once` (int):
+`once` (int, optional, default: "1"):
 
-- `0`: the event occurs each time the hero comes to that event's cell
-- `1`: the event occurs only one time (default)
+- "0": the event occurs each time the hero comes to that event's cell
+- "1": the event occurs only one time
 
 ## Required events
 
@@ -134,7 +146,7 @@ The message "Find the hidden treasure" is displayed along with the default icon.
 
 # Win event
 
-The start event is used on the cell where the game is won.
+The win event is used on the cell where the game is won.
 
 ## Example
 
@@ -148,7 +160,7 @@ The start event is used on the cell where the game is won.
 
 The game is won when the hero arrives at the cell at the 9th row, 14th column.
 
-The message "You found the hidden treasure" is displayed along with the icon 👑.
+The message "👑 You found the hidden treasure" is displayed.
 
 The game is over: play again or choose another maze...
 
@@ -164,7 +176,7 @@ Well, this is not just a maze game.
 - `hp` (int): health points of the opponent (required)
 - `whoplays` (string): who attack first, "opponent" or "hero" (default: "hero")
 - `attacks` (array): attacks of the opponent (required)
-- `rewards` (array): objects earned if the opponent is defeated
+- `rewards` (array): objects earned when the opponent is defeated
 
 ## Attacks
 
@@ -219,9 +231,11 @@ Each reward is an object defined with these params. Have a look at the _Metrix e
 
 At cell at 4th row, 1st column, you enter the fight mode.
 
-The message "You woke up a dragon" is displayed with the icon 🐉.
+The message "🐉 You woke up a dragon" is displayed.
 
-The opponent is Dragon, it has 100 hp. Its attacks are
+The opponent is Dragon, it has 100 hp. Its attacks are "Red fire" that inflicts 50 hp, and "Tail stroke" that inflicts 10 hp.
+
+When the opponent is defeated, the message "🥦 You found a Broccoli" is displayed. And the hero earn 20 hp.
 
 
 # Light event
@@ -246,7 +260,7 @@ This is the same `light` that was defined at the top of the settings.
 
 # Message event
 
-The event can be used to display a message written on a paper that was found, a warning from a sign, etc...
+The message event can be used to display a message written on a paper that was found, a warning displayed on a sign, etc...
 
 ## Example
 
@@ -258,7 +272,7 @@ The event can be used to display a message written on a paper that was found, a 
 "icon": "🖹"
 ```
 
-At cell at the 5th row, 4th column, the message "Beware of the dragon" is displayed with the icon "🖹".
+At cell at the 5th row, 4th column, the message "🖹 Beware of the dragon" is displayed.
 
 
 # Metrix event
@@ -267,12 +281,13 @@ It is used to add or remove some hp or strength to the hero.
 
 ## Params
 
-The metrix event needs mandatory setings:
+`object` (string, optional): **TODO**
 
-- `object` (string): **TODO**
-- `metrix` (string): Values can be `hp` or `strength`
-- `effect` (string): Values can be `earn` or `lose`
-- `points` (int): How many points are gained or losen on which metrix
+`metrix` (string, required): Values can be `hp` or `strength`
+
+`effect` (string, required): Values can be `earn` or `lose`
+
+`points` (int, required): How many points are gained or losen on which metrix
 
 ## Example
 
@@ -288,7 +303,7 @@ The metrix event needs mandatory setings:
 "icon": "🉤"
 ```
 
-At cell 2nd row and 1st column, the message displayed is "You found a Talisman" with the icon "🉤".
+At cell 2nd row and 1st column, the message displayed is "🉤 You found a Talisman".
 
 And the hero `earn` `5` `hp`.
 
@@ -314,7 +329,7 @@ This event can be used as a fall, a teleportation...
 
 At cell that is at 3rd row, 3rd column , the hero is moved to the cell at the 5th row and 9th column.
 
-The message "You teleported" is displayed with the icon 🗲.
+The message "🗲 You teleported" is displayed.
 
 The event is not triggered once. If the hero returns to this cell, the event occurs again: hero is moved, message is displayed...
 
@@ -340,17 +355,21 @@ A "🔦" torch is added to the hero objects when he comes on the cell at the 3rd
 
 # Protected event
 
-The protected event can be used to lock cells that are reachable only if the hero has a certain object.
+The protected event can be used to lock cells that are reachable only if the hero has got a certain object.
 
-The simple usage is: a cell has a door, it needs a key to be unlocked.
+The simple usage is: a cell is locked behind a door, it needs a key to be unlocked.
 
 ## Params
 
-`success` (object) is needed. It is defined as :
+`success` (object, required): what is needed to unlock and what happens what it's done
 
-- `object` (string): the object's name that can unlock this protected cell
-- `message` (string): the message to display when it's unlocked
-- `icon` (string): the icon to display when it's unlocked
+The `success` object is defined like :
+
+`object` (string, required): the object's name that can unlock this protected cell
+
+`message` (string, required): the message to display when it's unlocked
+
+`icon` (string, required): the icon to display when it's unlocked
 
 ## Example
 
@@ -369,9 +388,9 @@ The simple usage is: a cell has a door, it needs a key to be unlocked.
 
 The cell at 9th row, 7th column is not reachable if you don't have the `old key` object.
 
-If you try to move there, the message "The door is locked. You should find a key" is displayed with the icon 🚪.
+If you try to move there, the message "🚪 The door is locked. You should find a key" is displayed.
 
-But if you have found the `old key`, you move there and the message "You unlocked the door with the old key" is displayed with the icon 🗝.
+But if you have found the `old key`, you move there and the message "🗝 You unlocked the door with the old key" is displayed.
 
 Of course, an object event was used elsewhere in the maze, with the `old key` object. Something lihe this :
 
@@ -391,9 +410,7 @@ It can be used to light on arbitrary cells : a room, a corridor...
 
 ## Params
 
-The reveal event needs a mandatory setting:
-
-`cells` (array): Each item of this array is an object that defines a cell with its row (`r`) and column (`c`)
+`cells` (array, required): Each item of this array is an object that defines a cell with its row (`r`) and column (`c`)
 
 ## Example
 
@@ -421,7 +438,7 @@ When the hero is on the cell at 9th row, 8th column, the "room" defined by the `
 
 # Special objects
 
-- `torch`: lights on the nearby cells.
+- `torch`: lights on the cells nearby the current one.
 
 
 # Add a new maze to the game
