@@ -93,7 +93,9 @@ const maze = {
       hero.init(data)
       game.listenToKeyboard()
       maze.isLoaded()
-    })
+    }).catch(
+      error => console.error(error.message)
+    )
   },
   isLoaded: () => {
     const body = $('body')
