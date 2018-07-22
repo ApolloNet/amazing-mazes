@@ -9,7 +9,6 @@
 
 ## Fight
 
-- Add "VS" between hero and opponent
 - Fight gameplay: how to get it more fun ? Images don't move. A tempo is needed somehow ?
 - Choose your attack in a set of attacks you got ?
 - Opponents, multiple

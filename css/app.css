@@ -9,6 +9,7 @@ body {
   flex-wrap: wrap;
   background-color: #000;
   color: #fff;
+  font-family: sans-serif;
   font-size: 0.9rem;
   line-height: 1.4;
 }
@@ -198,17 +199,24 @@ form {
 
 .fight {
   display: none;
-  width: 31rem;
+  width: 34rem;
   margin: 1rem auto;
 }
 
 .fight-mode .fight {
   display: flex;
+  align-items: center;
 }
 
 .fight .character {
   margin-left: 0.5rem;
   margin-right: 0.5rem;
+}
+
+.fight-versus {
+  font-family: serif;
+  font-size: 1.2rem;
+  font-style: italic;
 }
 
 /* Aside */
