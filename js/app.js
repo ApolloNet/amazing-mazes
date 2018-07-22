@@ -141,11 +141,11 @@ const maze = {
     data.events.forEach((event) => {
       const index = maze.getCellIndex(event.r, event.c)
       event.once = event.once === 0 ? 0 : 1
-      if (!event.icon && icons[event.name]) {
-        event.icon = icons[event.name]
+      if (!event.icon && icons[event.type]) {
+        event.icon = icons[event.type]
       }
       maze.cells[index].event = event
-      if (event.name === 'start') {
+      if (event.type === 'start') {
         action.init(event.r, event.c)
       }
     })
@@ -365,7 +365,7 @@ const hero = {
       return
     }
     const nextCell = maze.getNextCell(direction)
-    const thereIsADoor = (nextCell.event && nextCell.event.name === 'protected')
+    const thereIsADoor = (nextCell.event && nextCell.event.type === 'protected')
     if (thereIsADoor) {
       const doorIsOpen = maze.openTheDoor(nextCell)
       if (!doorIsOpen) {
@@ -432,8 +432,8 @@ const action = {
       hero.encounter()
       return
     }
-    if (action[cell.event.name]) {
-      action[cell.event.name](cell.event)
+    if (action[cell.event.type]) {
+      action[cell.event.type](cell.event)
     }
     if (cell.event.once === 1) {
       maze.removeEventCell(r, c)

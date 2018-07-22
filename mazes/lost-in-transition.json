@@ -18,25 +18,25 @@
     {
       "r": 0,
       "c": 0,
-      "name": "start",
+      "type": "start",
       "message": "Find the hidden treasure"
     },
     {
       "r": 6,
       "c": 9,
-      "name": "win",
+      "type": "win",
       "message": "You found the hidden treasure"
     },
     {
       "r": 0,
       "c": 3,
-      "name": "light",
+      "type": "light",
       "once": 0
     },
     {
       "r": 2,
       "c": 2,
-      "name": "move",
+      "type": "move",
       "message": "You teleported",
       "to": {
         "r": 3,
@@ -48,7 +48,7 @@
     {
       "r": 3,
       "c": 8,
-      "name": "move",
+      "type": "move",
       "message": "You teleported",
       "to": {
         "r": 2,

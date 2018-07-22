@@ -98,7 +98,7 @@ It is defined like this:
 
 For rows and columns, we start counting at zero. It is real computer programming here ;-)
 
-`name` (string, required): One of these: 
+`type` (string, required): One of these: 
 
 - `start`: defines where the game starts
 - `win`: defines where the game ends
@@ -135,7 +135,7 @@ The start event is used on the cell where the game starts.
 ```
 "r": 3,
 "c": 4,
-"name": "start",
+"type": "start",
 "message": "Find the hidden treasure"
 ```
 
@@ -153,7 +153,7 @@ The win event is used on the cell where the game is won.
 ```
 "r": 8,
 "c": 13,
-"name": "win",
+"type": "win",
 "message": "You found the hidden treasure",
 "icon": "👑"
 ```
@@ -202,7 +202,7 @@ Each reward is an object defined with these params. Have a look at the _Metrix e
 ```
 "r": 3,
 "c": 0,
-"name": "fight",
+"type": "fight",
 "message": "You woke up a dragon",
 "opponent": "Dragon",
 "icon": "🐉",
@@ -247,7 +247,7 @@ Switch on/off the entire maze.
 ```
 "r": 0,
 "c": 3,
-"name": "light",
+"type": "light",
 "once": 0
 ```
 
@@ -267,7 +267,7 @@ The message event can be used to display a message written on a paper that was f
 ```
 "r": 4,
 "c": 3,
-"name": "message",
+"type": "message",
 "message": "Beware of the dragon",
 "icon": "🖹"
 ```
@@ -294,7 +294,7 @@ It is used to add or remove some hp or strength to the hero.
 ```
 "r": 1,
 "c": 0,
-"name": "metrix",
+"type": "metrix",
 "message": "You found a Talisman",
 "object": "talisman",
 "metrix": "hp",
@@ -317,7 +317,7 @@ This event can be used as a fall, a teleportation...
 ```
 "r": 2,
 "c": 2,
-"name": "move",
+"type": "move",
 "message": "You teleported",
 "to": {
   "r": 3,
@@ -343,7 +343,7 @@ The object event is used to add an object to the hero's objects.
 ```
 "r": 2,
 "c": 3,
-"name": "object",
+"type": "object",
 "message": "You found a torch and see further",
 "effect": "earn",
 "object": "torch",
@@ -365,7 +365,7 @@ The simple usage is: a cell is locked behind a door, it needs a key to be unlock
 
 The `success` object is defined like :
 
-`object` (string, required): the object's name that can unlock this protected cell
+`object` (string, required): the object's (exact same) name that can unlock this protected cell
 
 `message` (string, required): the message to display when it's unlocked
 
@@ -376,7 +376,7 @@ The `success` object is defined like :
 ```
 "r": 8,
 "c": 6,
-"name": "protected",
+"type": "protected",
 "message": "The door is locked. You should find a key",
 "icon": "🚪",
 "success": {
@@ -397,7 +397,7 @@ Of course, an object event was used elsewhere in the maze, with the `old key` ob
 ```
 "r": 2,
 "c": 2,
-"name": "object",
+"type": "object",
 "message": "You found an old key",
 "icon": "🗝",
 "object": "old key"
@@ -417,7 +417,7 @@ It can be used to light on arbitrary cells : a room, a corridor...
 ```
 "r": 8,
 "c": 7,
-"name": "reveal",
+"type": "reveal",
 "message": "A big fire lit in the middle of the room",
 "icon": "🔥",
 "cells": [

@@ -44,19 +44,19 @@
     {
       "r": 3,
       "c": 4,
-      "name": "start",
+      "type": "start",
       "message": "Find the hidden treasure"
     },
     {
       "r": 8,
       "c": 13,
-      "name": "win",
+      "type": "win",
       "message": "You found the hidden treasure"
     },
     {
       "r": 2,
       "c": 2,
-      "name": "object",
+      "type": "object",
       "message": "You found an old key",
       "icon": "🗝",
       "object": "old key"
@@ -64,7 +64,7 @@
     {
       "r": 8,
       "c": 6,
-      "name": "protected",
+      "type": "protected",
       "message": "The door is locked. You should find a key",
       "icon": "🚪",
       "success": {
@@ -76,7 +76,7 @@
     {
       "r": 4,
       "c": 10,
-      "name": "object",
+      "type": "object",
       "message": "You found a little glowing star that shines in the darkness",
       "effect": "earn",
       "object": "torch",
@@ -85,7 +85,7 @@
     {
       "r": 1,
       "c": 17,
-      "name": "message",
+      "type": "message",
       "message": "A little ghost floats in a corner looking at you",
       "icon": "👻",
       "once": 0
@@ -93,7 +93,7 @@
     {
       "r": 8,
       "c": 16,
-      "name": "fight",
+      "type": "fight",
       "message": "That T-Rex won't let you pass",
       "opponent": "T-Rex",
       "icon": "🦖",
@@ -126,7 +126,7 @@
     {
       "r": 8,
       "c": 7,
-      "name": "reveal",
+      "type": "reveal",
       "message": "A big fire lit in the middle of the room",
       "icon": "👁",
       "cells": [
@@ -144,7 +144,7 @@
     {
       "r": 8,
       "c": 9,
-      "name": "metrix",
+      "type": "metrix",
       "message": "You were burnt by the fire",
       "metrix": "hp",
       "effect": "lose",

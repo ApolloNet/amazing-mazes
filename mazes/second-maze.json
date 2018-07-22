@@ -20,21 +20,21 @@
     {
       "r": 3,
       "c": 3,
-      "name": "start",
+      "type": "start",
       "message": "Find your beloved princess<br>but beware of holes",
       "icon": "👸"
     },
     {
       "r": 0,
       "c": 1,
-      "name": "win",
+      "type": "win",
       "message": "You found your beloved princess",
       "icon": "👸"
     },
     {
       "r": 0,
       "c": 0,
-      "name": "metrix",
+      "type": "metrix",
       "message": "You fell into a hole",
       "metrix": "hp",
       "effect": "lose",
@@ -45,7 +45,7 @@
     {
       "r": 1,
       "c": 1,
-      "name": "object",
+      "type": "object",
       "message": "You found a torch and see further",
       "object": "torch",
       "effect": "earn",
@@ -54,7 +54,7 @@
     {
       "r": 1,
       "c": 0,
-      "name": "metrix",
+      "type": "metrix",
       "message": "You found a Talisman",
       "object": "talisman",
       "metrix": "hp",

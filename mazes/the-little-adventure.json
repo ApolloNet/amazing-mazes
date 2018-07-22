@@ -15,13 +15,13 @@
     {
       "r": 2,
       "c": 2,
-      "name": "start",
+      "type": "start",
       "message": "Find the hidden treasure<br>but beware of the vampire"
     },
     {
       "r": 1,
       "c": 0,
-      "name": "metrix",
+      "type": "metrix",
       "message": "You found a Talisman",
       "object": "talisman",
       "metrix": "hp",
@@ -32,13 +32,13 @@
     {
       "r": 1,
       "c": 1,
-      "name": "win",
+      "type": "win",
       "message": "You found the hidden treasure"
     },
     {
       "r": 2,
       "c": 1,
-      "name": "metrix",
+      "type": "metrix",
       "message": "You defeated a Vampire Boss",
       "metrix": "hp",
       "effect": "lose",
