@@ -4,7 +4,7 @@
 
 - Update Craze maze : Move fire elsewhere, eye near start, key => win, win => fire
 - Secret passage thru a wall = move event
-- How to create a Cluedo maze ?
+- Create a detective game 🕵
 - Create mazes/adventures in space, school, street, office, ...
 
 ## Fight

@@ -9,7 +9,6 @@ body {
   flex-wrap: wrap;
   background-color: #000;
   color: #fff;
-  font-family: sans-serif;
   font-size: 0.9rem;
   line-height: 1.4;
 }
@@ -100,7 +99,8 @@ form {
 
 .cell::before,
 .cell::after {
-  display: block;
+  display: inline-block;
+  width: 100%;
   margin: 0 auto;
   font-size: 1.2rem;
   text-align: center;
@@ -108,6 +108,11 @@ form {
 
 .cell::before {
   content: attr(data-icon);
+}
+
+.current::after {
+  content: attr(data-current);
+  transform: scale(-1, 1);
 }
 
 .wall-t {
@@ -134,10 +139,6 @@ form {
 .dark .unseen::before,
 .current::before {
   display: none;
-}
-
-.current::after {
-  content: attr(data-current);
 }
 
 .win {
@@ -173,6 +174,11 @@ form {
 
 .character-icon {
   font-size: 6rem;
+}
+
+.fight-hero .character-icon {
+  display: inline-block;
+  transform: scale(-1, 1);
 }
 
 .character-strength {
