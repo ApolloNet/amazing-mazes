@@ -26,7 +26,7 @@
   },
   "cells": [
     ["tl", "tb", "tb", "tb", "tb", "tb", "tb", "tb", "tb", "tb", "t", "tb", "tb", "tb", "tb", "tb", "tb", "tb", "tr"],
-    ["rl", "tl", "tb", "t", "tr", "tbl", "t", "tb", "trb", "trl", "rl", "tl", "t", "t", "tb", "tb", "tb", "tr", "rl"],
+    ["rl", "tl", "tb", "t", "tr", "tbl", "t", "tb", "trb", "trl", "rl", "tl", "tr", "tl", "tb", "tb", "tb", "tr", "rl"],
     ["rl", "rl", "trl", "rl", "bl", "tb", "b", "tb", "tb", "rb", "rl", "rl", "rl", "rl", "tl", "tb", "tb", "rb", "rl"],
     ["rl", "bl", "rb", "rl", "tbl", "tb", "t", "tb", "tb", "t", "r", "rl", "rl", "rl", "bl", "t", "tb", "trb", "rl"],
     ["l", "tb", "tb", "b", "tb", "t", "b", "tb", "trb", "rl", "rbl", "rl", "rl", "rl", "tl", "rb", "tl", "tr", "rl"],
@@ -34,10 +34,10 @@
     ["rl", "bl", "tb", "tr", "rl", "l", "tb", "t", "tb", "tb", "tb", "t", "r", "rl", "trl", "l", "tb", "r", "rl"],
     ["rl", "trl", "trl", "rl", "rl", "rl", "trl", "rbl", "tl", "t", "tr", "rl", "l", "b", "rb", "rbl", "tl", "rb", "rl"],
     ["rl", "l", "r", "rl", "l", "", "", "tb", "", "", "r", "rl", "rl", "tbl", "tb", "tb", "", "trb", "rl"],
-    ["rl", "rl", "bl", "r", "rl", "rl", "rbl", "trl", "bl", "b", "rb", "rl", "rl", "tl", "tb", "trb", "rbl", "trl", "rl"],
+    ["rl", "rl", "bl", "r", "rl", "rl", "rbl", "trl", "bl", "b", "rb", "rl", "rl", "tl", "tb", "tb", "rb", "trl", "rl"],
     ["rl", "rl", "tl", "b", "rb", "bl", "tb", "", "tb", "tb", "t", "", "r", "bl", "tb", "tb", "tr", "rl", "rl"],
     ["rl", "rl", "bl", "tb", "t", "tb", "trb", "rl", "tl", "tb", "rb", "rl", "rl", "tl", "tb", "trb", "rl", "rl", "rl"],
-    ["rl", "bl", "tb", "tb", "b", "tb", "tb", "rb", "bl", "tb", "trb", "rbl", "bl", "b", "tb", "tb", "b", "rb", "rl"],
+    ["rl", "bl", "tb", "tb", "b", "tb", "tb", "rb", "bl", "tb", "trb", "rbl", "rbl", "bl", "tb", "tb", "b", "rb", "rl"],
     ["bl", "tb", "tb", "tb", "tb", "tb", "tb", "tb", "tb", "tb", "tb", "tb", "tb", "tb", "tb", "tb", "tb", "tb", "rb"]
   ],
   "events": [
@@ -49,13 +49,31 @@
     },
     {
       "r": 8,
-      "c": 13,
+      "c": 9,
       "type": "win",
       "message": "You found the hidden treasure"
     },
     {
-      "r": 2,
-      "c": 2,
+      "r": 3,
+      "c": 6,
+      "type": "reveal",
+      "message": "You walked on paving stone that made a strange noise",
+      "icon": "👁",
+      "cells": [
+        {"r": 7, "c": 8},
+        {"r": 7, "c": 9},
+        {"r": 7, "c": 10},
+        {"r": 8, "c": 8},
+        {"r": 8, "c": 9},
+        {"r": 8, "c": 10},
+        {"r": 9, "c": 8},
+        {"r": 9, "c": 9},
+        {"r": 9, "c": 10}
+      ]
+    },
+    {
+      "r": 8,
+      "c": 13,
       "type": "object",
       "message": "You found an old key",
       "icon": "🗝",
@@ -74,20 +92,44 @@
       }
     },
     {
-      "r": 4,
-      "c": 10,
-      "type": "object",
-      "message": "You found a little glowing star that shines in the darkness",
-      "effect": "earn",
-      "object": "torch",
-      "icon": "🟍"
+      "r": 6,
+      "c": 5,
+      "type": "fight",
+      "message": "A bat flies in your hair",
+      "opponent": "Bat",
+      "icon": "🦇",
+      "whoplays": "opponent",
+      "hp": 62,
+      "attacks": [
+        {
+          "name": "Bite",
+          "hp": 14
+        },
+        {
+          "name": "Fail",
+          "hp": 0
+        }
+      ],
+      "rewards": [
+        {
+          "type": "object",
+          "message": "You found a little glowing star that shines in the darkness",
+          "effect": "earn",
+          "object": "torch",
+          "icon": "🟍"
+        }
+      ]
     },
     {
-      "r": 1,
-      "c": 17,
-      "type": "message",
-      "message": "A little ghost floats in a corner looking at you",
-      "icon": "👻",
+      "r": 12,
+      "c": 12,
+      "type": "move",
+      "message": "You crossed a secret passage in the wall",
+      "icon": "",
+      "to": {
+        "r": 12,
+        "c": 13
+      },
       "once": 0
     },
     {
@@ -124,32 +166,32 @@
       ]
     },
     {
-      "r": 8,
-      "c": 7,
-      "type": "reveal",
-      "message": "A big fire lit in the middle of the room",
-      "icon": "👁",
-      "cells": [
-        {"r": 7, "c": 8},
-        {"r": 7, "c": 9},
-        {"r": 7, "c": 10},
-        {"r": 8, "c": 8},
-        {"r": 8, "c": 9},
-        {"r": 8, "c": 10},
-        {"r": 9, "c": 8},
-        {"r": 9, "c": 9},
-        {"r": 9, "c": 10}
-      ]
+      "r": 4,
+      "c": 18,
+      "type": "metrix",
+      "message": "You found a magic herb",
+      "icon": "🌿",
+      "metrix": "hp",
+      "effect": "earn",
+      "points": 30
     },
     {
-      "r": 8,
-      "c": 9,
+      "r": 13,
+      "c": 0,
       "type": "metrix",
       "message": "You were burnt by the fire",
       "metrix": "hp",
       "effect": "lose",
       "points": 10,
       "icon": "🔥",
+      "once": 0
+    },
+    {
+      "r": 1,
+      "c": 17,
+      "type": "message",
+      "message": "A little ghost floats in a corner looking at you",
+      "icon": "👻",
       "once": 0
     }
   ]
