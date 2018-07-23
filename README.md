@@ -171,20 +171,20 @@ Well, this is not just a maze game.
 
 ## Params
 
-- `opponent` (string): name of the opponent (required)
-- `icon` (string): icon of the opponent (required)
-- `hp` (int): health points of the opponent (required)
-- `whoplays` (string): who attack first, "opponent" or "hero" (default: "hero")
-- `attacks` (array): attacks of the opponent (required)
-- `rewards` (array): events triggered when the opponent is defeated
+- `opponent` (string, required): name of the opponent
+- `icon` (string, required): icon of the opponent
+- `hp` (int, required): health points of the opponent
+- `whoplays` (string, optional, default: "hero"): who attack first, "opponent" or "hero"
+- `attacks` (array, required): attacks of the opponent
+- `rewards` (array, optional): events triggered when the opponent is defeated
 
 ## Attacks
 
 Each attack is an object defined with:
 
-- `name` (string): name of the attack (required)
-- `icon` (string): icon of the attack (default: opponent icon)
-- `hp` (int): number of health points inflicted (required)
+- `name` (string, required): name of the attack
+- `hp` (int, required): number of health points inflicted
+- `icon` (string, optional, default: opponent icon): icon of the attack
 
 ## Rewards
 
