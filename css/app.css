@@ -266,10 +266,10 @@ form {
 }
 
 .icon {
-  flex-basis: 4rem;
+  flex-basis: 5rem;
   flex-grow: 1;
   margin-right: 0.5rem;
-  font-size: 1.6rem;
+  font-size: 3rem;
   text-align: center;
 }
 
