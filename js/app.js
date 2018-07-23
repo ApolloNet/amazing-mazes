@@ -146,7 +146,7 @@ const maze = {
       }
       maze.cells[index].event = event
       if (event.type === 'start') {
-        action.init(event.r, event.c)
+        action.init(event)
       }
     })
   },
@@ -266,7 +266,11 @@ const maze = {
       }
     })
   },
-  removeEventCell: (r, c) => {
+  getEventFromCell: (r, c) => {
+    const cell = maze.getCell(r, c)
+    return cell.event
+  },
+  removeEventFromCell: (r, c) => {
     maze.cells.forEach((cell, index) => {
       if (cell.r === r && cell.c === c) {
         const cellDiv = maze.getCellDiv(r, c)
@@ -375,7 +379,8 @@ const hero = {
       }
     }
     maze.setCurrentFromDirection(direction)
-    action.init(maze.current.r, maze.current.c)
+    const event = maze.getEventFromCell(maze.current.r, maze.current.c)
+    action.init(event)
     maze.updateCurrentCell(maze.current.r, maze.current.c)
     hero.rotate(direction.name)
     game.over()
@@ -441,17 +446,19 @@ const hero = {
  * Action.
  */
 const action = {
-  init: (r, c) => {
-    const cell = maze.getCell(r, c)
-    if (!cell.event) {
+  init: (event) => {
+    // No event : random encounter, and return.
+    if (!event || !event.type) {
       hero.encounter()
       return
     }
-    if (action[cell.event.type]) {
-      action[cell.event.type](cell.event)
+    // Execute.
+    if (action[event.type]) {
+      action[event.type](event)
     }
-    if (cell.event.once === 1) {
-      maze.removeEventCell(r, c)
+    // Event happens once.
+    if (event.once === 1) {
+      maze.removeEventFromCell(event.r, event.c)
     }
   },
   fight: (event) => {
@@ -625,7 +632,7 @@ const fight = {
       return
     }
     fight.rewards.forEach((reward) => {
-      action.metrix(reward)
+      action.init(reward)
     })
   }
 }

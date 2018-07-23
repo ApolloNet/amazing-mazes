@@ -176,7 +176,7 @@ Well, this is not just a maze game.
 - `hp` (int): health points of the opponent (required)
 - `whoplays` (string): who attack first, "opponent" or "hero" (default: "hero")
 - `attacks` (array): attacks of the opponent (required)
-- `rewards` (array): objects earned when the opponent is defeated
+- `rewards` (array): events triggered when the opponent is defeated
 
 ## Attacks
 
@@ -188,14 +188,9 @@ Each attack is an object defined with:
 
 ## Rewards
 
-Each reward is an object defined with these params. Have a look at the _Metrix event_ for more infos.
+Each reward is an event object: `metrix`, `object`, or whatever you want to happen when the opponent is defeated.
 
-- `message` (string)
-- `object` (string)
-- `metrix` (string)
-- `effect` (string)
-- `points` (int)
-- `icon` (string)
+Reward events don't need `r`, `c` and `once` params.
 
 ## Example
 
