@@ -366,6 +366,7 @@ The object event is used to add an object to the hero's objects.
 
 A "🔦" torch is added to the hero objects when he comes on the cell at the 3rd row, 4th column.
 
+There are some special objects, see below for detailed informations.
 
 # Protected event
 
