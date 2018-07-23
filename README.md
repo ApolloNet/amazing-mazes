@@ -31,7 +31,7 @@ A maze is defined in Json format, with these settings:
 
 # Icons
 
-You can find unicode icons at [https://unicode-table.com/](https://unicode-table.com/), for instance.
+You can find unicode icons at [https://unicode-table.com/](https://unicode-table.com/en/blocks/miscellaneous-symbols-and-pictographs/), for instance.
 
 Simply copy / paste. It's just text.
 
