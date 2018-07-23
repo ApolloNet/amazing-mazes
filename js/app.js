@@ -6,13 +6,14 @@ import borders from './config.borders.js'
 import encounters from './config.encounters.js'
 import heroDefaultAttacks from './config.attacks.js'
 import icons from './config.icons.js'
-import {$} from './helpers.js'
+import {$, t} from './helpers.js'
 
 /**
  * Game.
  */
 const game = {
   status: 0,
+  translations: {},
   init: () => {
     const mazeFile = game.getMazeFromURL()
     game.initLoadForm()
@@ -28,6 +29,11 @@ const game = {
   initLoadForm: () => {
     const form = $('#loadForm')
     const select = $('#loadSelect')
+    const submit = $('#loadSubmit')
+    // Translations.
+    select.options[0].text = '- ' + t('Select a level') + ' -'
+    loadSubmit.value = t('Load')
+    // Load mazes in the select options.
     for (let Mazename in mazeFiles) {
       const option = document.createElement('option')
       const optionText = document.createTextNode(Mazename)
@@ -35,8 +41,9 @@ const game = {
       option.appendChild(optionText)
       select.appendChild(option)
     }
+    // Todo: if a maze is already loaded, display a confirm message.
     form.addEventListener('submit', () => {
-      // Todo: if a maze is already loaded, display a confirm message.
+      
     })
   },
   listenToKeyboard: () => {
@@ -58,8 +65,8 @@ const game = {
       game.status = 0
       body.classList.add('game-over')
       maze.updateCellDiv(maze.current.r, maze.current.c, 'lose')
-      game.writeMessage('Game over', 'red', '🕱')
-      game.writeMessage('<a href="' + document.location + '">Try again?</a>', '', '🗘')
+      game.writeMessage(t('Game over'), 'red', '🕱')
+      game.writeMessage('<a href="' + document.location + '">' + t('Try again?') + '</a>', '', '🗘')
     }
   },
   writeMessage: (message, color, icon) => {
@@ -89,6 +96,7 @@ const maze = {
   load: (mazeFile) => {
     // d3-fetch lib is loaded via html script tag.
     d3.json('mazes/' + mazeFile).then((data) => {
+      game.translations = data.translations
       maze.init(data)
       hero.init(data)
       game.listenToKeyboard()
@@ -221,7 +229,7 @@ const maze = {
   openTheDoor: (nextCell) => {
     const heroHasTheObject = hero.hasObject(nextCell.event.success.object)
     if (!heroHasTheObject) {
-      game.writeMessage(nextCell.event.message, '', nextCell.event.icon)
+      game.writeMessage(t(nextCell.event.message, game.translations), '', nextCell.event.icon)
       return false
     }
     return true
@@ -411,7 +419,7 @@ const hero = {
       'metrix': encounter.metrix,
       'effect': 'lose',
       'points': encounter.points,
-      'message': encounter.message,
+      'message': t(encounter.message),
       'icon': encounter.icon
     })
   },
@@ -424,7 +432,7 @@ const hero = {
       'metrix': 'hp',
       'effect': 'lose',
       'points': 1,
-      'message': 'You hit a wall',
+      'message': t('You hit a wall'),
       'icon': '💥'
     })
   },
@@ -467,17 +475,17 @@ const action = {
   learn: (event) => {
     hero.attacks.push(event.attack)
     hero.updateCharacterDiv('earn')
-    const message = event.message + '<br><em>' + event.attack.name + '</em> : ' + event.attack.hp + ' HP'
+    const message = t(event.message, game.translations) + '<br><em>' + event.attack.name + '</em> : ' + event.attack.hp + ' HP'
     game.writeMessage(message, '', event.icon)
   },
   light: () => {
     maze.light = maze.light === 0 ? 1 : 0
     const onoff = (maze.light === 0) ? 'off' : 'on'
     maze.switchLight()
-    game.writeMessage('You switched ' + onoff + ' the lights', '', icons.light)
+    game.writeMessage(t('You switched ' + onoff + ' the lights'), '', icons.light)
   },
   message: (event) => {
-    game.writeMessage(event.message, '', event.icon)
+    game.writeMessage(t(event.message, game.translations), '', event.icon)
   },
   metrix: (event) => {
     const points = parseInt(event.points)
@@ -490,40 +498,40 @@ const action = {
     if (!event.message) {
       return
     }
-    const message = event.message + '<br>you ' + event.effect + ' ' + event.points + ' '+ event.metrix
+    const message = t(event.message, game.translations) + '<br> ' + t('you ' + event.effect) + ' ' + event.points + ' '+ event.metrix
     const messageColor = (event.effect === 'lose') ? 'red' : ''
     game.writeMessage(message, messageColor, event.icon)
   },
   move: (event) => {
     maze.setCurrent(event.to.r, event.to.c)
     maze.updateCurrentCell()
-    game.writeMessage(event.message, '', event.icon)
+    game.writeMessage(t(event.message, game.translations), '', event.icon)
   },
   object: (event) => {
     hero.objects.push(event.object)
-    game.writeMessage(event.message, '', event.icon)
+    game.writeMessage(t(event.message, game.translations), '', event.icon)
   },
   protected: (event) => {
-    game.writeMessage(event.success.message, '', event.success.icon)
+    game.writeMessage(t(event.success.message, game.translations), '', event.success.icon)
   },
   reveal: (event) => {
     event.cells.forEach((cell) => {
       maze.updateSeenCell(cell.r, cell.c)
     })
-    game.writeMessage(event.message, '', event.icon)
+    game.writeMessage(t(event.message, game.translations), '', event.icon)
   },
   start: (event) => {
     maze.setCurrent(event.r, event.c)
-    game.writeMessage('Maze is loaded', '', '🞋')
-    game.writeMessage('<kbd>↑</kbd> <kbd>→</kbd> <kbd>↓</kbd> <kbd>←</kbd> to move', '', '⌨')
-    game.writeMessage(event.message, '', event.icon)
+    game.writeMessage(t('Game is loaded'), '', '🞋')
+    game.writeMessage('<kbd>↑</kbd> <kbd>→</kbd> <kbd>↓</kbd> <kbd>←</kbd> ' + t('to move'), '', '⌨')
+    game.writeMessage(t(event.message, game.translations), '', event.icon)
   },
   win: (event) => {
     game.status = 0
     maze.updateCellDiv(event.r, event.c, 'win')
     hero.updateCharacterDiv('earn')
-    game.writeMessage(event.message, 'green', event.icon)
-    game.writeMessage('<a href="' + document.location + '">Replay?</a>', '', '🗘')
+    game.writeMessage(t(event.message, game.translations), 'green', event.icon)
+    game.writeMessage('<a href="' + document.location + '">' + t('Replay?') + '</a>', '', '🗘')
   },
 }
 
@@ -538,9 +546,9 @@ const fight = {
   attacks: [],
   init: (event) => {
     game.status = 2
-    game.writeMessage(event.message, '', event.icon)
-    game.writeMessage('Fight mode on<br>You must defeat ' + event.opponent, 'red', '💥')
-    game.writeMessage('Press <kbd>Space bar</kbd> to fight', '', '⌨')
+    game.writeMessage(t(event.message, game.translations), '', event.icon)
+    game.writeMessage(t('Fight mode on') + '<br>' + t('You must defeat') + ' ' + event.opponent, 'red', '💥')
+    game.writeMessage(t('Press <kbd>Space bar</kbd> to fight'), '', '⌨')
     fight.changeBodyClass()
     fight.initData(event)
     fight.initMarkup()
@@ -590,7 +598,7 @@ const fight = {
     const opponentHp = $('#fight-opponent-hp')
     const attackNumber = game.getRandomNumber(hero.attacks.length)
     const attack = hero.attacks[attackNumber]
-    const message = attack.name + '<br>' + fight.opponent + ' loses ' + attack.hp + ' HP'
+    const message = '<em>' + t(attack.name, game.translations) + '</em><br>' + fight.opponent + ' ' + t('loses') + ' ' + attack.hp + ' HP'
     const icon = attack.icon ? attack.icon : hero.icon
     fight.hp -= attack.hp
     if (fight.hp < 0) {
@@ -603,7 +611,7 @@ const fight = {
     const heroHp = $('#fight-hero-hp')
     const attackNumber = game.getRandomNumber(fight.attacks.length)
     const attack = fight.attacks[attackNumber]
-    const message = attack.name + '<br>you lose ' + attack.hp + ' HP'
+    const message = '<em>' + t(attack.name, game.translations) + '</em><br>' + t('you lose') + ' ' + attack.hp + ' HP'
     const icon = attack.icon ? attack.icon : fight.icon
     action.metrix({
       'metrix': 'hp',
@@ -626,7 +634,7 @@ const fight = {
   },
   win: () => {
     game.status = 1
-    game.writeMessage('You defeated ' + fight.opponent, 'red', '✌')
+    game.writeMessage(t('You defeated') + ' ' + fight.opponent, 'red', '✌')
     fight.changeBodyClass()
     if (!fight.rewards) {
       return

@@ -57,5 +57,16 @@
       "icon": "🗲",
       "once": 0
     }
-  ]
+  ],
+  "translations": {
+    "Find the hidden treasure": {
+      "fr": "Trouve le trésor caché"
+    },
+    "You found the hidden treasure": {
+      "fr": "Tu as trouvé le trésor caché"
+    },
+    "You teleported": {
+      "fr": "Tu t'es télétransporté"
+    }
+  }
 }

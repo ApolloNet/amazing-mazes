@@ -45,5 +45,19 @@
       "points": 50,
       "icon": "🧛"
     }
-  ]
+  ],
+  "translations": {
+    "Find the hidden treasure<br>but beware of the vampire": {
+      "fr": "Trouve le trésor caché<br>mais attention au vampire"
+    },
+    "You found a Talisman": {
+      "fr": "Tu as trouvé un Talisman"
+    },
+    "You found the hidden treasure": {
+      "fr": "Tu as trouvé le trésor caché"
+    },
+    "You defeated a Vampire Boss": {
+      "fr": "Tu as terrassé un Boss Vampire"
+    }
+  }
 }

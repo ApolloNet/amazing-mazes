@@ -57,7 +57,7 @@
       "r": 3,
       "c": 6,
       "type": "reveal",
-      "message": "You walked on paving stone that made a strange noise",
+      "message": "You walked on a stone that made a strange noise",
       "icon": "👁",
       "cells": [
         {"r": 7, "c": 8},
@@ -113,7 +113,7 @@
       "rewards": [
         {
           "type": "object",
-          "message": "You found a little glowing star that shines in the darkness",
+          "message": "You found a little star that shines in the darkness",
           "effect": "earn",
           "object": "torch",
           "icon": "🟍"
@@ -190,9 +190,74 @@
       "r": 1,
       "c": 17,
       "type": "message",
-      "message": "A little ghost floats in a corner looking at you",
+      "message": "A ghost floats in a corner looking at you",
       "icon": "👻",
       "once": 0
     }
-  ]
+  ],
+  "translations": {
+    "Wind magic": {
+      "fr": "Magie du vent"
+    },
+    "Cloud strom": {
+      "fr": "Tempête de nuage"
+    },
+    "Inner sun burst": {
+      "fr": "Explosion de soleil intérieur"
+    },
+    "Find the hidden treasure": {
+      "fr": "Trouve le trésor caché"
+    },
+    "You found the hidden treasure": {
+      "fr": "Tu as trouvé le trésor caché"
+    },
+    "You walked on a stone that made a strange noise": {
+      "fr": "Tu as marché sur pierre qui a fait un bruit étrange"
+    },
+    "You found an old key": {
+      "fr": "Tu as trouvé une vieille clef"
+    },
+    "The door is locked. You should find a key": {
+      "fr": "La porte est verrouillée. Tu dois trouver la clef"
+    },
+    "You unlocked the door with the old key": {
+      "fr": "Tu as ouvert la porte avec la vieille clef"
+    },
+    "A bat flies in your hair": {
+      "fr": "Une chauve-souris vole dans tes cheveux"
+    },
+    "Bite": {
+      "fr": "Morsure"
+    },
+    "Fail": {
+      "fr": "Raté"
+    },
+    "You found a little star that shines in the darkness": {
+      "fr": "Tu as trouvé une petite étoile qui brille dans les noirceurs"
+    },
+    "You crossed a secret passage in the wall": {
+      "fr": "Tu a traversé le mur par un passage secret"
+    },
+    "That T-Rex won't let you pass": {
+      "fr": "Ce T-Rex ne te laissera pas passer"
+    },
+    "Long teeth bite": {
+      "fr": "Morsure longues dents"
+    },
+    "Tail stroke": {
+      "fr": "Coup de queue"
+    },
+    "Hmm, delicious!": {
+      "fr": "Hum, délicieux !"
+    },
+    "You found a magic herb": {
+      "fr": "Tu as trouvé une herbe magique"
+    },
+    "You were burnt by the fire": {
+      "fr": "Tu t'es brulé"
+    },
+    "A ghost floats in a corner looking at you": {
+      "fr": "Un fantôme flotte dans un coin en te regardant"
+    }
+  }
 }

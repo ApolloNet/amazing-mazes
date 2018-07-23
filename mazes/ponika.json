@@ -48,7 +48,7 @@
       "r": 2,
       "c": 3,
       "type": "object",
-      "message": "You found a torch and see further",
+      "message": "You found a torch. You can see farther",
       "effect": "earn",
       "object": "torch",
       "icon": "🔦"
@@ -131,5 +131,49 @@
       "icon": "🐁",
       "once": 0
     }
-  ]
+  ],
+  "translations": {
+    "Tail stroke": {
+      "fr": "Coup de queue"
+    },
+    "Long teeth bite": {
+      "fr": "Morsure à grandes dents"
+    },
+    "Hi! You are Tooth, a smart crododile. Find the hidden treasure": {
+      "fr": "Salut ! Tu es Canine, un crocodile plutôt malin. Trouve le trésor caché"
+    },
+    "You found the hidden treasure": {
+      "fr": "Tu as trouvé le trésor caché"
+    },
+    "Beware of the dragon": {
+      "fr": "Attention au dragon"
+    },
+    "You found a torch. You can see farther": {
+      "fr": "Tu as trouvé une torche. Tu peux voir plus loin."
+    },
+    "You found a dagger": {
+      "fr": "Tu as trouvé une dague"
+    },
+    "You learnt a new attack": {
+      "fr": "Tu as appris une nouvelle attaque"
+    },
+    "You found a Talisman": {
+      "fr": "Tu as trouvé un Talisman"
+    },
+    "You woke up a dragon": {
+      "fr": "Tu as réveillé un dragon"
+    },
+    "Red fire": {
+      "fr": "Feu rouge"
+    },
+    "You found a Broccoli": {
+      "fr": "Tu as trouvé un Broccoli"
+    },
+    "Rat attacks": {
+      "fr": "Attaque de rat"
+    },
+    "Bit your left foot": {
+      "fr": "Morsure au pied gauche"
+    }
+  }
 }

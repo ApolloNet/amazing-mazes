@@ -46,7 +46,7 @@
       "r": 1,
       "c": 1,
       "type": "object",
-      "message": "You found a torch and see further",
+      "message": "You found a torch. You can see farther",
       "object": "torch",
       "effect": "earn",
       "icon": "🔦"
@@ -62,5 +62,22 @@
       "points": 5,
       "icon": "🉤"
     }
-  ]
+  ],
+  "translations": {
+    "Find your beloved princess<br>but beware of holes": {
+      "fr": "Trouve ta princesse bien aimée<br>mais attention aux trous"
+    },
+    "You found your beloved princess": {
+      "fr": "Tu as trouvé ta princesse bien aimée"
+    },
+    "You fell into a hole": {
+      "fr": "Tu es tombé dans un trou"
+    },
+    "You found a torch. You can see farther": {
+      "fr": "Tu as trouvé une torche. Tu peux voir plus loin."
+    },
+    "You found a Talisman": {
+      "fr": "Tu as trouvé un Talisman"
+    }
+  }
 }
