@@ -7,10 +7,10 @@
 
 ## Fight
 
-- Fight gameplay: how to get it more fun ? Images don't move. A tempo is needed somehow ?
+- Fight gameplay: is it about time and space ?
 - Choose your attack in a set of attacks you got ?
 - Opponents, multiple
-- Enhance fight display: progress bar instead of HP numbers
+- Enhance fight display: progress bar along with of HP numbers
 - Use strength, what for ?
 
 ## Maze
@@ -26,7 +26,6 @@
 
 ## Misc
 
-- Unicode icons don't work on every systems. See [Unicode table](https://unicode-table.com/fr/101D5/), they load fonts !
 - English language review
 - Document default icons
 - Document functions, params, returns... What is the JS standard ?
@@ -37,6 +36,6 @@
 - A11y
 - RWD
 - What about touch buttons for mobile screens ?
-- Add browser support detection for modern JS, CSS grid layout...
 - Translation ?
 - Sound ?
+
