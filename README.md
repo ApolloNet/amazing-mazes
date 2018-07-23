@@ -48,8 +48,6 @@ Each one has defaults. Just add the ones you want to override in your json maze 
 
 `hp` (int, optional, default: 0): number of health points at start
 
-`strength` (int, optional, default: 0): number of strength point at start
-
 `attacks` (array, optional): attacks used in fights
 
 ## Attacks
@@ -123,7 +121,7 @@ For rows and columns, we start counting at zero. It is real computer programming
 
 `message`: display a message
 
-`metrix`: changes a metrix value (hp, strength...). See details below.
+`metrix`: changes a metrix value (only "hp" for the moment). See details below.
 
 `move`: moves the hero to another cell
 
@@ -291,13 +289,13 @@ At cell at the 5th row, 4th column, the message "🖹 Beware of the dragon" is d
 
 # Metrix event
 
-It is used to add or remove some hp or strength to the hero.
+It is used to add or remove some hp to the hero.
 
 ## Params
 
 `object` (string, optional): **TODO**
 
-`metrix` (string, required): Values can be `hp` or `strength`
+`metrix` (string, required): Values can only be `hp` for the moment
 
 `effect` (string, required): Values can be `earn` or `lose`
 

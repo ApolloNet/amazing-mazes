@@ -7,8 +7,8 @@ export default [
   },
   {
     'message': 'A little scorpion stung you',
-    'metrix': 'strength',
-    'points': 1,
+    'metrix': 'hp',
+    'points': 3,
     'icon': '🦂'
   },
   {

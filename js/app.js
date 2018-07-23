@@ -325,7 +325,6 @@ const hero = {
   name: 'Frodorik',
   icon: '🤺',
   hp: 0,
-  strength: 0,
   attacks: [],
   objects: [],
   direction: 'right',
@@ -336,11 +335,6 @@ const hero = {
       'metrix': 'hp',
       'effect': 'earn',
       'points': data.hero.hp
-    })
-    action.metrix({
-      'metrix': 'strength',
-      'effect': 'earn',
-      'points': data.hero.strength
     })
     maze.updateCurrentCell()
   },

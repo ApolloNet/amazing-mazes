@@ -3,8 +3,7 @@
   "hero": {
     "name": "Robert",
     "icon": "𐇐",
-    "hp": 100,
-    "strength": 50
+    "hp": 100
   },
   "cells": [
     ["trl", "tbl", "tb", "tr"],

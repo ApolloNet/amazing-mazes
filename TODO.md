@@ -18,7 +18,6 @@
 ## Maze
 
 - If a maze is already loaded, display a confirm message on select
-- Remove strength
 - Inventory : Display objects that the hero has
 - Add floors and stairs ?
 - Add random events to json config ?

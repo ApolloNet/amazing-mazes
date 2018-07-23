@@ -5,7 +5,6 @@
     "name": "Namae",
     "icon": "𐇕",
     "hp": 100,
-    "strength": 100,
     "attacks": [
       {
         "name": "Wind magic",

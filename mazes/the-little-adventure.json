@@ -3,8 +3,7 @@
   "hero": {
     "name": "Salim",
     "icon": "🚶",
-    "hp": 100,
-    "strength": 100
+    "hp": 100
   },
   "cells": [
     ["tl", "tb", "tr"],

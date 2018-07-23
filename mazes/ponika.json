@@ -4,7 +4,6 @@
     "name": "Tooth",
     "icon": "🐊",
     "hp": 100,
-    "strength": 100,
     "attacks": [
         {
           "name": "Tail stroke",
@@ -59,7 +58,7 @@
       "type": "metrix",
       "message": "You found a dagger",
       "object": "dagger",
-      "metrix": "strength",
+      "metrix": "hp",
       "effect": "earn",
       "points": 10,
       "icon": "🗡"
