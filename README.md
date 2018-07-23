@@ -92,34 +92,46 @@ And here is a little maze that has 3 rows and 3 columns:
 Each event will be attached to a cell. It is used for different purposes.
 It is defined like this:
 
-`r` (int, required): Row of the cell the event will be attached to.
+`r` (int, required): row of the cell the event will be attached to.
 
-`c` (int, required): Column of the cell will be attached to. Starts at zero too.
+`c` (int, required): column of the cell will be attached to. Starts at zero too.
 
 For rows and columns, we start counting at zero. It is real computer programming here ;-)
 
-`type` (string, required): One of these: 
+`type` (string, required): see below for detailed informations
 
-- `start`: defines where the game starts
-- `win`: defines where the game ends
-- `fight`: fight an opponent
-- `learn`: learn an attack
-- `light`: switches the lights of the entire maze on or off
-- `message`: display a message
-- `metrix`: changes a metrix value (hp, strength...). See details below.
-- `move`: moves the hero to another cell
-- `object`: adds an object to the hero's objects
-- `protected`: the hero can only come on this cell if he has got the appropriate object
-- `reveal`: switches the lights on of the some cells
+`message` (string, required): the message displayed when the hero comes to that event's cell. HTML markup libe `<br>` can be used here.
 
-`message` (string, required): The message displayed when the hero comes to that event's cell. HTML markup libe `<br>` can be used here.
-
-`icon` (string, optional): A unicode icon displayed when the hero comes to that event's cell.
+`icon` (string, optional): a unicode icon displayed when the hero comes to that event's cell.
 
 `once` (int, optional, default: "1"):
 
 - "0": the event occurs each time the hero comes to that event's cell
 - "1": the event occurs only one time
+
+## Event types
+
+`start`: defines where the game starts
+
+`win`: defines where the game ends
+
+`fight`: fight an opponent
+
+`learn`: learn an attack
+
+`light`: switches the lights of the entire maze on or off
+
+`message`: display a message
+
+`metrix`: changes a metrix value (hp, strength...). See details below.
+
+`move`: moves the hero to another cell
+
+`object`: adds an object to the hero's objects
+
+`protected`: the hero can only come on this cell if he has got the appropriate object
+
+`reveal`: switches the lights on of the some cells
 
 ## Required events
 
