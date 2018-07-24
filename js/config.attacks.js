@@ -20,7 +20,7 @@ export default [
     'hp': 0
   },
   {
-    'name': 'Kaméaméa',
+    'name': 'Kamehameha',
     'hp': 80
   }
 ]

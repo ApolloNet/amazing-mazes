@@ -64,5 +64,32 @@ export default {
   },
   'An little ogre tried to catch you': {
     'fr': "Un petit ogre a essayé de t'attraper"
+  },
+  'Kick': {
+    'fr': "Coup de pied"
+  },
+  'Punch': {
+    'fr': "Coup de poing"
+  },
+  'Headbutt': {
+    'fr': "Coup de tête"
+  },
+  'Pull the ears': {
+    'fr': "Tirer les oreilles"
+  },
+  'Fail': {
+    'fr': "Raté"
+  },
+  'Claw': {
+    'fr': "Griffe"
+  },
+  'Bite': {
+    'fr': "Morsure"
+  },
+  'Bone': {
+    'fr': "Coup d'os"
+  },
+  'You teleported': {
+    'fr': "Tu t'es télétransporté"
   }
 }

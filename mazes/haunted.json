@@ -1,0 +1,347 @@
+{
+  "name": "Haunted",
+  "light": 0,
+  "hero": {
+    "name": "Oscar",
+    "icon": "🕵",
+    "hp": 100
+  },
+  "cells": [
+    ["tl", "tb", "tb", "tb", "tr", "tl", "tb", "tb", "tb", "t", "tb", "tr"],
+    ["rl", "tl", "tr", "trl", "rl", "l", "tb", "tb", "trb", "rl", "tl", "r"],
+    ["rbl", "rl", "rl", "rl", "bl", "r", "tbl", "tb", "t", "", "rb", "rl"],
+    ["tbl", "rb", "bl", "", "tr", "l", "tb", "tb", "rb", "l", "tb", "rb"],
+    ["tbl", "t", "tr", "rbl", "rl", "rl", "trl", "tbl", "tr", "l", "tb", "tr"],
+    ["trl", "bl", "b", "tr", "bl", "rb", "l", "tr", "rl", "rl", "tl", "rb"],
+    ["l", "tb", "tb", "b", "tb", "tr", "rl", "bl", "b", "rb", "bl", "tr"],
+    ["rl", "tl", "tr", "tbl", "tr", "rl", "l", "tb", "tb", "tb", "tb", "r"],
+    ["l", "rb", "bl", "tr", "rl", "rl", "bl", "tr", "tl", "tb", "tr", "rl"],
+    ["l", "tr", "tl", "b", "rb", "bl", "tb", "rb", "rl", "trl", "rl", "rl"],
+    ["rl", "bl", "b", "tb", "t", "t", "t", "tr", "rl", "bl", "rb", "rl"],
+    ["bl", "tb", "tb", "trb", "lb", "b", "rb", "bl", "b", "tb", "tb", "rb"]
+  ],
+  "events": [
+    {
+      "r": 11,
+      "c": 5,
+      "type": "start",
+      "message": "You are Oscar, a private detective. It's dark. You enter a abandoned house.",
+      "icon": "🏰"
+    },
+    {
+      "r": 3,
+      "c": 0,
+      "type": "win",
+      "message": "You found the exit door of this mad house and you breathe the fresh air outside",
+      "icon": "🚪"
+    },
+    {
+      "r": 11,
+      "c": 3,
+      "type": "fight",
+      "message": "A wild lizard stares at you",
+      "opponent": "Lizard",
+      "icon": "🦎",
+      "hp": 55,
+      "once": 0,
+      "attacks": [
+        {
+          "name": "Claw",
+          "hp": 9
+        },
+        {
+          "name": "Tail",
+          "hp": 6
+        }
+      ]
+    },
+    {
+      "r": 9,
+      "c": 9,
+      "type": "object",
+      "message": "You found a torch",
+      "object": "torch",
+      "icon": "🔥"
+    },
+    {
+      "r": 11,
+      "c": 11,
+      "type": "fight",
+      "message": "A vampire comes out of the shadows",
+      "opponent": "Vampire",
+      "icon": "🧛",
+      "hp": 50,
+      "once": 0,
+      "attacks": [
+        {
+          "name": "Punch",
+          "hp": 10
+        },
+        {
+          "name": "Terrible laughter",
+          "hp": 5
+        }
+      ],
+      "rewards": [
+        {
+          "type": "metrix",
+          "message": "You found a Talisman",
+          "object": "talisman",
+          "metrix": "hp",
+          "effect": "earn",
+          "points": 20,
+          "icon": "🉥"
+        }
+      ]
+    },
+    {
+      "r": 6,
+      "c": 3,
+      "type": "reveal",
+      "message": "You press on a switch",
+      "icon": "💡",
+      "cells": [
+        {"r": 4, "c": 0},
+        {"r": 4, "c": 1},
+        {"r": 4, "c": 2},
+        {"r": 5, "c": 1},
+        {"r": 5, "c": 2},
+        {"r": 5, "c": 3}
+      ]
+    },
+    {
+      "r": 4,
+      "c": 0,
+      "type": "learn",
+      "message": "You found a golden sword",
+      "icon": "🗡",
+      "attack": {
+        "name": "Golden sword",
+        "hp": 77
+      }
+    },
+    {
+      "r": 7,
+      "c": 3,
+      "type": "metrix",
+      "message": "You drink a magic potion",
+      "icon": "🍶",
+      "metrix": "hp",
+      "effect": "earn",
+      "points": 50
+    },
+    {
+      "r": 4,
+      "c": 1,
+      "type": "fight",
+      "message": "A ghost wants to fight",
+      "opponent": "Ghost",
+      "icon": "👻",
+      "hp": 40,
+      "once": 0,
+      "whoplays": "opponent",
+      "attacks": [
+        {
+          "name": "Slime",
+          "hp": 10
+        },
+        {
+          "name": "Claw",
+          "hp": 5
+        }
+      ]
+    },
+    {
+      "r": 4,
+      "c": 2,
+      "type": "fight",
+      "message": "A bat files in your hair",
+      "opponent": "Bat",
+      "icon": "🦇",
+      "hp": 32,
+      "once": 0,
+      "attacks": [
+        {
+          "name": "Bite",
+          "hp": 9
+        },
+        {
+          "name": "Fail",
+          "hp": 0
+        }
+      ]
+    },
+    {
+      "r": 5,
+      "c": 1,
+      "type": "fight",
+      "message": "A snake waited for you",
+      "opponent": "Snake",
+      "icon": "🐍",
+      "hp": 35,
+      "once": 0,
+      "whoplays": "opponent",
+      "attacks": [
+        {
+          "name": "Bite",
+          "hp": 8
+        },
+        {
+          "name": "Fail",
+          "hp": 0
+        }
+      ]
+    },
+    {
+      "r": 5,
+      "c": 2,
+      "type": "fight",
+      "message": "A giant spider attacks you",
+      "opponent": "Spider",
+      "icon": "🕷",
+      "hp": 35,
+      "once": 0,
+      "whoplays": "opponent",
+      "attacks": [
+        {
+          "name": "Bite",
+          "hp": 8
+        },
+        {
+          "name": "Fail",
+          "hp": 0
+        }
+      ]
+    },
+    {
+      "r": 4,
+      "c": 7,
+      "type": "move",
+      "message": "You teleported",
+      "icon": "🗲",
+      "once": 0,
+      "to": {
+        "r": 1,
+        "c": 8
+      }
+    },
+    {
+      "r": 1,
+      "c": 8,
+      "type": "move",
+      "message": "You teleported",
+      "icon": "🗲",
+      "once": 0,
+      "to": {
+        "r": 4,
+        "c": 7
+      }
+    },
+    {
+      "r": 1,
+      "c": 6,
+      "type": "fight",
+      "message": "A skeleton attacks you",
+      "opponent": "Skeleton",
+      "icon": "💀",
+      "hp": 65,
+      "once": 0,
+      "whoplays": "opponent",
+      "attacks": [
+        {
+          "name": "Bone",
+          "hp": 27
+        },
+        {
+          "name": "Fail",
+          "hp": 0
+        }
+      ]
+    },
+    {
+      "r": 3,
+      "c": 3,
+      "type": "fight",
+      "message": "That zombie won't let you pass",
+      "opponent": "Zombie",
+      "icon": "🧟",
+      "hp": 113,
+      "once": 0,
+      "whoplays": "opponent",
+      "attacks": [
+        {
+          "name": "Worms",
+          "hp": 27
+        },
+        {
+          "name": "Fail",
+          "hp": 0
+        },
+        {
+          "name": "Punch",
+          "hp": 30
+        },
+        {
+          "name": "Terrible laughter",
+          "hp": 5
+        }
+      ]
+    }
+  ],
+  "translations": {
+    "You are Oscar, a private detective. It's dark. You enter a abandoned house.": {
+      "fr": "Vous êtes Oscar, détective privé. Il fait nuit. Vous entrez dans une maison abandonnée."
+    },
+    "You found the exit door of this mad house and you breathe the fresh air outside": {
+      "fr": "Vous avez trouvé la sortir de cette maison de fous et vous respirez l'air frais dehors"
+    },
+    "A vampire comes out of the shadows": {
+      "fr": "Un vampire sort de l'ombre"
+    },
+    "Terrible laughter": {
+      "fr" : "Rire effrayant"
+    },
+    "You found a Talisman": {
+      "fr": "Vous avez trouvé un Talisman"
+    },
+    "A wild lizard stares at you": {
+      "fr": "Un lézard féroce vous regarde fixement"
+    },
+    "You found a torch": {
+      "fr": "Vous avez trouvé une torche"
+    },
+    "You press on a switch": {
+      "fr": "tu appuies sur un interrupteur"
+    },
+    "You found a golden sword": {
+      "fr": "Vous avez trouvé une épée en or"
+    },
+    "Golden sword": {
+      "fr": "Épée en or"
+    },
+    "A ghost wants to fight": {
+      "fr": "Un fantôme veut se battre"
+    },
+    "A bat files in your hair": {
+      "fr": "Une chauve-souris vole dans vos cheveux"
+    },
+    "A snake waited for you": {
+      "fr": "Un serpent vous attendait"
+    },
+    "A giant spider attacks you": {
+      "fr": "Un araignée géante vous attaque"
+    },
+    "You drink a magic potion": {
+      "fr": "Vous buvez une potion magique"
+    },
+    "A skeleton attacks you": {
+      "fr": "Un squelette vous attaque"
+    },
+    "Worms": {
+      "fr": "Vers"
+    },
+    "That zombie won't let you pass": {
+      "fr": "Ce zombie ne vous laissera pas passer"
+    }
+  }
+}

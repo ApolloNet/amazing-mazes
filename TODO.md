@@ -7,6 +7,7 @@
 
 ## Fight
 
+- Add default attacks to the opponent
 - Display less messages : "Fight" + event.message + space bar
 - Attack.name should be Attack.message ?
 - Win event as a fight reward ?
@@ -17,6 +18,8 @@
 
 ## Maze
 
+- Add credits to the author in the json
+- Limited time ?
 - If a maze is already loaded, display a confirm message on select
 - Inventory : Display objects that the hero has
 - Add floors and stairs ?
@@ -29,6 +32,7 @@
 
 ## Misc
 
+- Document learn event
 - Document default icons
 - Remove form and use anchor links displayed in a (mary) popin ?
 - French translation

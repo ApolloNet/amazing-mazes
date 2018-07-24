@@ -3,5 +3,6 @@ export default  {
   'Second maze': 'second-maze.json',
   'Ponika': 'ponika.json',
   'Lost in transition': 'lost-in-transition.json',
-  'Craze maze': 'craze-maze.json'
+  'Craze maze': 'craze-maze.json',
+  'Haunted': 'haunted.json'
 }
