@@ -15,11 +15,15 @@ const game = {
   status: 0,
   translations: {},
   init: () => {
-    const mazeFile = game.getMazeFromURL()
+    const mazeFile = game.getMazeFromURL() ? game.getMazeFromURL() : game.getMazeRandomly()
     game.initLoadForm()
-    if (mazeFile) {
-      maze.load(mazeFile)
-    }
+    maze.load(mazeFile)
+  },
+  getMazeRandomly: () => {
+    const mazeFilesKeys = Object.keys(mazeFiles);
+    const rand = getRandomNumber(mazeFilesKeys.length)
+    const randomKey = mazeFilesKeys[rand]
+    return mazeFiles[randomKey]
   },
   getMazeFromURL: () => {
     const params = new URLSearchParams(document.location.search.substring(1))
