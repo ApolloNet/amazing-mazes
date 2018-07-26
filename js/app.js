@@ -6,7 +6,7 @@ import borders from './config.borders.js'
 import encounters from './config.encounters.js'
 import heroDefaultAttacks from './config.attacks.js'
 import icons from './config.icons.js'
-import {$, t} from './helpers.js'
+import {getRandomNumber, $, t} from './helpers.js'
 
 /**
  * Game.
@@ -55,9 +55,6 @@ const game = {
         fight.play()
       }
     })
-  },
-  getRandomNumber: (max) => {
-    return Math.floor(max * Math.random())
   },
   over: () => {
     if (hero.hp <= 0) {
@@ -404,7 +401,7 @@ const hero = {
     if (cell.event) {
       return
     }
-    const random = game.getRandomNumber(60)
+    const random = getRandomNumber(60)
     if (!encounters[random]) {
       return
     }
@@ -418,7 +415,7 @@ const hero = {
     })
   },
   hitAWall: () => {
-    const random = game.getRandomNumber(10)
+    const random = getRandomNumber(10)
     if (random != 1) {
       return
     }
@@ -590,7 +587,7 @@ const fight = {
   },
   heroAttacks: () => {
     const opponentHp = $('#fight-opponent-hp')
-    const attackNumber = game.getRandomNumber(hero.attacks.length)
+    const attackNumber = getRandomNumber(hero.attacks.length)
     const attack = hero.attacks[attackNumber]
     const message = '<em>' + t(attack.name, game.translations) + '</em><br>' + fight.opponent + ' ' + t('loses') + ' ' + attack.hp + ' HP'
     const icon = attack.icon ? attack.icon : hero.icon
@@ -603,7 +600,7 @@ const fight = {
   },
   opponentAttacks: () => {
     const heroHp = $('#fight-hero-hp')
-    const attackNumber = game.getRandomNumber(fight.attacks.length)
+    const attackNumber = getRandomNumber(fight.attacks.length)
     const attack = fight.attacks[attackNumber]
     const message = '<em>' + t(attack.name, game.translations) + '</em><br>' + t('you lose') + ' ' + attack.hp + ' HP'
     const icon = attack.icon ? attack.icon : fight.icon
