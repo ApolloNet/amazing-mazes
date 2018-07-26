@@ -32,14 +32,14 @@ export default {
   'You switched off the lights': {
     'fr': "Tu as éteint la lumière"
   },
-  'Fight mode on': {
-    'fr': "Mode combat activé"
+  'Fight': {
+    'fr': "Combat"
   },
   'You must defeat': {
     'fr': "Tu dois battre"
   },
-  'Press <kbd>Space bar</kbd> to fight': {
-    'fr': "Appuie sur <kbd>Espace</kbd> pour combattre"
+  '<kbd>Space bar</kbd> to fight': {
+    'fr': "<kbd>Espace</kbd> pour combattre"
   },
   'You defeated': {
     'fr': "Tu as vaincu"

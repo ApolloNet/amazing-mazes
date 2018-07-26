@@ -529,8 +529,10 @@ const action = {
     game.writeMessage(t(event.message, game.translations), '', event.icon)
   },
   start: (event) => {
+    const message = '<kbd>↑</kbd> <kbd>→</kbd> <kbd>↓</kbd> <kbd>←</kbd> ' + t('to move')
+      + '<br>' + t('<kbd>Space bar</kbd> to fight')
     maze.setCurrent(event.r, event.c)
-    game.writeMessage('<kbd>↑</kbd> <kbd>→</kbd> <kbd>↓</kbd> <kbd>←</kbd> ' + t('to move'), '', '⌨')
+    game.writeMessage(message, '', '⌨')
     game.writeMessage(t(event.message, game.translations), '', event.icon)
   },
   win: (event) => {
@@ -553,9 +555,7 @@ const fight = {
   attacks: [],
   init: (event) => {
     game.status = 2
-    game.writeMessage(t(event.message, game.translations), '', event.icon)
-    game.writeMessage(t('Fight mode on') + '<br>' + t('You must defeat') + ' ' + event.opponent, 'red', '💥')
-    game.writeMessage(t('Press <kbd>Space bar</kbd> to fight'), '', '⌨')
+    game.writeMessage('<strong>' + t('Fight') + '</strong><br>' + t(event.message, game.translations), 'red', event.icon)
     fight.changeBodyClass()
     fight.initData(event)
     fight.initMarkup()

@@ -1,13 +1,7 @@
 # TODO
 
-## Games
-
-- Create a detective game 🕵
-- Create mazes/adventures in space, school, street, office, ...
-
 ## Fight
 
-- Display less messages : "Fight" + event.message + space bar
 - Attack.name should be Attack.message ?
 - Win event as a fight reward ?
 - Fight gameplay: is it about time and space ?
@@ -44,3 +38,7 @@
 - Move that TODO.md to Github issues ?
 - Sound ?
 
+## Games
+
+- Create a detective game 🕵
+- Create mazes/adventures in space, school, street, office, ...
