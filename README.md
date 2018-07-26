@@ -17,6 +17,8 @@ A maze is defined in Json format, with these settings:
 
 `name` (string, required): name of the maze
 
+`authors` (string, optional): names of the creators of the maze
+
 `light` (int, optional):
 
 - "0": light off the entire maze (default)
