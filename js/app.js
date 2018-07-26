@@ -344,13 +344,10 @@ const hero = {
     const nameDiv = $('#hero-name')
     const iconDiv = $('#hero-icon')
     const hpDiv = $('#hero-hp')
-    hero.attacks = defaultAttacks
-    if (dataHero) {
-      hero.name = dataHero.name
-      hero.icon = dataHero.icon
-      hero.hp = dataHero.hp
-      hero.attacks = dataHero.attacks
-    }
+    hero.name = (dataHero && dataHero.name) ? dataHero.name : hero.name
+    hero.icon = (dataHero && dataHero.icon) ? dataHero.icon : hero.icon
+    hero.hp = (dataHero && dataHero.hp) ? dataHero.hp : hero.hp
+    hero.attacks = (dataHero && dataHero.attacks) ? dataHero.attacks : defaultAttacks
     nameDiv.innerHTML = hero.name
     iconDiv.innerHTML = hero.icon
     hpDiv.innerHTML = hero.hp
