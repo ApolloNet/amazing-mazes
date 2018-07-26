@@ -9,10 +9,9 @@
 
 ## Maze
 
-- Merge mutate and metrix events ?
 - Inventory : Display objects that the hero has
-- Add floors and stairs ?
 - Add random events to json config ?
+- Add floors and stairs ?
 - Allow multiple events on a cell ?
 - Protected event with an input text to unlock (ie: you found letters one by one, they form a word...)
 - Real images in alternative to unicode. Or not.
@@ -20,7 +19,7 @@
 
 ## Misc
 
-- variable names like $hero instead of heroDiv
+- Display or not the icon of an event on the maze. `secret` param ?
 - Document default icons
 - Remove form and use anchor links displayed in a (mary) popin ?
 - English language review

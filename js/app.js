@@ -35,19 +35,18 @@ const game = {
     return mazeFile
   },
   initLoadForm: () => {
-    const form = $('#loadForm')
-    const select = $('#loadSelect')
-    const submit = $('#loadSubmit')
+    const $select = $('#loadSelect')
+    const $submit = $('#loadSubmit')
     // Translations.
-    select.options[0].text = '- ' + t('Select a level') + ' -'
-    loadSubmit.value = t('Load')
+    $select.options[0].text = '- ' + t('Select a level') + ' -'
+    $submit.value = t('Load')
     // Load mazes in the select options.
     for (let Mazename in mazeFiles) {
       const option = document.createElement('option')
       const optionText = document.createTextNode(Mazename)
       option.setAttribute('value', mazeFiles[Mazename])
       option.appendChild(optionText)
-      select.appendChild(option)
+      $select.appendChild(option)
     }
   },
   listenToKeyboard: () => {
@@ -62,24 +61,24 @@ const game = {
   },
   over: () => {
     if (hero.hp <= 0) {
-      const body = $('body')
+      const $body = $('body')
       game.status = 0
-      body.classList.add('game-over')
+      $body.classList.add('game-over')
       maze.updateCellDiv(maze.current.r, maze.current.c, 'lose')
       game.writeMessage(t('Game over'), 'red', '🕱')
       game.writeMessage('<a href="' + document.location + '">' + t('Try again?') + '</a>', '', '🗘')
     }
   },
   writeMessage: (message, color, icon) => {
-    const messagesDiv = $('#messages')
-    const messageDiv = document.createElement('div')
-    messageDiv.innerHTML = '<div class="icon">' + (icon ? icon : '') + '</div>'
-    messageDiv.innerHTML += '<div class="text">' + message + '</div>'
-    messageDiv.classList.add('message')
+    const $messages = $('#messages')
+    const $message = document.createElement('div')
+    $message.innerHTML = '<div class="icon">' + (icon ? icon : '') + '</div>'
+    $message.innerHTML += '<div class="text">' + message + '</div>'
+    $message.classList.add('message')
     if (color) {
-      messageDiv.classList.add(color)
+      $message.classList.add(color)
     }
-    messagesDiv.insertBefore(messageDiv, messagesDiv.childNodes[0])
+    $messages.insertBefore($message, $messages.childNodes[0])
   }
 }
 
@@ -108,8 +107,8 @@ const maze = {
     )
   },
   isLoaded: () => {
-    const body = $('body')
-    body.classList.toggle('waiting')
+    const $body = $('body')
+    $body.classList.toggle('waiting')
     game.status = 1
   },
   init: (data) => {
@@ -123,8 +122,8 @@ const maze = {
     maze.switchLight()
   },
   initTitle: (name) => {
-    const titleDiv = $('#maze-title')
-    titleDiv.innerHTML = name
+    const $title = $('#maze-title')
+    $title.innerHTML = name
   },
   displayAuthors: (authors) => {
     if (authors) {
@@ -167,44 +166,44 @@ const maze = {
     })
   },
   updateMazeCSS: () => {
-    const mazeDiv = $('#maze')
+    const $maze = $('#maze')
     const cellWidth = 2.25
     const gutterWidth = 0.0625
     const cellBorderWidth = 0.0625
     const maxWidth = maze.size.c * (cellWidth + gutterWidth + cellBorderWidth)
-    mazeDiv.style.gridTemplateRows = 'repeat(' + maze.size.r + ', minmax(' + cellWidth + 'rem, auto))'
-    mazeDiv.style.gridTemplateColumns = 'repeat(' + maze.size.c + ', minmax(' + cellWidth + 'rem, auto))'
-    mazeDiv.style.maxWidth = maxWidth + 'rem'
+    $maze.style.gridTemplateRows = 'repeat(' + maze.size.r + ', minmax(' + cellWidth + 'rem, auto))'
+    $maze.style.gridTemplateColumns = 'repeat(' + maze.size.c + ', minmax(' + cellWidth + 'rem, auto))'
+    $maze.style.maxWidth = maxWidth + 'rem'
   },
   switchLight: () => {
-    const mazeDiv = $('#maze')
+    const $maze = $('#maze')
     if (maze.light === 0) {
-      mazeDiv.classList.add('dark')
-      mazeDiv.classList.remove('light')
+      $maze.classList.add('dark')
+      $maze.classList.remove('light')
     }
     else {
-      mazeDiv.classList.add('light')
-      mazeDiv.classList.remove('dark')
+      $maze.classList.add('light')
+      $maze.classList.remove('dark')
     }
   },
   drawCells: () => {
     maze.cells.forEach((cell) => {
-      const mazeDiv = $('#maze')
-      const cellDiv = document.createElement('div')
+      const $maze = $('#maze')
+      const $cell = document.createElement('div')
       const icon = (cell.event && cell.event.icon) ? cell.event.icon : ''
-      cellDiv.classList.add('cell')
+      $cell.classList.add('cell')
       borders.map((border) => {
         if (maze.isThereAWall(cell.r, cell.c, border.shortname)) {
-          cellDiv.classList.add('wall-' + border.shortname)
+          $cell.classList.add('wall-' + border.shortname)
         }
       })
       if (cell.seen === 0) {
-        cellDiv.classList.add('unseen')
+        $cell.classList.add('unseen')
       }
-      cellDiv.setAttribute('data-r', cell.r)
-      cellDiv.setAttribute('data-c', cell.c)
-      cellDiv.setAttribute('data-icon', icon)
-      mazeDiv.appendChild(cellDiv)
+      $cell.setAttribute('data-r', cell.r)
+      $cell.setAttribute('data-c', cell.c)
+      $cell.setAttribute('data-icon', icon)
+      $maze.appendChild($cell)
     })
   },
   getCell: (r, c) => {
@@ -250,24 +249,24 @@ const maze = {
     }
   },
   updateCurrentCellCSS: () => {
-    const cellsDivs = document.querySelectorAll('.cell')
-    const cellDiv = maze.getCellDiv(maze.current.r, maze.current.c)
+    const $cells = document.querySelectorAll('.cell')
+    const $currentCell = maze.getCellDiv(maze.current.r, maze.current.c)
     ;
-    [].forEach.call(cellsDivs, (cellDiv) => {
-      cellDiv.classList.remove('current')
-      cellDiv.setAttribute('data-current', '')
+    [].forEach.call($cells, ($cell) => {
+      $cell.classList.remove('current')
+      $cell.setAttribute('data-current', '')
     })
-    cellDiv.classList.add('current')
-    cellDiv.setAttribute('data-current', hero.icon)
+    $currentCell.classList.add('current')
+    $currentCell.setAttribute('data-current', hero.icon)
   },
   updateSeenCell: (r, c) => {
-    const cellDiv = maze.getCellDiv(r, c)
+    const $cell = maze.getCellDiv(r, c)
     maze.cells.forEach((cell, index) => {
       if (cell.r === r && cell.c === c) {
         maze.cells[index].seen = 1
       }
     })
-    cellDiv.classList.remove('unseen')
+    $cell.classList.remove('unseen')
   },
   updateNearbyCells: (r, c) => {
     borders.map((border) => {
@@ -289,22 +288,22 @@ const maze = {
   removeEventFromCell: (r, c) => {
     maze.cells.forEach((cell, index) => {
       if (cell.r === r && cell.c === c) {
-        const cellDiv = maze.getCellDiv(r, c)
-        if (cellDiv) {
-          cellDiv.setAttribute('data-icon', '')
+        const $cell = maze.getCellDiv(r, c)
+        if ($cell) {
+          $cell.setAttribute('data-icon', '')
         }
         maze.cells[index].event = null
       }
     })
   },
   updateCellDiv: (r, c, CssClass) => {
-    const cellsDivs = document.querySelectorAll('.cell')
-    const cellDiv = maze.getCellDiv(r, c)
+    const $cells = document.querySelectorAll('.cell')
+    const $currentCell = maze.getCellDiv(r, c)
     ;
-    [].forEach.call(cellsDivs, (cellDiv)  => {
-      cellDiv.classList.remove(CssClass)
+    [].forEach.call($cells, ($cell)  => {
+      $cell.classList.remove(CssClass)
     })
-    cellDiv.classList.add(CssClass)
+    $currentCell.classList.add(CssClass)
   },
   getCellDiv: (r, c) => {
     return $('.cell[data-r="' + r + '"][data-c="' + c + '"]')
@@ -341,26 +340,26 @@ const hero = {
     maze.updateCurrentCell()
   },
   update: (dataHero) => {
-    const nameDiv = $('#hero-name')
-    const iconDiv = $('#hero-icon')
-    const hpDiv = $('#hero-hp')
+    const $name = $('#hero-name')
+    const $icon = $('#hero-icon')
+    const $hp = $('#hero-hp')
     hero.name = (dataHero && dataHero.name) ? dataHero.name : hero.name
     hero.icon = (dataHero && dataHero.icon) ? dataHero.icon : hero.icon
     hero.hp = (dataHero && dataHero.hp) ? dataHero.hp : hero.hp
     hero.attacks = (dataHero && dataHero.attacks) ? dataHero.attacks : defaultAttacks
-    nameDiv.innerHTML = hero.name
-    iconDiv.innerHTML = hero.icon
-    hpDiv.innerHTML = hero.hp
+    $name.innerHTML = hero.name
+    $icon.innerHTML = hero.icon
+    $hp.innerHTML = hero.hp
   },
   updateMetrixDiv: (metrix) => {
     const metrixDiv = $('#hero-' + metrix)
     metrixDiv.innerHTML = hero[metrix]
   },
   updateCharacterDiv: (effect) => {
-    const heroDiv = $('#hero')
-    heroDiv.classList.add('character-' + effect)
+    const $hero = $('#hero')
+    $hero.classList.add('character-' + effect)
     window.setTimeout(() => {
-      heroDiv.classList.remove('character-' + effect)
+      $hero.classList.remove('character-' + effect)
     }, 500)
     
   },
@@ -391,15 +390,15 @@ const hero = {
     game.over()
   },
   rotate: (directionName) => {
-    const currentCellDiv = $('.current')
+    const $currentCell = $('.current')
     if (directionName === 'left' || directionName === 'right') {
       hero.direction = directionName
     }
     if (hero.direction === 'left') {
-      currentCellDiv.classList.add('direction-left')
+      $currentCell.classList.add('direction-left')
     }
     if (hero.direction === 'right') {
-      currentCellDiv.classList.remove('direction-left')
+      $currentCell.classList.remove('direction-left')
     }
   },
   encounter: () => {
@@ -572,18 +571,18 @@ const fight = {
     }
   },
   initMarkup: () => {
-    const heroName = $('#fight-hero-name')
-    const heroIcon = $('#fight-hero-icon')
-    const heroHp = $('#fight-hero-hp')
-    const opponentName = $('#fight-opponent-name')
-    const opponentIcon = $('#fight-opponent-icon')
-    const opponentHp = $('#fight-opponent-hp')
-    heroName.innerHTML = hero.name
-    heroIcon.innerHTML = hero.icon
-    heroHp.innerHTML = hero.hp
-    opponentName.innerHTML = fight.opponent
-    opponentIcon.innerHTML = fight.icon
-    opponentHp.innerHTML = fight.hp
+    const $heroName = $('#fight-hero-name')
+    const $heroIcon = $('#fight-hero-icon')
+    const $heroHp = $('#fight-hero-hp')
+    const $opponentName = $('#fight-opponent-name')
+    const $opponentIcon = $('#fight-opponent-icon')
+    const $opponentHp = $('#fight-opponent-hp')
+    $heroName.innerHTML = hero.name
+    $heroIcon.innerHTML = hero.icon
+    $heroHp.innerHTML = hero.hp
+    $opponentName.innerHTML = fight.opponent
+    $opponentIcon.innerHTML = fight.icon
+    $opponentHp.innerHTML = fight.hp
   },
   play: () => {
     if (fight.whoplays === 'hero') {
@@ -595,7 +594,7 @@ const fight = {
     fight.next()
   },
   heroAttacks: () => {
-    const opponentHp = $('#fight-opponent-hp')
+    const $opponentHp = $('#fight-opponent-hp')
     const attackNumber = getRandomNumber(hero.attacks.length)
     const attack = hero.attacks[attackNumber]
     const message = '<em>' + t(attack.name, game.translations) + '</em><br>' + fight.opponent + ' ' + t('loses') + ' ' + attack.hp + ' HP'
@@ -604,11 +603,11 @@ const fight = {
     if (fight.hp < 0) {
       fight.hp = 0
     }
-    opponentHp.innerHTML = fight.hp
+    $opponentHp.innerHTML = fight.hp
     game.writeMessage(message, '', icon)
   },
   opponentAttacks: () => {
-    const heroHp = $('#fight-hero-hp')
+    const $heroHp = $('#fight-hero-hp')
     const attackNumber = getRandomNumber(fight.attacks.length)
     const attack = fight.attacks[attackNumber]
     const message = '<em>' + t(attack.name, game.translations) + '</em><br>' + t('you lose') + ' ' + attack.hp + ' HP'
@@ -618,7 +617,7 @@ const fight = {
       'effect': 'lose',
       'points': attack.hp
     })
-    heroHp.innerHTML = hero.hp
+    $heroHp.innerHTML = hero.hp
     game.writeMessage(message, '', icon)
   },
   next: () => {
