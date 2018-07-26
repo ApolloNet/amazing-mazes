@@ -48,7 +48,7 @@ Each one has defaults. Just add the ones you want to override in your json maze 
 
 `icon` (string, optional, default: 🤺): a unicode icon that represents the hero
 
-`hp` (int, optional, default: 0): number of health points at start
+`hp` (int, optional, default: 100): number of health points at start
 
 `attacks` (array, optional): attacks used in fights
 

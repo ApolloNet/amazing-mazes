@@ -7,7 +7,6 @@
 
 ## Fight
 
-- Add default attacks to the opponent
 - Display less messages : "Fight" + event.message + space bar
 - Attack.name should be Attack.message ?
 - Win event as a fight reward ?
@@ -31,7 +30,6 @@
 
 ## Misc
 
-- Make hero param optional
 - Document default icons
 - Remove form and use anchor links displayed in a (mary) popin ?
 - English language review

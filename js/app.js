@@ -336,30 +336,32 @@ const maze = {
 const hero = {
   name: 'Frodorik',
   icon: '🤺',
-  hp: 0,
+  hp: 100,
   attacks: [],
   objects: [],
   direction: 'right',
   init: (data) => {
-    hero.initNameAndIcon(data)
+    hero.initDisplay(data)
     hero.initAttacks(data)
-    action.metrix({
+    maze.updateCurrentCell()
+  },
+  initDisplay: (data) => {
+    const iconDiv = $('#hero-icon')
+    const nameDiv = $('#hero-name')
+    if (data.hero) {
+      hero.name = data.hero.name ? data.hero.name : hero.name
+      hero.icon = data.hero.icon ? data.hero.icon : hero.icon
+      action.metrix({
       'metrix': 'hp',
       'effect': 'earn',
       'points': data.hero.hp
     })
-    maze.updateCurrentCell()
-  },
-  initNameAndIcon: (data) => {
-    const iconDiv = $('#hero-icon')
-    const nameDiv = $('#hero-name')
-    hero.name = data.hero.name ? data.hero.name : hero.name
-    hero.icon = data.hero.icon ? data.hero.icon : hero.icon
+    }
     iconDiv.innerHTML = hero.icon
     nameDiv.innerHTML = hero.name
   },
   initAttacks: (data) => {
-    hero.attacks = data.hero.attacks ? data.hero.attacks : defaultAttacks
+    hero.attacks = (data.hero && data.hero.attacks) ? data.hero.attacks : defaultAttacks
   },
   updateMetrixDiv: (metrix) => {
     const metrixDiv = $('#hero-' + metrix)
