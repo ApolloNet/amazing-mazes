@@ -1,6 +1,6 @@
 # Amazing Mazes
 
-Amazing mazes is little game engine created just for fun.
+Amazing mazes is a little game engine created just for fun.
 
 Play at [https://apollonet.github.io/amazing-mazes/](https://apollonet.github.io/amazing-mazes/)
 
@@ -248,6 +248,36 @@ The message "🐉 You woke up a dragon" is displayed.
 The opponent is Dragon, it has 100 hp. Its attacks are "Red fire" that inflicts 50 hp, and "Tail stroke" that inflicts 10 hp.
 
 When the opponent is defeated, the message "🥦 You found a Broccoli" is displayed. And the hero earn 20 hp.
+
+
+# Learn event
+
+This event is used to add an attack to the hero.
+
+## Params
+
+`attack` (object, required): The attack learnt
+
+The `attack` object is defined with:
+
+`name` (string, required): Name of the attack
+
+`hp` (int, required): HP damages
+
+## Example
+
+```
+"r": 5,
+"c": 1,
+"type": "learn",
+"message": "You learnt a new attack",
+"attack": {
+  "name": "Croco punch",
+  "hp": 20
+}
+```
+
+At cell at 6th row, 2nd column, the hero learns the attack "Croco punch" that inflicts 20 hp damages.
 
 
 # Light event
