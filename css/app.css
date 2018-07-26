@@ -33,22 +33,13 @@ a {
 a:focus,
 a:hover {
   color: #fff;
+  text-decoration: none;
 }
 
 kbd {
   padding: 0.25rem;
   background-color: #000;
   border: 1px solid #222;
-}
-
-/* Form */
-
-form {
-  
-}
-
-.form-item {
-  display: inline-block;
 }
 
 /* Main content */
@@ -64,11 +55,46 @@ form {
   text-align: center;
 }
 
-.main-title,
-.load-form,
-.fork-me {
+.main-header > * {
   display: inline-block;
   margin-right: 3rem;
+}
+
+/* Mazes list */
+
+.mazes-list {
+  display: none;
+  z-index: 3;
+  position: absolute;
+  top: 6rem;
+  left: calc(50% - 20rem);
+  width: 40rem;
+  padding: 1rem;
+  background: #111;
+  border: 1px solid #222;
+  text-align: left;
+}
+
+.mazes-list:target {
+  display: block;
+}
+
+.mazes-list h2 {
+  text-align: left;
+}
+
+.mazes-list .close {
+  float: right;
+}
+
+.mazes-list ul {
+  padding: 0;
+  list-style: none;
+}
+
+.mazes-list li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #222;
 }
 
 /* Game */
@@ -80,7 +106,7 @@ form {
 
 .game {
   flex-grow: 1;
-  padding: 1rem;
+  padding: 2rem;
 }
 
 .maze {

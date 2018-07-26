@@ -13,23 +13,20 @@
 <body class="waiting">
   <div class="main-content">
     <header id="main-header" class="main-header">
-      <h1 class="main-title">🞋 Amazing Mazes</h1>
-      <form class="load-form" id="loadForm" action="index.html" method="get">
-        <div class="form-item">
-          <select name="load" id="loadSelect">
-            <option value="">- Select a level -</option>
-          </select>
-        </div>
-        <div class="form-item">
-          <input type="submit" id="loadSubmit" value="Load">
-        </div>
-      </form>
+      <h1 class="main-title">🞋 <span id="maze-title">Amazing Mazes</span></h1>
+      <div>
+        <a href="#mazes-list">Load another</a>
+      </div>
+      <div id="mazes-list" class="mazes-list">
+        <a href="#" class="close">Close</a>
+        <h2>Mazes</h2>
+        <ul></ul>
+      </div>
       <p class="fork-me">
         <a href="https://github.com/ApolloNet/amazing-mazes/">Fork me</a>
       </p>
     </header>
     <main id="game" class="game">
-      <h2 id="maze-title"></h2>
       <div id="maze" class="maze"></div>
       <div id="fight" class="fight">
         <div id="fight-hero" class="character fight-hero">

@@ -21,7 +21,7 @@
 
 - Display or not the icon of an event on the maze. `secret` param ?
 - Document default icons
-- Remove form and use anchor links displayed in a (mary) popin ?
+- Display more infos in the maze selection list
 - English language review
 - Rename protected / success => lock / unlock ?
 - Is 'earn' the righ verb ? Win ? Gain ?

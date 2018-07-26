@@ -1,8 +1,8 @@
 export default  {
-  'The little adventure': 'the-little-adventure.json',
-  'Second maze': 'second-maze.json',
-  'Ponika': 'ponika.json',
-  'Lost in transition': 'lost-in-transition.json',
-  'Craze maze': 'craze-maze.json',
-  'Haunted': 'haunted.json'
+  'the-little-adventure': 'The little adventure',
+  'second-maze': 'Second maze',
+  'ponika': 'Ponika',
+  'lost-in-transition': 'Lost in transition',
+  'craze-maze': 'Craze maze',
+  'haunted': 'Haunted'
 }

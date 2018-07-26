@@ -15,38 +15,37 @@ const game = {
   status: 0,
   translations: {},
   init: () => {
-    const mazeFile = game.getMazeFromURL()
+    const mazeFile = game.loadMazeFromURL()
     if (!mazeFile) {
-      game.getRandomMaze()
+      game.loadRandomMaze()
+      return
     }
-    game.initLoadForm()
+    game.initMazesList()
     maze.load(mazeFile)
   },
-  getRandomMaze: () => {
-    const mazeFilesKeys = Object.keys(mazeFiles);
-    const rand = getRandomNumber(mazeFilesKeys.length)
-    const randomKey = mazeFilesKeys[rand]
-    const maze = mazeFiles[randomKey]
-    document.location += '?load=' + maze
-  },
-  getMazeFromURL: () => {
+  loadMazeFromURL: () => {
+    if (!document.location.search) {
+      return
+    }
     const params = new URLSearchParams(document.location.search.substring(1))
     const mazeFile = params.get('load')
-    return mazeFile
+    return mazeFile + '.json'
   },
-  initLoadForm: () => {
-    const $select = $('#loadSelect')
-    const $submit = $('#loadSubmit')
-    // Translations.
-    $select.options[0].text = '- ' + t('Select a level') + ' -'
-    $submit.value = t('Load')
-    // Load mazes in the select options.
-    for (let Mazename in mazeFiles) {
-      const option = document.createElement('option')
-      const optionText = document.createTextNode(Mazename)
-      option.setAttribute('value', mazeFiles[Mazename])
-      option.appendChild(optionText)
-      $select.appendChild(option)
+  loadRandomMaze: () => {
+    const mazeFilesKeys = Object.keys(mazeFiles);
+    const rand = getRandomNumber(mazeFilesKeys.length)
+    document.location.search = 'load=' + mazeFilesKeys[rand]
+  },
+  initMazesList: () => {
+    const $mazesList = $('#mazes-list ul')
+    for (let mazeName in mazeFiles) {
+      const listItem = document.createElement('li')
+      const link = document.createElement('a')
+      const linkText = document.createTextNode(mazeFiles[mazeName])
+      link.setAttribute('href', '/?load=' + mazeName)
+      link.appendChild(linkText)
+      listItem.appendChild(link)
+      $mazesList.appendChild(listItem)
     }
   },
   listenToKeyboard: () => {
