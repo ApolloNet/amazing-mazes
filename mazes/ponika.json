@@ -12,6 +12,10 @@
         {
           "name": "Long teeth bite",
           "hp": 50
+        },
+        {
+          "name": "Kamehameha",
+          "hp": 80
         }
     ]
   },

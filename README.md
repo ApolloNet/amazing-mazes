@@ -191,7 +191,7 @@ Well, this is not just a maze game.
 
 `whoplays` (string, optional, default: "hero"): who attack first, "opponent" or "hero"
 
-`attacks` (array, required): attacks of the opponent
+`attacks` (array, optional): attacks of the opponent
 
 `rewards` (array, optional): events triggered when the opponent is defeated
 

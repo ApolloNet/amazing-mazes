@@ -31,6 +31,7 @@
 
 ## Misc
 
+- Make hero param optional
 - Document default icons
 - Remove form and use anchor links displayed in a (mary) popin ?
 - English language review

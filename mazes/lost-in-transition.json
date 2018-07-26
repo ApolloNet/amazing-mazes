@@ -55,6 +55,16 @@
       },
       "icon": "🗲",
       "once": 0
+    },
+    {
+      "r": 6,
+      "c": 6,
+      "type": "fight",
+      "message": "That merperson won't let you pass",
+      "opponent": "Merperson",
+      "hp": 60,
+      "icon": "🧜",
+      "once": 0
     }
   ],
   "translations": {
@@ -66,6 +76,9 @@
     },
     "You teleported": {
       "fr": "Tu t'es télétransporté"
+    },
+    "That merperson won't let you pass": {
+      "fr": "Cette sirène ne te laissera pas passer"
     }
   }
 }

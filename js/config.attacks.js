@@ -18,9 +18,5 @@ export default [
   {
     'name': 'Fail',
     'hp': 0
-  },
-  {
-    'name': 'Kamehameha',
-    'hp': 80
   }
 ]

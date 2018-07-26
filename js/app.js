@@ -4,7 +4,7 @@
 import mazeFiles from './config.mazefiles.js'
 import borders from './config.borders.js'
 import encounters from './config.encounters.js'
-import heroDefaultAttacks from './config.attacks.js'
+import defaultAttacks from './config.attacks.js'
 import icons from './config.icons.js'
 import {getRandomNumber, $, t} from './helpers.js'
 
@@ -359,7 +359,7 @@ const hero = {
     nameDiv.innerHTML = hero.name
   },
   initAttacks: (data) => {
-    hero.attacks = data.hero.attacks ? data.hero.attacks : heroDefaultAttacks
+    hero.attacks = data.hero.attacks ? data.hero.attacks : defaultAttacks
   },
   updateMetrixDiv: (metrix) => {
     const metrixDiv = $('#hero-' + metrix)
@@ -564,7 +564,7 @@ const fight = {
     fight.opponent = event.opponent
     fight.icon = event.icon
     fight.hp = event.hp
-    fight.attacks = event.attacks
+    fight.attacks = event.attacks ? event.attacks : defaultAttacks
     fight.rewards = event.rewards
   },
   changeBodyClass: () => {
