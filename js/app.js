@@ -537,7 +537,7 @@ const action = {
   },
   win: (event) => {
     game.status = 0
-    maze.updateCellDiv(event.r, event.c, 'win')
+    maze.updateCellDiv(maze.current.r, maze.current.c, 'win')
     hero.updateCharacterDiv('earn')
     game.writeMessage(t(event.message, game.translations), 'green', event.icon)
     game.writeMessage('<a href="' + document.location + '">' + t('Replay?') + '</a>', '', '🗘')

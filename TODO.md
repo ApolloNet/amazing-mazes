@@ -3,7 +3,6 @@
 ## Fight
 
 - Attack.name should be Attack.message ?
-- Win event as a fight reward ?
 - Fight gameplay: is it about time and space ?
 - Choose your attack in a set of attacks you got ?
 - Opponents, multiple
