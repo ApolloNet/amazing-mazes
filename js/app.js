@@ -49,10 +49,6 @@ const game = {
       option.appendChild(optionText)
       select.appendChild(option)
     }
-    // Todo: if a maze is already loaded, display a confirm message.
-    form.addEventListener('submit', () => {
-      
-    })
   },
   listenToKeyboard: () => {
     document.addEventListener('keydown', (e) => {
@@ -341,27 +337,23 @@ const hero = {
   objects: [],
   direction: 'right',
   init: (data) => {
-    hero.initDisplay(data)
-    hero.initAttacks(data)
+    hero.update(data.hero)
     maze.updateCurrentCell()
   },
-  initDisplay: (data) => {
-    const iconDiv = $('#hero-icon')
+  update: (dataHero) => {
     const nameDiv = $('#hero-name')
-    if (data.hero) {
-      hero.name = data.hero.name ? data.hero.name : hero.name
-      hero.icon = data.hero.icon ? data.hero.icon : hero.icon
-      action.metrix({
-      'metrix': 'hp',
-      'effect': 'earn',
-      'points': data.hero.hp
-    })
+    const iconDiv = $('#hero-icon')
+    const hpDiv = $('#hero-hp')
+    hero.attacks = defaultAttacks
+    if (dataHero) {
+      hero.name = dataHero.name
+      hero.icon = dataHero.icon
+      hero.hp = dataHero.hp
+      hero.attacks = dataHero.attacks
     }
-    iconDiv.innerHTML = hero.icon
     nameDiv.innerHTML = hero.name
-  },
-  initAttacks: (data) => {
-    hero.attacks = (data.hero && data.hero.attacks) ? data.hero.attacks : defaultAttacks
+    iconDiv.innerHTML = hero.icon
+    hpDiv.innerHTML = hero.hp
   },
   updateMetrixDiv: (metrix) => {
     const metrixDiv = $('#hero-' + metrix)
@@ -514,6 +506,10 @@ const action = {
     maze.setCurrent(event.to.r, event.to.c)
     maze.updateCurrentCell()
     game.writeMessage(t(event.message, game.translations), '', event.icon)
+  },
+  mutate: (event) => {
+    hero.update(event.hero)
+    game.writeMessage(t(event.message, game.translations), 'yellow', event.icon)
   },
   object: (event) => {
     hero.objects.push(event.object)

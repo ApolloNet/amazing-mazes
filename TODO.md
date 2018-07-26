@@ -2,7 +2,6 @@
 
 ## Fight
 
-- Attack.name should be Attack.message ?
 - Fight gameplay: is it about time and space ?
 - Choose your attack in a set of attacks you got ?
 - Opponents, multiple
@@ -10,19 +9,18 @@
 
 ## Maze
 
-- Limited time ?
-- If a maze is already loaded, display a confirm message on select
+- Merge mutate and metrix events ?
 - Inventory : Display objects that the hero has
 - Add floors and stairs ?
 - Add random events to json config ?
 - Allow multiple events on a cell ?
-- Transmutation event ?
-- Move faster ? 🚴 🏇
 - Protected event with an input text to unlock (ie: you found letters one by one, they form a word...)
 - Real images in alternative to unicode. Or not.
+- Limited time ?
 
 ## Misc
 
+- variable names like $hero instead of heroDiv
 - Document default icons
 - Remove form and use anchor links displayed in a (mary) popin ?
 - English language review

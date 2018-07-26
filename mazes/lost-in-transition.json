@@ -30,6 +30,28 @@
       "once": 0
     },
     {
+      "r": 6,
+      "c": 0,
+      "type": "mutate",
+      "message": "You're now a tiger",
+      "icon": "🐅",
+      "hero": {
+        "name": "Tiger",
+        "icon": "🐅",
+        "hp": 200,
+        "attacks": [
+          {
+            "name": "Claw",
+            "hp": 30
+          },
+          {
+            "name": "Bite",
+            "hp": 40
+          }
+        ]
+      }
+    },
+    {
       "r": 2,
       "c": 2,
       "type": "move",
@@ -70,6 +92,9 @@
     },
     "You found the hidden treasure": {
       "fr": "Tu as trouvé le trésor caché"
+    },
+    "You're now a tiger": {
+      "fr": "Tu t'es transformé en tigre"
     },
     "You teleported": {
       "fr": "Tu t'es télétransporté"

@@ -261,6 +261,10 @@ form {
   color: red;
 }
 
+.yellow .text {
+  color: yellow;
+}
+
 .icon {
   flex-basis: 5rem;
   flex-grow: 1;

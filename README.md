@@ -127,6 +127,8 @@ For rows and columns, we start counting at zero. It is real computer programming
 
 `move`: moves the hero to another cell
 
+`mutate`: transforms the hero's name, icon and hp
+
 `object`: adds an object to the hero's objects
 
 `protected`: the hero can only come on this cell if he has got the appropriate object
@@ -376,6 +378,48 @@ At cell that is at 3rd row, 3rd column , the hero is moved to the cell at the 5t
 The message "🗲 You teleported" is displayed.
 
 The event is not triggered once. If the hero returns to this cell, the event occurs again: hero is moved, message is displayed...
+
+
+# Mutate event
+
+This event is used to transform the hero's name, icon, hp and attacks.
+
+## Params
+
+`hero` (object): Same params as the top definition of the hero.
+
+It needs `name`, `icon`, `hp` and `attacks`.
+
+## Example
+
+```
+"r": 6,
+"c": 0,
+"type": "mutate",
+"message": "You're now a tiger",
+"icon": "🐅",
+"hero": {
+  "name": "Tiger",
+  "icon": "🐅",
+  "hp": 200,
+  "attacks": [
+    {
+      "name": "Claw",
+      "hp": 30
+    },
+    {
+      "name": "Bite",
+      "hp": 40
+    }
+  ]
+}
+```
+
+At cell at 7th row, 1st column, the hero mutate to a tiger, cleverly named "Tiger".
+
+Their icon is 🐅 and they have 200 HP and a two attacks : "Claw" and "Bite".
+
+The message displayed is "🐅 You're now a tiger".
 
 
 # Object event
