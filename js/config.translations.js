@@ -17,6 +17,9 @@ export default {
   'Load': {
     'fr': "Charger"
   },
+  'This maze was created by': {
+    'fr': "Ce labyrinthe a été créé par"
+  },
   'Game is loaded': {
     'fr': "Le jeu est chargé"
   },

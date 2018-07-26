@@ -92,6 +92,7 @@ const game = {
  */
 const maze = {
   light: 0,
+  authors: '',
   cells: [],
   size: {},
   current: {
@@ -118,6 +119,7 @@ const maze = {
   init: (data) => {
     maze.light = data.hasOwnProperty('light') ? data.light : 0
     maze.initTitle(data.name)
+    maze.displayAuthors(data.authors)
     maze.initCells(data)
     maze.initEvents(data)
     maze.drawCells()
@@ -127,6 +129,11 @@ const maze = {
   initTitle: (name) => {
     const titleDiv = $('#maze-title')
     titleDiv.innerHTML = name
+  },
+  displayAuthors: (authors) => {
+    if (authors) {
+      game.writeMessage(t('This maze was created by') + '<br>' + authors, '', '✍')
+    }
   },
   initCells: (data) => {
     let r = 0
@@ -521,8 +528,8 @@ const action = {
   },
   start: (event) => {
     maze.setCurrent(event.r, event.c)
-    game.writeMessage(t(event.message, game.translations), '', event.icon)
     game.writeMessage('<kbd>↑</kbd> <kbd>→</kbd> <kbd>↓</kbd> <kbd>←</kbd> ' + t('to move'), '', '⌨')
+    game.writeMessage(t(event.message, game.translations), '', event.icon)
   },
   win: (event) => {
     game.status = 0

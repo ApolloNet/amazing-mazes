@@ -18,7 +18,6 @@
 
 ## Maze
 
-- Add credits to the author in the json
 - Limited time ?
 - If a maze is already loaded, display a confirm message on select
 - Inventory : Display objects that the hero has
