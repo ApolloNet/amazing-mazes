@@ -517,9 +517,8 @@ const action = {
   },
   start: (event) => {
     maze.setCurrent(event.r, event.c)
-    game.writeMessage(t('Game is loaded'), '', '🞋')
-    game.writeMessage('<kbd>↑</kbd> <kbd>→</kbd> <kbd>↓</kbd> <kbd>←</kbd> ' + t('to move'), '', '⌨')
     game.writeMessage(t(event.message, game.translations), '', event.icon)
+    game.writeMessage('<kbd>↑</kbd> <kbd>→</kbd> <kbd>↓</kbd> <kbd>←</kbd> ' + t('to move'), '', '⌨')
   },
   win: (event) => {
     game.status = 0
