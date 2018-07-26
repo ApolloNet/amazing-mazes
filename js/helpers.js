@@ -26,16 +26,19 @@ function $(selector) {
  * Translation.
  *
  * @param (string) string
- * @param (string) source : 'json' or ommitted
+ * @param (string) source : json file or ommitted
  *
  * @return (string)
  */
 function t(string, source) {
   const language = navigator.language
-  if (source) {
-    return (source[string] && source[string][language]) ? source[string][language] : string
+  if (source && source[string] && source[string][language]) {
+    return source[string][language]
   }
-  return (translations[string] && translations[string][language]) ? translations[string][language] : string
+  if (translations[string] && translations[string][language]) {
+    return translations[string][language]
+  }
+  return string
 }
 
 export {getRandomNumber, $, t}

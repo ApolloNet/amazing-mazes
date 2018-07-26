@@ -35,7 +35,6 @@
 - Document learn event
 - Document default icons
 - Remove form and use anchor links displayed in a (mary) popin ?
-- French translation
 - English language review
 - Rename protected / success => lock / unlock ?
 - Is 'earn' the righ verb ? Win ? Gain ?
