@@ -15,11 +15,10 @@
     <header id="main-header" class="main-header">
       <h1 class="main-title">🞋 <span id="maze-title">Amazing Mazes</span></h1>
       <button id="mazes-list--open" class="button">Load another</button>
-      <div id="mazes-list" class="mazes-list">
-        <button id="mazes-list--close" class="button">Close</button>
-        <h2>Mazes</h2>
-        <ul></ul>
-      </div>
+      <button id="help" class="button">Help</button>
+      <a class="fork-me" href="https://github.com/ApolloNet/amazing-mazes/" title="Fork me at Github">
+        <img src="images/github.svg" width="32" height="32" alt="Fork me at Github">
+      </a>
     </header>
     <main id="game" class="game">
       <div id="maze" class="maze"></div>
@@ -36,11 +35,6 @@
           <div class="character-hp"><span id="fight-opponent-hp"></span> HP</div>
         </div>
       </div>
-      <p class="fork-me">
-        <a href="https://github.com/ApolloNet/amazing-mazes/" title="Fork me at Github">
-          <img src="images/github.svg" width="32" height="32" alt="Fork me at Github">
-        </a>
-      </p>
     </main>
   </div>
   <aside class="main-aside">
@@ -51,6 +45,11 @@
     </div>
     <div id="messages" class="messages"></div>
   </aside>
+  <section id="mazes-list" class="mazes-list">
+    <button id="mazes-list--close" class="button">Close</button>
+    <h2>Mazes</h2>
+    <ul></ul>
+  </section>
   <script nomodule src="js/fallback.js"></script>
   <script src="js/d3-fetch.v1.min.js"></script>
   <script type="module" src="js/app.js"></script>

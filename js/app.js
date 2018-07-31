@@ -65,6 +65,14 @@ const game = {
       }
     })
   },
+  help: () => {
+    const $help = $('#help')
+    const message = '<kbd>↑</kbd> <kbd>→</kbd> <kbd>↓</kbd> <kbd>←</kbd> ' + t('to move')
+      + '<br>' + t('<kbd>Space bar</kbd> to fight')
+    $help.addEventListener('click', () => {
+      game.writeMessage(message, '', '❔')
+    })
+  },
   over: () => {
     if (hero.hp <= 0) {
       const $body = $('body')
@@ -528,10 +536,10 @@ const action = {
     game.writeMessage(t(event.message, game.translations), '', event.icon)
   },
   start: (event) => {
-    const message = '<kbd>↑</kbd> <kbd>→</kbd> <kbd>↓</kbd> <kbd>←</kbd> ' + t('to move')
-      + '<br>' + t('<kbd>Space bar</kbd> to fight')
+    const help = $('#help')
     maze.setCurrent(event.r, event.c)
-    game.writeMessage(message, '', '⌨')
+    game.help()
+    help.click()
     game.writeMessage(t(event.message, game.translations), '', event.icon)
   },
   win: (event) => {

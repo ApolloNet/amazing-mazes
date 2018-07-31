@@ -77,56 +77,21 @@ kbd {
 /* Main header */
 
 .main-header {
+  display: flex;
+  justify-content: center;
+  padding: 0.5rem 0;
   border-bottom: 1px solid #333;
   text-align: center;
 }
 
 .main-header > * {
-  display: inline-block;
-  margin-right: 3rem;
+  margin: 0 0.5rem;
 }
 
-/* Mazes list */
-
-.mazes-list {
-  display: none;
-  z-index: 3;
+.fork-me {
   position: absolute;
-  top: 6rem;
-  left: calc(50% - 20rem);
-  width: 40rem;
-  padding: 1rem;
-  background: #111;
-  border: 1px solid #222;
-  font-size: 1rem;
-  text-align: left;
-}
-
-.mazes-list:target {
-  display: block;
-}
-
-.mazes-list h2 {
-  text-align: left;
-}
-
-.mazes-list .button {
-  float: right;
-}
-
-.mazes-list li a {
-  display: block;
-  padding: 0.5rem;
-  text-decoration: none;
-}
-
-.mazes-list li a:focus,
-.mazes-list a:hover {
-  background-color: #222;
-}
-
-.mazes-list--name {
-  padding: 0 0.5rem;
+  top: 0.75rem;
+  right: 0.75rem;
 }
 
 /* Game */
@@ -327,11 +292,45 @@ kbd {
   flex-basis: 14rem;
 }
 
-/* Fork me */
+/* Mazes list */
 
-.fork-me {
+.mazes-list {
+  display: none;
+  z-index: 3;
   position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
+  top: 6rem;
+  left: calc(50% - 20rem);
+  width: 40rem;
+  padding: 1rem;
+  background: #111;
+  border: 1px solid #222;
+  font-size: 1rem;
+  text-align: left;
+}
+
+.mazes-list:target {
   display: block;
+}
+
+.mazes-list h2 {
+  text-align: left;
+}
+
+.mazes-list .button {
+  float: right;
+}
+
+.mazes-list li a {
+  display: block;
+  padding: 0.5rem;
+  text-decoration: none;
+}
+
+.mazes-list li a:focus,
+.mazes-list a:hover {
+  background-color: #222;
+}
+
+.mazes-list--name {
+  padding: 0 0.5rem;
 }
