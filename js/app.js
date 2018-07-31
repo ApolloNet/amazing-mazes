@@ -38,14 +38,13 @@ const game = {
   },
   initMazesList: () => {
     const $mazesList = $('#mazes-list ul')
-    for (let mazeName in mazeFiles) {
-      const listItem = document.createElement('li')
-      const link = document.createElement('a')
-      const linkText = document.createTextNode(mazeFiles[mazeName])
-      link.setAttribute('href', '?load=' + mazeName)
-      link.appendChild(linkText)
-      listItem.appendChild(link)
-      $mazesList.appendChild(listItem)
+    for (let machineName in mazeFiles) {
+      const mazeData = mazeFiles[machineName]
+      $mazesList.innerHTML += `<li><a href="?load=${machineName}">
+        <span>${mazeData.icon}</span>
+        <span class="mazes-list--name">${mazeData.name}</span>
+        <span class="description">${mazeData.size}</span>
+        </a></li>`
     }
   },
   listenToKeyboard: () => {

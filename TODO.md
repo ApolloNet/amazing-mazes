@@ -21,10 +21,9 @@
 
 - RWD & Touch buttons for mobile screens
 - PWA + Offline
-- An help button instead of many messages
+- Add help button that displays help in the messages
 - Document translation
 - Document default icons
-- Display more infos in the maze selection list
 - English language review
 - Rename protected / success => lock / unlock ?
 - Is 'earn' the righ verb ? Win ? Gain ?

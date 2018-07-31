@@ -25,6 +25,12 @@ p {
   margin: 0;
 }
 
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
 a {
   color: #fff;
   text-decoration: underline;
@@ -40,6 +46,20 @@ kbd {
   padding: 0.25rem;
   background-color: #000;
   border: 1px solid #222;
+}
+
+/* Classes */
+
+.icon {
+  flex-basis: 5rem;
+  flex-grow: 1;
+  margin-right: 0.5rem;
+  font-size: 3rem;
+  text-align: center;
+}
+
+.description {
+  color: #666;
 }
 
 /* Main content */
@@ -72,6 +92,7 @@ kbd {
   padding: 1rem;
   background: #111;
   border: 1px solid #222;
+  font-size: 1rem;
   text-align: left;
 }
 
@@ -87,14 +108,19 @@ kbd {
   float: right;
 }
 
-.mazes-list ul {
-  padding: 0;
-  list-style: none;
+.mazes-list li a {
+  display: block;
+  padding: 0.5rem;
+  text-decoration: none;
 }
 
-.mazes-list li {
-  padding: 0.5rem 0;
-  border-bottom: 1px solid #222;
+.mazes-list li a:focus,
+.mazes-list a:hover {
+  background-color: #222;
+}
+
+.mazes-list--name {
+  padding: 0 0.5rem;
 }
 
 /* Game */
@@ -289,14 +315,6 @@ kbd {
 
 .yellow .text {
   color: yellow;
-}
-
-.icon {
-  flex-basis: 5rem;
-  flex-grow: 1;
-  margin-right: 0.5rem;
-  font-size: 3rem;
-  text-align: center;
 }
 
 .text {
