@@ -42,7 +42,7 @@ const game = {
       const listItem = document.createElement('li')
       const link = document.createElement('a')
       const linkText = document.createTextNode(mazeFiles[mazeName])
-      link.setAttribute('href', '/?load=' + mazeName)
+      link.setAttribute('href', '?load=' + mazeName)
       link.appendChild(linkText)
       listItem.appendChild(link)
       $mazesList.appendChild(listItem)
