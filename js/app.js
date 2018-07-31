@@ -37,6 +37,8 @@ const game = {
     document.location.search = 'load=' + mazeFilesKeys[rand]
   },
   initMazesList: () => {
+    const $listOpen = $('#mazes-list--open')
+    const $listClose = $('#mazes-list--close')
     const $mazesList = $('#mazes-list ul')
     for (let machineName in mazeFiles) {
       const mazeData = mazeFiles[machineName]
@@ -46,6 +48,12 @@ const game = {
         <span class="description">${mazeData.size}</span>
         </a></li>`
     }
+    $listOpen.addEventListener('click', () => {
+      document.location.hash = 'mazes-list'
+    })
+    $listClose.addEventListener('click', () => {
+      document.location.hash = ''
+    })
   },
   listenToKeyboard: () => {
     document.addEventListener('keydown', (e) => {
