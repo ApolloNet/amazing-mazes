@@ -104,10 +104,15 @@ For rows and columns, we start counting at zero. It is real computer programming
 
 `icon` (string, optional): a unicode icon displayed when the hero comes to that event's cell.
 
-`once` (int, optional, default: "1"):
+`visible` (int, optional, default: 1):
 
-- "0": the event occurs each time the hero comes to that event's cell
-- "1": the event occurs only one time
+- 0: the icon of the event is not visible on the maze
+- 1: the icon is visible
+
+`once` (int, optional, default: 1):
+
+- 0: the event occurs each time the hero comes to that event's cell
+- 1: the event occurs only one time
 
 ## Event types
 

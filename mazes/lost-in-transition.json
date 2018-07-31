@@ -56,11 +56,12 @@
       "c": 2,
       "type": "move",
       "message": "You teleported",
+      "icon": "🗲",
+      "visible": 0,
       "to": {
         "r": 3,
         "c": 8
       },
-      "icon": "🗲",
       "once": 0
     },
     {
@@ -68,11 +69,12 @@
       "c": 8,
       "type": "move",
       "message": "You teleported",
+      "icon": "🗲",
+      "visible": 0,
       "to": {
         "r": 2,
         "c": 2
       },
-      "icon": "🗲",
       "once": 0
     },
     {
@@ -80,9 +82,10 @@
       "c": 6,
       "type": "fight",
       "message": "That merperson won't let you pass",
+      "icon": "🧜",
+      "visible": 0,
       "opponent": "Merperson",
       "hp": 60,
-      "icon": "🧜",
       "once": 0
     }
   ],

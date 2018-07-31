@@ -23,7 +23,6 @@
 - PWA + Offline
 - An help button instead of many messages
 - Document translation
-- Display or not the icon of an event on the maze. `secret` param ?
 - Document default icons
 - Display more infos in the maze selection list
 - English language review

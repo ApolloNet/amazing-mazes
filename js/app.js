@@ -155,6 +155,7 @@ const maze = {
     data.events.forEach((event) => {
       const index = maze.getCellIndex(event.r, event.c)
       event.once = event.once === 0 ? 0 : 1
+      event.visible = event.visible === 0 ? 0 : 1
       if (!event.icon && icons[event.type]) {
         event.icon = icons[event.type]
       }
@@ -174,22 +175,11 @@ const maze = {
     $maze.style.gridTemplateColumns = 'repeat(' + maze.size.c + ', minmax(' + cellWidth + 'rem, auto))'
     $maze.style.maxWidth = maxWidth + 'rem'
   },
-  switchLight: () => {
-    const $maze = $('#maze')
-    if (maze.light === 0) {
-      $maze.classList.add('dark')
-      $maze.classList.remove('light')
-    }
-    else {
-      $maze.classList.add('light')
-      $maze.classList.remove('dark')
-    }
-  },
   drawCells: () => {
     maze.cells.forEach((cell) => {
       const $maze = $('#maze')
       const $cell = document.createElement('div')
-      const icon = (cell.event && cell.event.icon) ? cell.event.icon : ''
+      const icon = (cell.event && cell.event.icon && cell.event.visible) ? cell.event.icon : ''
       $cell.classList.add('cell')
       borders.map((border) => {
         if (maze.isThereAWall(cell.r, cell.c, border.shortname)) {
@@ -204,6 +194,17 @@ const maze = {
       $cell.setAttribute('data-icon', icon)
       $maze.appendChild($cell)
     })
+  },
+  switchLight: () => {
+    const $maze = $('#maze')
+    if (maze.light === 0) {
+      $maze.classList.add('dark')
+      $maze.classList.remove('light')
+    }
+    else {
+      $maze.classList.add('light')
+      $maze.classList.remove('dark')
+    }
   },
   getCell: (r, c) => {
     return maze.cells.filter(cell => {
