@@ -23,7 +23,6 @@
 - Rename protected / success => lock / unlock ?
 - Is 'earn' the righ verb ? Win ? Gain ?
 - Code architecture
-- CSS variables for colors and margins ?
 - A11y
 - Document functions, params, returns... What is the JS standard ?
 - Move that TODO.md to Github issues ?

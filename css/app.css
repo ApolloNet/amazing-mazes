@@ -1,5 +1,9 @@
 @charset "utf-8";
 
+:root {
+  --onepix: calc(1rem / 16);
+}
+
 * {
   box-sizing: border-box;
 }
@@ -51,7 +55,7 @@ a:hover,
 kbd {
   padding: 0.25rem;
   background-color: #000;
-  border: 1px solid #222;
+  border: var(--onepix) solid #222;
 }
 
 /* Classes */
@@ -80,7 +84,7 @@ kbd {
   display: flex;
   justify-content: center;
   padding: 0.5rem 0;
-  border-bottom: 1px solid #333;
+  border-bottom: var(--onepix) solid #333;
   text-align: center;
 }
 
@@ -110,7 +114,7 @@ kbd {
   display: grid;
   gap: 0.1rem;
   margin: 0 auto;
-  border: 1px solid #444;
+  border: var(--onepix) solid #444;
 }
 
 .cell {
@@ -183,7 +187,7 @@ kbd {
   margin-bottom: 1rem;
   padding: 1rem;
   background-color: #111;
-  border: 1px solid #333;
+  border: var(--onepix) solid #333;
   text-align: center;
   transition: background-color 0.5s ease;
 }
@@ -256,7 +260,7 @@ kbd {
   overflow: auto;
   padding: 1rem;
   background-color: #111;
-  border-right: 1px solid #333;
+  border-right: var(--onepix) solid #333;
 }
 
 .main-aside h2 {
@@ -272,7 +276,7 @@ kbd {
   display: flex;
   align-items: center;
   padding: 0.5rem 0;
-  border-bottom: 1px solid #222;
+  border-bottom: var(--onepix) solid #222;
   color: #fff;
 }
 
@@ -303,7 +307,7 @@ kbd {
   width: 40rem;
   padding: 1rem;
   background: #111;
-  border: 1px solid #222;
+  border: var(--onepix) solid #222;
   font-size: 1rem;
   text-align: left;
 }
