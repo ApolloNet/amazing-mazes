@@ -302,3 +302,12 @@ kbd {
 .text {
   flex-basis: 14rem;
 }
+
+/* Fork me */
+
+.fork-me {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  display: block;
+}
