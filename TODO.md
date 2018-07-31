@@ -9,7 +9,6 @@
 
 ## Maze
 
-- Multiple win cells ?
 - Inventory : Display objects that the hero has
 - "Find 5 something" => new event linked to objects
 - Add random events to json config ?
@@ -21,6 +20,7 @@
 ## Misc
 
 - RWD & Touch buttons for mobile screens
+- PWA + Offline
 - An help button instead of many messages
 - Document translation
 - Display or not the icon of an event on the maze. `secret` param ?
