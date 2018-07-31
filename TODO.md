@@ -9,9 +9,10 @@
 
 ## Maze
 
+- Multiple win cells ?
 - Inventory : Display objects that the hero has
+- "Find 5 something" => new event linked to objects
 - Add random events to json config ?
-- Add floors and stairs ?
 - Allow multiple events on a cell ?
 - Protected event with an input text to unlock (ie: you found letters one by one, they form a word...)
 - Real images in alternative to unicode. Or not.
@@ -19,6 +20,9 @@
 
 ## Misc
 
+- RWD & Touch buttons for mobile screens
+- An help button instead of many messages
+- Document translation
 - Display or not the icon of an event on the maze. `secret` param ?
 - Document default icons
 - Display more infos in the maze selection list
@@ -28,8 +32,6 @@
 - Code architecture
 - CSS variables for colors and margins ?
 - A11y
-- RWD
-- What about touch buttons for mobile screens ?
 - Document functions, params, returns... What is the JS standard ?
 - Move that TODO.md to Github issues ?
 - Sound ?
