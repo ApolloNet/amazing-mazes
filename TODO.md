@@ -4,7 +4,6 @@
 
 - Fight gameplay: is it about time and space ?
 - Choose your attack in a set of attacks you got ?
-- Opponents, multiple
 - Enhance fight display: progress bar along with of HP numbers
 
 ## Maze
@@ -12,16 +11,12 @@
 - Inventory : Display objects that the hero has
 - "Find 5 something" => new event linked to objects
 - Add random events to json config ?
-- Allow multiple events on a cell ?
 - Protected event with an input text to unlock (ie: you found letters one by one, they form a word...)
-- Real images in alternative to unicode. Or not.
-- Limited time ?
 
 ## Misc
 
 - RWD & Touch buttons for mobile screens
 - PWA + Offline
-- Add help button that displays help in the messages
 - Document translation
 - Document default icons
 - English language review
@@ -32,9 +27,18 @@
 - A11y
 - Document functions, params, returns... What is the JS standard ?
 - Move that TODO.md to Github issues ?
-- Sound ?
 
 ## Games
 
 - Create a detective game 🕵
 - Create mazes/adventures in space, school, street, office, ...
+
+## Maybe later
+
+- Opponents, multiple
+- Allow multiple events on a cell ?
+- Chain events
+- Real images in alternative to unicode. Or not.
+- Stairs and floors
+- Limited time ?
+- Sound ?
