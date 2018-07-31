@@ -15,7 +15,7 @@
 
 ## Misc
 
-- RWD & Touch buttons for mobile screens
+- RWD
 - PWA + Offline
 - Document translation
 - Document default icons

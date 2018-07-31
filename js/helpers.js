@@ -41,4 +41,14 @@ function t(string, source) {
   return string
 }
 
-export {getRandomNumber, $, t}
+/**
+ * Is it a "touch device" ?
+ */
+function isTouch() {
+  return ('ontouchstart' in window) || (navigator.msMaxTouchPoints > 0)
+}
+
+/**
+ * Export.
+ */
+export {getRandomNumber, $, t, isTouch}

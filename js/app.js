@@ -6,7 +6,7 @@ import borders from './config.borders.js'
 import encounters from './config.encounters.js'
 import defaultAttacks from './config.attacks.js'
 import icons from './config.icons.js'
-import {getRandomNumber, $, t} from './helpers.js'
+import {getRandomNumber, $, t, isTouch} from './helpers.js'
 
 /**
  * Game.
@@ -57,12 +57,26 @@ const game = {
   },
   listenToKeyboard: () => {
     document.addEventListener('keydown', (e) => {
-      if (game.status === 1) {
-        hero.move(e.key)
-      }
-      if (game.status === 2 && e.keyCode === 32) {
+      hero.move(e.key)
+      if (e.keyCode === 32) {
         fight.play()
       }
+    })
+  },
+  listenToFakeKeyboard: () => {
+    const $arrows = document.querySelectorAll('.keyboard--arrow')
+    const $action = $('.keyboard--key--action')
+    // Arrows.
+    ;
+    [].forEach.call($arrows, (key) => {
+      key.addEventListener('click', () => {
+        const keyId = key.getAttribute('data-key')
+        hero.move(keyId)
+      })
+    })
+    // Action.
+    $action.addEventListener('click', () => {
+      fight.play()
     })
   },
   help: () => {
@@ -115,6 +129,7 @@ const maze = {
       maze.init(data)
       hero.init(data)
       game.listenToKeyboard()
+      game.listenToFakeKeyboard()
       maze.isLoaded()
     }).catch(
       error => console.error(error.message)
@@ -122,6 +137,9 @@ const maze = {
   },
   isLoaded: () => {
     const $body = $('body')
+    if (isTouch()) {
+      $body.classList.add('touch')
+    }
     $body.classList.toggle('waiting')
     game.status = 1
   },
@@ -379,6 +397,9 @@ const hero = {
     
   },
   move: (key) => {
+    if (game.status !== 1) {
+      return
+    }
     const direction = hero.getDirectionFromKey(key)
     if (!direction) {
       return
@@ -600,6 +621,9 @@ const fight = {
     $opponentHp.innerHTML = fight.hp
   },
   play: () => {
+    if (game.status !== 2) {
+      return
+    }
     if (fight.whoplays === 'hero') {
       fight.heroAttacks()
     }
