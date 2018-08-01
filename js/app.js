@@ -141,7 +141,7 @@ const maze = {
     d3.json('mazes/' + mazeFile).then((data) => {
       game.translations = data.translations
       maze.init(data)
-      hero.init(data)
+      hero.init(data.hero)
       game.listenToKeyboard()
       game.listenToFakeKeyboard()
       maze.isLoaded()
@@ -385,15 +385,15 @@ const hero = {
   attacks: [],
   objects: [],
   direction: 'right',
-  init: (data) => {
+  init: (dataHero) => {
     const $name = $('#hero-name')
     const $icon = $('#hero-icon')
     const $hp = $('#hero-hp')
     const $hpBar = $('#hero-hp-bar')
-    hero.name = (data.hero && data.hero.name) ? data.hero.name : hero.name
-    hero.icon = (data.hero && data.hero.icon) ? data.hero.icon : hero.icon
-    hero.hp = (data.hero && data.hero.hp) ? data.hero.hp : hero.hp
-    hero.attacks = (data.hero && data.hero.attacks) ? data.hero.attacks : defaultAttacks
+    hero.name = (dataHero && dataHero.name) ? dataHero.name : hero.name
+    hero.icon = (dataHero && dataHero.icon) ? dataHero.icon : hero.icon
+    hero.hp = (dataHero && dataHero.hp) ? dataHero.hp : hero.hp
+    hero.attacks = (dataHero && dataHero.attacks) ? dataHero.attacks : defaultAttacks
     $name.innerHTML = hero.name
     $icon.innerHTML = hero.icon
     $hp.innerHTML = hero.hp
@@ -559,7 +559,7 @@ const action = {
     game.writeMessage(event.icon, t(event.message, game.translations))
   },
   mutate: (event) => {
-    hero.update(event.hero)
+    hero.init(event.hero)
     game.writeMessage(event.icon, t(event.message, game.translations), 'yellow')
   },
   object: (event) => {
