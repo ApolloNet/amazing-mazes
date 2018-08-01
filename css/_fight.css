@@ -1,0 +1,22 @@
+.fight-mode .maze {
+  display: none;
+}
+
+.fight {
+  display: none;
+  max-width: 34rem;
+  margin: 0 auto;
+}
+
+.fight-mode .fight {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fight-versus {
+  margin: 0 0.5rem;
+  font-family: serif;
+  font-size: 1.2rem;
+  font-style: italic;
+}

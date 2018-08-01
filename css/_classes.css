@@ -1,0 +1,16 @@
+.hidden {
+  display: none;
+}
+
+.description {
+  color: #666;
+}
+
+.icon {
+  flex-basis: 3rem;
+  flex-grow: 1;
+  margin-right: 0.5rem;
+  font-size: 2.5rem;
+  line-height: 1;
+  text-align: center;
+}

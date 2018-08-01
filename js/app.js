@@ -20,6 +20,7 @@ const game = {
       game.loadRandomMaze()
       return
     }
+    game.toggleNavigation()
     game.initMazesList()
     maze.load(mazeFile)
   },
@@ -87,6 +88,13 @@ const game = {
       game.writeMessage(message, '', '❔')
     })
   },
+  toggleNavigation: () => {
+    const $header = $('#main-header')
+    const $button = $('#navigation-toogle')
+    $button.addEventListener('click', () => {
+      $header.classList.toggle('hidden')
+    })
+  },
   over: () => {
     if (hero.hp <= 0) {
       const $body = $('body')
@@ -137,8 +145,10 @@ const maze = {
   },
   isLoaded: () => {
     const $body = $('body')
+    const $header = $('#main-header')
     if (isTouch()) {
       $body.classList.add('touch')
+      $header.classList.add('hidden')
     }
     $body.classList.toggle('waiting')
     game.status = 1

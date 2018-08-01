@@ -1,0 +1,51 @@
+.main-aside {
+  flex-basis: 20rem;
+  height: 100vh;
+  overflow: auto;
+  padding: 0.5rem;
+  background-color: #111;
+  border-right: var(--onepix) solid #333;
+}
+
+@media (min-width: 30rem) {
+  .main-aside {
+    order: -1;
+  }
+}
+
+.main-aside h2 {
+  text-align: left;
+}
+
+.main-character {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.touch .main-character {
+  display: none;
+}
+
+.message {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 0;
+  border-bottom: var(--onepix) solid #222;
+  color: #fff;
+}
+
+.green .text {
+  color: green;
+}
+
+.red .text {
+  color: red;
+}
+
+.yellow .text {
+  color: yellow;
+}
+
+.text {
+  flex-basis: 14rem;
+}

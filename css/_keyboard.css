@@ -1,0 +1,71 @@
+.keyboard-wrapper {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 7rem;
+  background: #000;
+  border-top: var(--onepix) solid #111;
+}
+
+.touch .keyboard-wrapper {
+  display: flex;
+}
+
+.keyboard--key {
+  width: 3rem;
+  height: 3rem;
+  background: #111;
+  border: var(--onepix) solid #222;
+  font-size: 2rem;
+  text-align: center;
+  cursor: pointer;
+}
+
+.keyboard--arrows,
+.keyboard--key--action,
+.navigation-toggle {
+  margin: 0 0.5rem;
+}
+
+.keyboard--arrows {
+  position: relative;
+  width: 9rem;
+  height: 6rem;
+}
+
+.keyboard--arrow {
+  position: absolute;
+}
+
+.keyboard--arrow--up {
+  top: 0;
+  left: 3rem;
+}
+
+.keyboard--arrow--right {
+  top: 1.5rem;
+  right: 0;
+}
+
+.keyboard--arrow--down {
+  bottom: 0;
+  left: 3rem;
+}
+
+.keyboard--arrow--left {
+  top: 1.5rem;
+  left: 0;
+}
+
+.keyboard--key--action {
+  top: 1.5rem;
+  right: 0;
+}
+
+.navigation-toggle {
+  text-decoration: none;
+}

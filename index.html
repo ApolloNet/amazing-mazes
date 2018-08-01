@@ -7,18 +7,32 @@
   <meta name="viewport" content="initial-scale=1.0, width=device-width">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="css/bootstrap-reboot.css">
-  <link rel="stylesheet" href="css/app.css">
+  <link rel="stylesheet" href="css/_variables.css">
+  <link rel="stylesheet" href="css/_elements.css">
+  <link rel="stylesheet" href="css/_classes.css">
+  <link rel="stylesheet" href="css/_layout.css">
+  <link rel="stylesheet" href="css/_game.css">
+  <link rel="stylesheet" href="css/_character.css">
+  <link rel="stylesheet" href="css/_fight.css">
+  <link rel="stylesheet" href="css/_aside.css">
+  <link rel="stylesheet" href="css/_keyboard.css">
+  <link rel="stylesheet" href="css/_mazes-list.css">
 </head>
 
 <body class="waiting">
   <div class="main-content">
     <header id="main-header" class="main-header">
       <h1 class="main-title">🞋 <span id="maze-title">Amazing Mazes</span></h1>
-      <button id="mazes-list--open" class="button">Load another</button>
-      <button id="help" class="button">Help</button>
+      <button id="mazes-list--open">Load another</button>
+      <button id="help">Help</button>
       <a class="fork-me" href="https://github.com/ApolloNet/amazing-mazes/" title="Fork me at Github">
         <img src="images/github.svg" width="32" height="32" alt="Fork me at Github">
       </a>
+      <div id="mazes-list" class="mazes-list">
+        <button id="mazes-list--close" class="button">Close</button>
+        <h2>Mazes</h2>
+        <ul></ul>
+      </div>
     </header>
     <main id="game" class="game">
       <div id="maze" class="maze"></div>
@@ -35,30 +49,26 @@
           <div class="character-hp"><span id="fight-opponent-hp"></span> HP</div>
         </div>
       </div>
-      <div id="keyboard" class="keyboard">
-        <div class="keyboard--arrows">
-          <div data-key="ArrowUp" class="keyboard--key keyboard--arrow keyboard--arrow--up">↑</div>
-          <div data-key="ArrowRight" class="keyboard--key keyboard--arrow keyboard--arrow--right">→</div>
-          <div data-key="ArrowDown" class="keyboard--key keyboard--arrow keyboard--arrow--down">↓</div>
-          <div data-key="ArrowLeft" class="keyboard--key keyboard--arrow keyboard--arrow--left">←</div>
-        </div>
-        <div class="keyboard--key keyboard--key--action">👊</div>
-      </div>
     </main>
   </div>
   <aside class="main-aside">
-    <div id="hero" class="character fight-hero">
+    <div id="hero" class="main-character character fight-hero">
       <div id="hero-name" class="character-name"></div>
       <div id="hero-icon" class="character-icon"></div>
       <div class="character-hp"><span id="hero-hp"></span> HP</div>
     </div>
     <div id="messages" class="messages"></div>
   </aside>
-  <section id="mazes-list" class="mazes-list">
-    <button id="mazes-list--close" class="button">Close</button>
-    <h2>Mazes</h2>
-    <ul></ul>
-  </section>
+  <footer class="keyboard-wrapper">
+    <div class="keyboard--arrows">
+      <div data-key="ArrowUp" class="keyboard--key keyboard--arrow keyboard--arrow--up">↑</div>
+      <div data-key="ArrowRight" class="keyboard--key keyboard--arrow keyboard--arrow--right">→</div>
+      <div data-key="ArrowDown" class="keyboard--key keyboard--arrow keyboard--arrow--down">↓</div>
+      <div data-key="ArrowLeft" class="keyboard--key keyboard--arrow keyboard--arrow--left">←</div>
+    </div>
+    <div class="keyboard--key keyboard--key--action">👊</div>
+    <button id="navigation-toogle" class="keyboard--key navigation-toggle">☰</button>
+  </footer>
   <script nomodule src="js/fallback.js"></script>
   <script src="js/d3-fetch.v1.min.js"></script>
   <script type="module" src="js/app.js"></script>

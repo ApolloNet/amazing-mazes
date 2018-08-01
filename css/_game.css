@@ -1,0 +1,68 @@
+.maze {
+  display: grid;
+  gap: 0.1rem;
+  margin: 0 auto;
+  border: var(--onepix) solid #444;
+}
+
+.cell {
+  background-color: #111;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 0.0625rem;
+}
+
+.cell::before,
+.cell::after {
+  display: inline-block;
+  width: 100%;
+  margin: 0 auto;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.cell::before {
+  content: attr(data-icon);
+}
+
+.current::after {
+  content: attr(data-current);
+  transform: scale(-1, 1);
+}
+.direction-left::after {
+  transform: scale(1, 1);
+}
+
+.wall-t {
+  border-top-color: #fff;
+}
+
+.wall-r {
+  border-right-color: #fff;
+}
+
+.wall-b {
+  border-bottom-color: #fff;
+}
+
+.wall-l {
+  border-left-color: #fff;
+}
+
+.dark .unseen {
+  background-color: #000;
+  border-color: #000;
+}
+
+.dark .unseen::before,
+.current::before {
+  display: none;
+}
+
+.win {
+  background-color: green;
+}
+
+.lose {
+  background-color: red;
+}

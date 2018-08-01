@@ -8,7 +8,7 @@
 
 ## Maze
 
-- Inventory : Display objects that the hero has
+- Bag : Display objects 👜 👝 🛍 💰
 - "Find 5 something" => new event linked to objects
 - Add random events to json config ?
 - Protected event with an input text to unlock (ie: you found letters one by one, they form a word...)
@@ -16,6 +16,8 @@
 ## Misc
 
 - RWD
+  - Fight title
+  - Change help message in touch context
 - PWA + Offline
 - Document translation
 - Document default icons
@@ -26,11 +28,13 @@
 - A11y
 - Document functions, params, returns... What is the JS standard ?
 - Move that TODO.md to Github issues ?
+- Add Twitters Cards, Facebook Graph...
 
 ## Games
 
 - Create a detective game 🕵
 - Create mazes/adventures in space, school, street, office, ...
+- Some icons : 🍱 bento box, 🥊 boxing glove
 
 ## Maybe later
 
