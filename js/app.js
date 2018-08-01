@@ -85,7 +85,7 @@ const game = {
     const message = '<kbd>↑</kbd> <kbd>→</kbd> <kbd>↓</kbd> <kbd>←</kbd> ' + t('to move')
       + '<br>' + t('<kbd>Space bar</kbd> to fight')
     $help.addEventListener('click', () => {
-      game.writeMessage(message, '', '❔')
+      game.writeMessage('❔', message)
     })
   },
   toggleNavigation: () => {
@@ -104,14 +104,14 @@ const game = {
   over: () => {
     if (hero.hp <= 0) {
       const $body = $('body')
+      const message = t('Game over') + '<br><a href="' + document.location + '">' + t('Try again?') + '</a>'
       game.status = 0
       $body.classList.add('game-over')
       maze.updateCellDiv(maze.current.r, maze.current.c, 'lose')
-      game.writeMessage(t('Game over'), 'red', '🕱')
-      game.writeMessage('<a href="' + document.location + '">' + t('Try again?') + '</a>', '', '🗘')
+      game.writeMessage('🕱', message, 'red')
     }
   },
-  writeMessage: (message, color, icon) => {
+  writeMessage: (icon, message, color) => {
     const $messages = $('#messages')
     const $message = document.createElement('div')
     $message.innerHTML = '<div class="icon">' + (icon ? icon : '') + '</div>'
@@ -175,7 +175,8 @@ const maze = {
   },
   displayAuthors: (authors) => {
     if (authors) {
-      game.writeMessage(t('This maze was created by') + '<br>' + authors, '', '✍')
+      const message = t('This maze was created by') + '<br>' + authors
+      game.writeMessage('✍', message)
     }
   },
   initCells: (data) => {
@@ -285,7 +286,7 @@ const maze = {
   openTheDoor: (nextCell) => {
     const heroHasTheObject = hero.hasObject(nextCell.event.success.object)
     if (!heroHasTheObject) {
-      game.writeMessage(t(nextCell.event.message, game.translations), '', nextCell.event.icon)
+      game.writeMessage(nextCell.event.icon, t(nextCell.event.message, game.translations))
       return false
     }
     return true
@@ -527,16 +528,16 @@ const action = {
     hero.attacks.push(event.attack)
     hero.updateCharacterDiv('earn')
     const message = t(event.message, game.translations) + '<br><em>' + event.attack.name + '</em> : ' + event.attack.hp + ' HP'
-    game.writeMessage(message, '', event.icon)
+    game.writeMessage(event.icon, message)
   },
   light: () => {
     maze.light = maze.light === 0 ? 1 : 0
     const onoff = (maze.light === 0) ? 'off' : 'on'
     maze.switchLight()
-    game.writeMessage(t('You switched ' + onoff + ' the lights'), '', icons.light)
+    game.writeMessage(icons.light, t('You switched ' + onoff + ' the lights'))
   },
   message: (event) => {
-    game.writeMessage(t(event.message, game.translations), '', event.icon)
+    game.writeMessage(event.icon, t(event.message, game.translations))
   },
   metrix: (event) => {
     const points = parseInt(event.points)
@@ -552,43 +553,44 @@ const action = {
     }
     const message = t(event.message, game.translations) + '<br> ' + t('you ' + event.effect) + ' ' + event.points + ' '+ event.metrix
     const messageColor = (event.effect === 'lose') ? 'red' : ''
-    game.writeMessage(message, messageColor, event.icon)
+    game.writeMessage(event.icon, message, messageColor)
   },
   move: (event) => {
     maze.setCurrent(event.to.r, event.to.c)
     maze.updateCurrentCell()
-    game.writeMessage(t(event.message, game.translations), '', event.icon)
+    game.writeMessage(event.icon, t(event.message, game.translations))
   },
   mutate: (event) => {
     hero.update(event.hero)
-    game.writeMessage(t(event.message, game.translations), 'yellow', event.icon)
+    game.writeMessage(event.icon, t(event.message, game.translations), 'yellow')
   },
   object: (event) => {
     hero.objects.push(event.object)
-    game.writeMessage(t(event.message, game.translations), '', event.icon)
+    game.writeMessage(event.icon, t(event.message, game.translations))
   },
   protected: (event) => {
-    game.writeMessage(t(event.success.message, game.translations), '', event.success.icon)
+    game.writeMessage(event.success.icon, t(event.success.message, game.translations))
   },
   reveal: (event) => {
     event.cells.forEach((cell) => {
       maze.updateSeenCell(cell.r, cell.c)
     })
-    game.writeMessage(t(event.message, game.translations), '', event.icon)
+    game.writeMessage(event.icon, t(event.message, game.translations))
   },
   start: (event) => {
     const help = $('#help')
     maze.setCurrent(event.r, event.c)
     game.help()
     help.click()
-    game.writeMessage(t(event.message, game.translations), '', event.icon)
+    game.writeMessage(event.icon, t(event.message, game.translations))
   },
   win: (event) => {
+    const message = t(event.message, game.translations)
+      + '<br><a href="' + document.location + '">' + t('Replay?') + '</a>'
     game.status = 0
     maze.updateCellDiv(maze.current.r, maze.current.c, 'win')
     hero.updateCharacterDiv('earn')
-    game.writeMessage(t(event.message, game.translations), 'green', event.icon)
-    game.writeMessage('<a href="' + document.location + '">' + t('Replay?') + '</a>', '', '🗘')
+    game.writeMessage(event.icon, message, 'green')
   },
 }
 
@@ -603,7 +605,7 @@ const fight = {
   attacks: [],
   init: (event) => {
     game.status = 2
-    game.writeMessage(t(event.message, game.translations), '', event.icon)
+    game.writeMessage(event.icon, t(event.message, game.translations))
     fight.changeBodyClass()
     fight.initData(event)
     fight.initMarkup()
@@ -682,7 +684,7 @@ const fight = {
     }
     $opponentHp.innerHTML = fight.hp
     fight.updateHpBars()
-    game.writeMessage(message, '', icon)
+    game.writeMessage(icon, message)
     if (fight.hp <= 0) {
       fight.win()
       return
@@ -707,7 +709,7 @@ const fight = {
     })
     $heroHp.innerHTML = hero.hp
     fight.updateHpBars()
-    game.writeMessage(message, '', icon)
+    game.writeMessage(icon, message)
     if (hero.hp <= 0) {
       game.over()
       return
@@ -724,7 +726,7 @@ const fight = {
   },
   win: () => {
     game.status = 1
-    game.writeMessage(t('You defeated') + ' ' + fight.opponent, 'red', '✌')
+    game.writeMessage('✌', t('You defeated') + ' ' + fight.opponent, 'red')
     fight.changeBodyClass()
     if (!fight.rewards) {
       return

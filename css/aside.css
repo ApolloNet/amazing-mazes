@@ -31,21 +31,26 @@
   align-items: center;
   padding: 0.5rem 0;
   border-bottom: var(--onepix) solid #222;
-  color: #fff;
-}
-
-.green .text {
-  color: green;
-}
-
-.red .text {
-  color: red;
-}
-
-.yellow .text {
-  color: yellow;
 }
 
 .text {
+  --messageColor: #fff;
   flex-basis: 14rem;
+  color: var(--messageColor);
+}
+
+.text a {
+  color: var(--messageColor);
+}
+
+.green .text {
+ --messageColor: green;
+}
+
+.red .text {
+  --messageColor: red;
+}
+
+.yellow .text {
+  --messageColor: yellow;
 }

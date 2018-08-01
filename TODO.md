@@ -1,13 +1,13 @@
 # TODO
 
+- RWD
+  - Fight title
+  - Change help message in touch context
 - Bag : Display objects 👜 👝 🛍 💰
 - "Find 5 something" => new event linked to objects
 - Add random events to json config ?
 - Protected event with an input text to unlock (ie: you found letters one by one, they form a word...)
 - Fight: choose your attack in a set of attacks you got ?
-- RWD
-  - Fight title
-  - Change help message in touch context
 - PWA + Offline
 - Document translation
 - Document default icons
