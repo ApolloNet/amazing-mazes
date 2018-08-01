@@ -1,20 +1,10 @@
 # TODO
 
-## Fight
-
-- Fight gameplay: is it about time and space ?
-- Choose your attack in a set of attacks you got ?
-- Enhance fight display: progress bar along with of HP numbers
-
-## Maze
-
 - Bag : Display objects 👜 👝 🛍 💰
 - "Find 5 something" => new event linked to objects
 - Add random events to json config ?
 - Protected event with an input text to unlock (ie: you found letters one by one, they form a word...)
-
-## Misc
-
+- Fight: choose your attack in a set of attacks you got ?
 - RWD
   - Fight title
   - Change help message in touch context

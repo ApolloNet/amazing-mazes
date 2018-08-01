@@ -13,8 +13,11 @@
   font-weight: bold;
 }
 
-.character-hp {
-  
+.character-hp-bar {
+  display: block;
+  width: 100%;
+  height: 0.5rem;
+  background-color: #fff;
 }
 
 .character-icon {

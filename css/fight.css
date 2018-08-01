@@ -4,14 +4,14 @@
 
 .fight {
   display: none;
+  justify-content: center;
+  align-items: center;
   max-width: 34rem;
   margin: 0 auto;
 }
 
 .fight-mode .fight {
   display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .fight-versus {
@@ -19,4 +19,9 @@
   font-family: serif;
   font-size: 1.2rem;
   font-style: italic;
+}
+
+.fight-current {
+  background-color: #222;
+  border: var(--onepix) solid #333;
 }

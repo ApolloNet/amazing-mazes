@@ -60,7 +60,7 @@ const game = {
     document.addEventListener('keydown', (e) => {
       hero.move(e.key)
       if (e.keyCode === 32) {
-        fight.play()
+        fight.heroAttacks()
       }
     })
   },
@@ -77,7 +77,7 @@ const game = {
     })
     // Action.
     $action.addEventListener('click', () => {
-      fight.play()
+      fight.heroAttacks()
     })
   },
   help: () => {
@@ -94,6 +94,12 @@ const game = {
     $button.addEventListener('click', () => {
       $header.classList.toggle('hidden')
     })
+  },
+  hpPercent: ($element, hp) => {
+    const hpInit = $element.getAttribute('data-hp-init')
+    const percent = hp * 100 / hpInit
+    const correctedPercent = (percent <= 100) ? percent : 100
+    $element.style.width = correctedPercent + '%'
   },
   over: () => {
     if (hero.hp <= 0) {
@@ -379,20 +385,23 @@ const hero = {
   objects: [],
   direction: 'right',
   init: (data) => {
-    hero.update(data.hero)
-    maze.updateCurrentCell()
-  },
-  update: (dataHero) => {
     const $name = $('#hero-name')
     const $icon = $('#hero-icon')
     const $hp = $('#hero-hp')
-    hero.name = (dataHero && dataHero.name) ? dataHero.name : hero.name
-    hero.icon = (dataHero && dataHero.icon) ? dataHero.icon : hero.icon
-    hero.hp = (dataHero && dataHero.hp) ? dataHero.hp : hero.hp
-    hero.attacks = (dataHero && dataHero.attacks) ? dataHero.attacks : defaultAttacks
+    const $hpBar = $('#hero-hp-bar')
+    hero.name = (data.hero && data.hero.name) ? data.hero.name : hero.name
+    hero.icon = (data.hero && data.hero.icon) ? data.hero.icon : hero.icon
+    hero.hp = (data.hero && data.hero.hp) ? data.hero.hp : hero.hp
+    hero.attacks = (data.hero && data.hero.attacks) ? data.hero.attacks : defaultAttacks
     $name.innerHTML = hero.name
     $icon.innerHTML = hero.icon
     $hp.innerHTML = hero.hp
+    $hpBar.setAttribute('data-hp-init', hero.hp)
+    maze.updateCurrentCell()
+  },
+  update: () => {
+    const $hpBar = $('#hero-hp-bar')
+    game.hpPercent($hpBar, hero.hp)
   },
   updateMetrixDiv: (metrix) => {
     const metrixDiv = $('#hero-' + metrix)
@@ -535,6 +544,7 @@ const action = {
     if (hero[event.metrix] < 0 ) {
       hero[event.metrix] = 0
     }
+    hero.update()
     hero.updateCharacterDiv(event.effect)
     hero.updateMetrixDiv(event.metrix)
     if (!event.message) {
@@ -593,10 +603,11 @@ const fight = {
   attacks: [],
   init: (event) => {
     game.status = 2
-    game.writeMessage('<strong>' + t('Fight') + '</strong><br>' + t(event.message, game.translations), 'red', event.icon)
+    game.writeMessage(t(event.message, game.translations), '', event.icon)
     fight.changeBodyClass()
     fight.initData(event)
     fight.initMarkup()
+    fight.opponentAttacks()
   },
   initData: (event) => {
     // TODO: There sure is a gracious way to do that.
@@ -620,29 +631,46 @@ const fight = {
     const $heroName = $('#fight-hero-name')
     const $heroIcon = $('#fight-hero-icon')
     const $heroHp = $('#fight-hero-hp')
+    const $heroBar = $('#fight-hero-hp-bar')
     const $opponentName = $('#fight-opponent-name')
     const $opponentIcon = $('#fight-opponent-icon')
     const $opponentHp = $('#fight-opponent-hp')
+    const $opponentBar = $('#fight-opponent-hp-bar')
     $heroName.innerHTML = hero.name
     $heroIcon.innerHTML = hero.icon
     $heroHp.innerHTML = hero.hp
+    $heroBar.setAttribute('data-hp-init', hero.hp)
     $opponentName.innerHTML = fight.opponent
     $opponentIcon.innerHTML = fight.icon
     $opponentHp.innerHTML = fight.hp
+    $opponentBar.setAttribute('data-hp-init', fight.hp)
+    fight.updateMarkup()
+    fight.updateHpBars()
   },
-  play: () => {
-    if (game.status !== 2) {
-      return
-    }
+  updateMarkup: () => {
+    const $hero = $('#fight-hero')
+    const $opponent = $('#fight-opponent')
     if (fight.whoplays === 'hero') {
-      fight.heroAttacks()
+      $hero.classList.add('fight-current')
+      $opponent.classList.remove('fight-current')
     }
     if (fight.whoplays === 'opponent') {
-      fight.opponentAttacks()
+      $opponent.classList.add('fight-current')
+      $hero.classList.remove('fight-current')
     }
-    fight.next()
+  },
+  updateHpBars: () => {
+    const $hpBar = $('#hero-hp-bar')
+    const $heroBar = $('#fight-hero-hp-bar')
+    const $opponentBar = $('#fight-opponent-hp-bar')
+    game.hpPercent($hpBar, hero.hp)
+    game.hpPercent($heroBar, hero.hp)
+    game.hpPercent($opponentBar, fight.hp)
   },
   heroAttacks: () => {
+    if (game.status !== 2 || fight.whoplays !== 'hero') {
+      return
+    }
     const $opponentHp = $('#fight-opponent-hp')
     const attackNumber = getRandomNumber(hero.attacks.length)
     const attack = hero.attacks[attackNumber]
@@ -653,9 +681,20 @@ const fight = {
       fight.hp = 0
     }
     $opponentHp.innerHTML = fight.hp
+    fight.updateHpBars()
     game.writeMessage(message, '', icon)
+    if (fight.hp <= 0) {
+      fight.win()
+      return
+    }
+    fight.whoplays = 'opponent'
+    fight.updateMarkup()
+    fight.opponentAttacksAuto()
   },
   opponentAttacks: () => {
+    if (game.status !== 2 || fight.whoplays !== 'opponent') {
+      return
+    }
     const $heroHp = $('#fight-hero-hp')
     const attackNumber = getRandomNumber(fight.attacks.length)
     const attack = fight.attacks[attackNumber]
@@ -667,18 +706,21 @@ const fight = {
       'points': attack.hp
     })
     $heroHp.innerHTML = hero.hp
+    fight.updateHpBars()
     game.writeMessage(message, '', icon)
-  },
-  next: () => {
     if (hero.hp <= 0) {
       game.over()
       return
     }
-    if (fight.hp <= 0) {
-      fight.win()
+    fight.whoplays = 'hero'
+    fight.updateMarkup()
+  },
+  opponentAttacksAuto: () => {
+    if (fight.whoplays !== 'opponent') {
       return
     }
-    fight.whoplays = (fight.whoplays === 'hero') ? 'opponent' : 'hero'
+    const delay = 1000
+    window.setTimeout(fight.opponentAttacks, delay)
   },
   win: () => {
     game.status = 1
