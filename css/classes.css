@@ -14,3 +14,13 @@
   line-height: 1;
   text-align: center;
 }
+
+.hp {
+  display: inline-block;
+  min-width: 1.75rem;
+  padding: 0.25rem;
+  background: #fff;
+  border-radius: 1rem;
+  color: #000;
+  text-align: center;
+}

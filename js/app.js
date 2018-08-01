@@ -541,6 +541,9 @@ const action = {
   },
   metrix: (event) => {
     const points = parseInt(event.points)
+    const sign = (event.effect === 'earn') ? '+' : '-'
+    const message = t(event.message, game.translations)
+      + ` <span class="hp">${sign}${event.points}</span>`
     hero[event.metrix] = (event.effect === 'earn') ? (hero[event.metrix] + points) : (hero[event.metrix] - points)
     if (hero[event.metrix] < 0 ) {
       hero[event.metrix] = 0
@@ -548,12 +551,7 @@ const action = {
     hero.update()
     hero.updateCharacterDiv(event.effect)
     hero.updateMetrixDiv(event.metrix)
-    if (!event.message) {
-      return
-    }
-    const message = t(event.message, game.translations) + '<br> ' + t('you ' + event.effect) + ' ' + event.points + ' '+ event.metrix
-    const messageColor = (event.effect === 'lose') ? 'red' : ''
-    game.writeMessage(event.icon, message, messageColor)
+    game.writeMessage(event.icon, message)
   },
   move: (event) => {
     maze.setCurrent(event.to.r, event.to.c)
@@ -676,7 +674,10 @@ const fight = {
     const $opponentHp = $('#fight-opponent-hp')
     const attackNumber = getRandomNumber(hero.attacks.length)
     const attack = hero.attacks[attackNumber]
-    const message = '<em>' + t(attack.name, game.translations) + '</em><br>' + fight.opponent + ' ' + t('loses') + ' ' + attack.hp + ' HP'
+    let message = t(attack.name, game.translations)
+    if (attack.hp !== 0) {
+      message += ' <span class="hp">-' + attack.hp + '</span>'
+    }
     const icon = attack.icon ? attack.icon : hero.icon
     fight.hp -= attack.hp
     if (fight.hp < 0) {
@@ -700,7 +701,10 @@ const fight = {
     const $heroHp = $('#fight-hero-hp')
     const attackNumber = getRandomNumber(fight.attacks.length)
     const attack = fight.attacks[attackNumber]
-    const message = '<em>' + t(attack.name, game.translations) + '</em><br>' + t('you lose') + ' ' + attack.hp + ' HP'
+    let message = t(attack.name, game.translations)
+    if (attack.hp !== 0) {
+      message += ' <span class="hp">-' + attack.hp + '</span>'
+    }
     const icon = attack.icon ? attack.icon : fight.icon
     action.metrix({
       'metrix': 'hp',
