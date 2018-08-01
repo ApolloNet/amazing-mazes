@@ -541,9 +541,6 @@ const action = {
   },
   metrix: (event) => {
     const points = parseInt(event.points)
-    const sign = (event.effect === 'earn') ? '+' : '-'
-    const message = t(event.message, game.translations)
-      + ` <span class="hp">${sign}${event.points}</span>`
     hero[event.metrix] = (event.effect === 'earn') ? (hero[event.metrix] + points) : (hero[event.metrix] - points)
     if (hero[event.metrix] < 0 ) {
       hero[event.metrix] = 0
@@ -551,6 +548,12 @@ const action = {
     hero.update()
     hero.updateCharacterDiv(event.effect)
     hero.updateMetrixDiv(event.metrix)
+    if (!event.message) {
+      return
+    }
+    const sign = (event.effect === 'earn') ? '+' : '-'
+    const message = t(event.message, game.translations)
+      + ` <span class="hp">${sign}${event.points}</span>`
     game.writeMessage(event.icon, message)
   },
   move: (event) => {
@@ -674,10 +677,9 @@ const fight = {
     const $opponentHp = $('#fight-opponent-hp')
     const attackNumber = getRandomNumber(hero.attacks.length)
     const attack = hero.attacks[attackNumber]
-    let message = t(attack.name, game.translations)
-    if (attack.hp !== 0) {
-      message += ' <span class="hp">-' + attack.hp + '</span>'
-    }
+    const messageName = t(attack.name, game.translations)
+    const messageHp = (attack.hp !== 0) ? ' <span class="hp">-' + attack.hp + '</span>' : ''
+    const message = messageName + messageHp
     const icon = attack.icon ? attack.icon : hero.icon
     fight.hp -= attack.hp
     if (fight.hp < 0) {
@@ -701,10 +703,9 @@ const fight = {
     const $heroHp = $('#fight-hero-hp')
     const attackNumber = getRandomNumber(fight.attacks.length)
     const attack = fight.attacks[attackNumber]
-    let message = t(attack.name, game.translations)
-    if (attack.hp !== 0) {
-      message += ' <span class="hp">-' + attack.hp + '</span>'
-    }
+    const messageName = t(attack.name, game.translations)
+    const messageHp = (attack.hp !== 0) ? ' <span class="hp">-' + attack.hp + '</span>' : ''
+    const message = messageName + messageHp
     const icon = attack.icon ? attack.icon : fight.icon
     action.metrix({
       'metrix': 'hp',

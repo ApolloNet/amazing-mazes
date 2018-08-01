@@ -1,6 +1,5 @@
 # TODO
 
-- Fight: a message with "undefined" appears
 - RWD
   - Fight title
   - Change help message in touch context
