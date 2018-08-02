@@ -85,8 +85,8 @@ const game = {
   },
   help: () => {
     const $help = $('#help')
-    const message = '<kbd>↑</kbd> <kbd>→</kbd> <kbd>↓</kbd> <kbd>←</kbd> ' + t('to move')
-      + '<br>' + t('<kbd>Space bar</kbd> to fight')
+    const message = `<kbd>↑</kbd> <kbd>→</kbd> <kbd>↓</kbd> <kbd>←</kbd> ${t('to move')}
+      <br>${t('<kbd>Space bar</kbd> to fight')}`
     $help.addEventListener('click', () => {
       game.writeMessage('❔', message)
     })
@@ -115,8 +115,8 @@ const game = {
   writeMessage: (icon, message, color) => {
     const $messages = $('#messages')
     const $message = document.createElement('div')
-    $message.innerHTML = '<div class="icon">' + (icon ? icon : '') + '</div>'
-    $message.innerHTML += '<div class="text">' + message + '</div>'
+    $message.innerHTML = `<div class="icon">${(icon ? icon : '')}</div>`
+    $message.innerHTML += `<div class="text">${message}</div>`
     $message.classList.add('message')
     if (color) {
       $message.classList.add(color)
@@ -176,7 +176,7 @@ const maze = {
   },
   displayAuthors: (authors) => {
     if (authors) {
-      const message = t('This maze was created by') + '<br>' + authors
+      const message = `${t('This maze was created by')}<br>${authors}`
       game.writeMessage('✍', message)
     }
   },
@@ -222,9 +222,9 @@ const maze = {
     const gutterWidth = 0.0625
     const cellBorderWidth = 0.0625
     const maxWidth = maze.size.c * (cellWidth + gutterWidth + cellBorderWidth)
-    $maze.style.gridTemplateRows = 'repeat(' + maze.size.r + ', minmax(' + cellWidth + 'rem, auto))'
-    $maze.style.gridTemplateColumns = 'repeat(' + maze.size.c + ', minmax(' + cellWidth + 'rem, auto))'
-    $maze.style.maxWidth = maxWidth + 'rem'
+    $maze.style.gridTemplateRows = `repeat(${maze.size.r}, minmax(${cellWidth}rem, auto))`
+    $maze.style.gridTemplateColumns = `repeat(${maze.size.c}, minmax(${cellWidth}rem, auto))`
+    $maze.style.maxWidth = `${maxWidth}rem`
   },
   drawCells: () => {
     maze.cells.forEach((cell) => {
@@ -415,7 +415,7 @@ const maze = {
     $currentCell.classList.add(CssClass)
   },
   getCellDiv: (r, c) => {
-    return $('.cell[data-r="' + r + '"][data-c="' + c + '"]')
+    return $(`.cell[data-r="${r}"][data-c="${c}"]`)
   },
   setCurrent: (r, c) => {
     maze.current.r = r
@@ -619,14 +619,15 @@ const action = {
   learn: (event) => {
     hero.attacks.push(event.attack)
     hero.updateCharacterDiv('earn')
-    const message = t(event.message, game.translations) + '<br><em>' + event.attack.name + '</em> : ' + event.attack.hp + ' HP'
+    const message = `${t(event.message, game.translations)}
+      <br><em>${event.attack.name}</em> : ${event.attack.hp}HP`
     game.writeMessage(event.icon, message)
   },
   light: () => {
     maze.light = maze.light === 0 ? 1 : 0
     const onoff = (maze.light === 0) ? 'off' : 'on'
     maze.switchLight()
-    game.writeMessage(icons.light, t('You switched ' + onoff + ' the lights'))
+    game.writeMessage(icons.light, t(`You switched ${onoff} the lights`))
   },
   message: (event) => {
     game.writeMessage(event.icon, t(event.message, game.translations))
@@ -681,19 +682,19 @@ const action = {
     game.writeMessage(event.icon, t(event.message, game.translations))
   },
   win: (event) => {
-    const message = t(event.message, game.translations)
-      + '<br><a href="' + document.location + '">' + t('Replay') + '</a>'
-      + ' or <a href="?load=">' + t('Load another') + '</a>'
+    const message = `${t(event.message, game.translations)}
+      <br><a href="${document.location}">${t('Replay')}</a>
+      or <a href="?load=">${t('Load another')}</a>`
     game.status = 0
     maze.updateCellDiv(maze.current.r, maze.current.c, 'win')
     hero.updateCharacterDiv('earn')
-    game.writeMessage(event.icon, message, 'green')
+    game.writeMessage(event.icon, message)
   },
   over: (event) => {
     const $body = $('body')
-    const message = t(event.message, game.translations)
-      + '<br>' + t('Game over', game.translations)
-      + '<br><a href="' + document.location + '">' + t('Try again?') + '</a>'
+    const message = `${t(event.message, game.translations)}
+      <br>${t('Game over', game.translations)}
+      <br><a href="${document.location}">${t('Try again?')}</a>`
     game.status = 0
     $body.classList.add('game-over')
     maze.updateCellDiv(maze.current.r, maze.current.c, 'lose')
@@ -784,7 +785,7 @@ const fight = {
     const attackNumber = getRandomNumber(hero.attacks.length)
     const attack = hero.attacks[attackNumber]
     const messageName = t(attack.name, game.translations)
-    const messageHp = (attack.hp !== 0) ? ' <span class="hp">-' + attack.hp + '</span>' : ''
+    const messageHp = (attack.hp !== 0) ? ` <span class="hp">-${attack.hp}</span>` : ''
     const message = messageName + messageHp
     const icon = attack.icon ? attack.icon : hero.icon
     fight.hp -= attack.hp
@@ -810,7 +811,7 @@ const fight = {
     const attackNumber = getRandomNumber(fight.attacks.length)
     const attack = fight.attacks[attackNumber]
     const messageName = t(attack.name, game.translations)
-    const messageHp = (attack.hp !== 0) ? ' <span class="hp">-' + attack.hp + '</span>' : ''
+    const messageHp = (attack.hp !== 0) ? ` <span class="hp">-${attack.hp}</span>` : ''
     const message = messageName + messageHp
     const icon = attack.icon ? attack.icon : fight.icon
     action.metrix({
@@ -836,8 +837,9 @@ const fight = {
     window.setTimeout(fight.opponentAttacks, delay)
   },
   win: () => {
+    const message = `${t('You defeated')} ${fight.opponent}`
     game.status = 1
-    game.writeMessage('✌', t('You defeated') + ' ' + fight.opponent, 'red')
+    game.writeMessage('✌', message, 'red')
     fight.changeBodyClass()
     if (!fight.rewards) {
       return

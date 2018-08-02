@@ -45,10 +45,6 @@
   color: var(--messageColor);
 }
 
-.green .text {
- --messageColor: green;
-}
-
 .red .text {
   --messageColor: red;
 }
