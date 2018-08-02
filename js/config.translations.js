@@ -106,5 +106,11 @@ export default {
   },
   'You teleported': {
     'fr': "Tu t'es télétransporté"
+  },
+  'torch': {
+    'fr': 'torch'
+  },
+  'candle': {
+    'fr': 'bougie'
   }
 }

@@ -3,7 +3,7 @@
   "light": 0,
   "hero": {
     "name": "Namae",
-    "icon": "𐇕",
+    "icon": "🧙",
     "hp": 100,
     "attacks": [
       {
@@ -238,6 +238,9 @@
     },
     "You found a little star that shines in the darkness": {
       "fr": "Tu as trouvé une petite étoile qui brille dans les noirceurs"
+    },
+    "little star": {
+      "fr": "petite étoile"
     },
     "You crossed a secret passage in the wall": {
       "fr": "Tu a traversé le mur par un passage secret"
