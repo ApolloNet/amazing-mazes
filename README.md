@@ -52,6 +52,8 @@ Each one has defaults. Just add the ones you want to override in your json maze 
 
 `attacks` (array, optional): attacks used in fights
 
+`objects` (array, optional): objects the hero has got
+
 ## Attacks
 
 Attacks is an array of objects. Each one contains :
@@ -63,6 +65,14 @@ Attacks is an array of objects. Each one contains :
 `icon` (string, optional, default: hero icon): icon of the attack
 
 Defaults are stored in the /js/config.attacks.js file
+
+## Objects
+
+Objects is an array of objects. Each one contains :
+
+`name` (string, required): name of the object
+
+`icon` (string, required): icon of the object
 
 
 # Cells
@@ -248,8 +258,8 @@ Reward events don't need `r`, `c` and `once` params.
 ],
 "rewards": [
   {
+    "type": "metrix",
     "message": "You found a Broccoli",
-    "object": "broccoli",
     "metrix": "hp",
     "effect": "earn",
     "points": 20,
@@ -340,8 +350,6 @@ It is used to add or remove some hp to the hero.
 
 ## Params
 
-`object` (string, optional): **TODO**
-
 `metrix` (string, required): Values can only be `hp` for the moment
 
 `effect` (string, required): Values can be `earn` or `lose`
@@ -355,7 +363,6 @@ It is used to add or remove some hp to the hero.
 "c": 0,
 "type": "metrix",
 "message": "You found a Talisman",
-"object": "talisman",
 "metrix": "hp",
 "effect": "earn",
 "points": 5,
@@ -439,6 +446,18 @@ The message displayed is "🐅 You're now a tiger".
 
 The object event is used to add an object to the hero's objects.
 
+## Params
+
+`object` (object, required)
+
+The object object (!) has these params :
+
+`type` (string, required): the object type
+
+`name` (string, required): the object name
+
+`icon` (string, required): the object icon
+
 ## Example
 
 ```
@@ -446,12 +465,14 @@ The object event is used to add an object to the hero's objects.
 "c": 3,
 "type": "object",
 "message": "You found a torch and see further",
-"effect": "earn",
-"object": "torch",
-"icon": "🔦"
+"object": {
+  "type": "torch",
+  "name": "candle",
+  "icon": "🕯"
+}
 ```
 
-A "🔦" torch is added to the hero objects when he comes on the cell at the 3rd row, 4th column.
+A 🕯 candle, of type "torch", is added to the hero objects when he comes on the cell at the 3rd row, 4th column.
 
 There are some special objects, see below for detailed informations.
 
@@ -570,7 +591,6 @@ The `success` object also needs :
   {
     "type": "metrix",
     "message": "Here is an old Talisman, it will help you in your quest",
-    "object": "talisman",
     "metrix": "hp",
     "effect": "earn",
     "points": 20,

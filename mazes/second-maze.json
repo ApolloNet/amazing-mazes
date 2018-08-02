@@ -35,10 +35,10 @@
       "c": 0,
       "type": "metrix",
       "message": "You fell into a hole",
+      "icon": "🕳",
       "metrix": "hp",
       "effect": "lose",
       "points": 30,
-      "icon": "🕳",
       "once": 0
     },
     {
@@ -46,20 +46,22 @@
       "c": 1,
       "type": "object",
       "message": "You found a torch. You can see farther",
-      "object": "torch",
-      "effect": "earn",
-      "icon": "🔦"
+      "icon": "🔦",
+      "object": {
+        "type": "torch",
+        "name": "torch",
+        "icon": "🔦"
+      }
     },
     {
       "r": 1,
       "c": 0,
       "type": "metrix",
-      "message": "You found a Talisman",
-      "object": "talisman",
+      "message": "You found a fried shrimp",
+      "icon": "🍤",
       "metrix": "hp",
       "effect": "earn",
-      "points": 5,
-      "icon": "🉤"
+      "points": 10
     }
   ],
   "translations": {
@@ -75,8 +77,8 @@
     "You found a torch. You can see farther": {
       "fr": "Tu as trouvé une torche. Tu peux voir plus loin."
     },
-    "You found a Talisman": {
-      "fr": "Tu as trouvé un Talisman"
+    "You found a fried shrimp": {
+      "fr": "Tu as trouvé une crevette grillée"
     }
   }
 }

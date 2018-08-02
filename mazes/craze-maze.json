@@ -44,13 +44,15 @@
       "r": 3,
       "c": 4,
       "type": "start",
-      "message": "Find the hidden treasure"
+      "message": "Find the hidden treasure",
+      "icon": "💎"
     },
     {
       "r": 8,
       "c": 9,
       "type": "win",
-      "message": "You found the hidden treasure"
+      "message": "You found the hidden treasure",
+      "icon": "💎"
     },
     {
       "r": 3,
@@ -113,9 +115,12 @@
         {
           "type": "object",
           "message": "You found a little star that shines in the darkness",
-          "effect": "earn",
-          "object": "torch",
-          "icon": "🟍"
+          "icon": "🟍",
+          "object": {
+            "type": "torch",
+            "name": "little star",
+            "icon": "🟍"
+          }
         }
       ]
     },
@@ -155,8 +160,8 @@
       ],
       "rewards": [
         {
+          "type": "metrix",
           "message": "Hmm, delicious!",
-          "object": "chicken drumstick,",
           "metrix": "hp",
           "effect": "earn",
           "points": 50,

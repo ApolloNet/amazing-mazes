@@ -7,7 +7,7 @@ export default [
   {
     'type': 'message',
     'message': 'You hear a whisper',
-    'icon': '🌫'
+    'icon': '🗩'
   },
   {
     'type': 'message',

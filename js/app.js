@@ -450,11 +450,13 @@ const hero = {
     hero.icon = (dataHero && dataHero.icon) ? dataHero.icon : hero.icon
     hero.hp = (dataHero && dataHero.hp) ? dataHero.hp : hero.hp
     hero.attacks = (dataHero && dataHero.attacks) ? dataHero.attacks : defaultAttacks
+    hero.objects = (dataHero && dataHero.objects) ? dataHero.objects : hero.objects
     $name.innerHTML = hero.name
     $icon.innerHTML = hero.icon
     $hp.innerHTML = hero.hp
     $hpBar.setAttribute('data-hp-init', hero.hp)
     maze.updateCurrentCell()
+    hero.updateBag()
   },
   update: () => {
     const $hpBar = $('#hero-hp-bar')
@@ -471,6 +473,12 @@ const hero = {
       $hero.classList.remove('character-' + effect)
     }, 500)
     
+  },
+  updateBag: () => {
+    const $bag = $('#bag')
+    hero.objects.forEach((object) => {
+      $bag.innerHTML += `<div class="object">${object.icon} ${object.name}</div>`
+    })
   },
   move: (key) => {
     if (game.status !== 1) {
@@ -560,8 +568,11 @@ const hero = {
     }
     return directions[0]
   },
-  hasObject: (object) => {
-    return hero.objects.includes(object)
+  hasObject: (objectType) => {
+    const yes = hero.objects.some((object) => {
+      return object.type === objectType
+    })
+    return yes ? true : false
   }
 }
 
@@ -645,6 +656,7 @@ const action = {
   },
   object: (event) => {
     hero.objects.push(event.object)
+    hero.updateBag()
     game.writeMessage(event.icon, t(event.message, game.translations))
   },
   protected: (event) => {

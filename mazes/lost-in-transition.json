@@ -78,7 +78,6 @@
         {
           "type": "metrix",
           "message": "Here is an old Talisman, it will help you in your quest",
-          "object": "talisman",
           "metrix": "hp",
           "effect": "earn",
           "points": 20,

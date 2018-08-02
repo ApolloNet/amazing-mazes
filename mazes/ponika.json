@@ -7,15 +7,11 @@
     "attacks": [
         {
           "name": "Tail stroke",
-          "hp": 30
+          "hp": 20
         },
         {
           "name": "Long teeth bite",
-          "hp": 50
-        },
-        {
-          "name": "Kamehameha",
-          "hp": 80
+          "hp": 30
         }
     ]
   },
@@ -48,45 +44,46 @@
       "icon": "🖹"
     },
     {
-      "r": 2,
+      "r": 1,
       "c": 3,
       "type": "object",
       "message": "You found a torch. You can see farther",
-      "effect": "earn",
-      "object": "torch",
-      "icon": "🔦"
-    },
-    {
-      "r": 3,
-      "c": 2,
-      "type": "metrix",
-      "message": "You found a dagger",
-      "object": "dagger",
-      "metrix": "hp",
-      "effect": "earn",
-      "points": 10,
-      "icon": "🗡"
+      "icon": "🔦",
+      "object": {
+        "type": "torch",
+        "name": "torch",
+        "icon": "🔦"
+      }
     },
     {
       "r": 5,
       "c": 1,
+      "type": "metrix",
+      "message": "You found a chocolate bar",
+      "icon": "🍫",
+      "metrix": "hp",
+      "effect": "earn",
+      "points": 10
+    },
+    {
+      "r": 3,
+      "c": 2,
       "type": "learn",
       "message": "You learnt a new attack",
       "attack": {
         "name": "Croco punch",
-        "hp": 20
+        "hp": 60
       }
     },
     {
       "r": 1,
       "c": 5,
       "type": "metrix",
-      "message": "You found a Talisman",
-      "object": "talisman",
+      "message": "You found a donut",
+      "icon": "🍩",
       "metrix": "hp",
       "effect": "earn",
-      "points": 20,
-      "icon": "🉤"
+      "points": 20
     },
     {
       "r": 3,
@@ -103,17 +100,17 @@
         },
         {
           "name": "Tail stroke",
-          "hp": 10
+          "hp": 20
         }
       ],
       "rewards": [
         {
+          "type": "metrix",
           "message": "You found a Broccoli",
-          "object": "broccoli",
+          "icon": "🥦",
           "metrix": "hp",
           "effect": "earn",
-          "points": 20,
-          "icon": "🥦"
+          "points": 2
         }
       ]
     },
@@ -122,6 +119,7 @@
       "c": 5,
       "type": "fight",
       "message": "Rat attacks",
+      "icon": "🐁",
       "opponent": "Rat",
       "hp": 7,
       "attacks": [
@@ -131,7 +129,6 @@
         }
       ],
       "whoplays": "opponent",
-      "icon": "🐁",
       "once": 0
     }
   ],
@@ -154,14 +151,14 @@
     "You found a torch. You can see farther": {
       "fr": "Tu as trouvé une torche. Tu peux voir plus loin."
     },
-    "You found a dagger": {
-      "fr": "Tu as trouvé une dague"
+    "You found a donut": {
+      "fr": "Tu as trouvé un donut"
     },
     "You learnt a new attack": {
       "fr": "Tu as appris une nouvelle attaque"
     },
-    "You found a Talisman": {
-      "fr": "Tu as trouvé un Talisman"
+    "You found a chocolate bar": {
+      "fr": "Tu as trouvé une barre de chocolat"
     },
     "You woke up a dragon": {
       "fr": "Tu as réveillé un dragon"

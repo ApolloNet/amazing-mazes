@@ -26,6 +26,8 @@
   display: none;
 }
 
+/* Messages */
+
 .message {
   display: flex;
   align-items: center;
@@ -53,4 +55,11 @@
 
 .yellow .text {
   --messageColor: yellow;
+}
+
+/* Bag */
+
+.bag {
+  margin-top: 0.5rem;
+  text-align: left;
 }

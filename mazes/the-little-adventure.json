@@ -3,7 +3,14 @@
   "hero": {
     "name": "Salim",
     "icon": "🚶",
-    "hp": 100
+    "hp": 100,
+    "objects": [
+      {
+        "type": "torch",
+        "name": "candle",
+        "icon": "🕯"
+      }
+    ]
   },
   "cells": [
     ["tl", "tb", "tr"],
@@ -19,38 +26,37 @@
     },
     {
       "r": 1,
-      "c": 0,
-      "type": "metrix",
-      "message": "You found a Talisman",
-      "object": "talisman",
-      "metrix": "hp",
-      "effect": "earn",
-      "points": 5,
-      "icon": "🉤"
-    },
-    {
-      "r": 1,
       "c": 1,
       "type": "win",
       "message": "You found the hidden treasure"
+    },
+    {
+      "r": 1,
+      "c": 0,
+      "type": "metrix",
+      "message": "You found a slice of pizza",
+      "icon": "🍕",
+      "metrix": "hp",
+      "effect": "earn",
+      "points": 5
     },
     {
       "r": 2,
       "c": 1,
       "type": "metrix",
       "message": "You defeated a Vampire Boss",
+      "icon": "🧛",
       "metrix": "hp",
       "effect": "lose",
-      "points": 50,
-      "icon": "🧛"
+      "points": 50
     }
   ],
   "translations": {
     "Find the hidden treasure<br>but beware of the vampire": {
       "fr": "Trouve le trésor caché<br>mais attention au vampire"
     },
-    "You found a Talisman": {
-      "fr": "Tu as trouvé un Talisman"
+    "You found a slice of pizza": {
+      "fr": "Tu as trouvé une part de pizza"
     },
     "You found the hidden treasure": {
       "fr": "Tu as trouvé le trésor caché"
