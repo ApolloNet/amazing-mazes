@@ -1,5 +1,3 @@
-import translations from './config.translations.js'
-
 /**
  * Get random number
  *
@@ -23,25 +21,6 @@ function $(selector) {
 }
 
 /**
- * Translation.
- *
- * @param (string) string
- * @param (string) source : json file or ommitted
- *
- * @return (string)
- */
-function t(string, source) {
-  const language = navigator.language
-  if (source && source[string] && source[string][language]) {
-    return source[string][language]
-  }
-  if (translations[string] && translations[string][language]) {
-    return translations[string][language]
-  }
-  return string
-}
-
-/**
  * Is it a "touch device" ?
  */
 function isTouch() {
@@ -51,4 +30,4 @@ function isTouch() {
 /**
  * Export.
  */
-export {getRandomNumber, $, t, isTouch}
+export {getRandomNumber, $, isTouch}

@@ -1,9 +1,6 @@
 # TODO
 
-- Dragon never attacks with Red fire ?
-
 - Translate Load another and Help
-
 - Display Attacks somewhere ?
 - Attack points: increase attacks of the hero
 - Defense points: decrease attacks of the opponent
