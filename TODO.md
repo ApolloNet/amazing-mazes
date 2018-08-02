@@ -1,11 +1,9 @@
 # TODO
 
-- Rename Reward to Chain
 - Question event: focus on the maze after answer
 - Question event: add a reward also on failure (hp loss, death...)
-- Question event: multiple answers
 - Which unicode subsets are not implemented on my Android phone?
-- Protected and question (and fight ?) events happens before you're on the cell
+- Refacto: Protected and question (and fight ?) events happens before you're on the cell...
 - RWD
   - Fight title
   - Change help message in touch context
@@ -13,7 +11,6 @@
 - "Find 5 something" => new event linked to objects
 - Add random events to json config ?
 - Fight: choose your attack in a set of attacks you got ?
-- Replace "fight" with "interaction" : conversation, question, objects...
 - PWA + Offline
 - Document translation
 - Document default icons
@@ -34,6 +31,8 @@
 
 ## Maybe later
 
+- Question event: multiple answers
+- Replace "fight" with "interaction" : conversation, question, objects...
 - Opponents, multiple
 - Allow multiple events on a cell ?
 - Chain events
