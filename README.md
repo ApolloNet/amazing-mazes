@@ -136,6 +136,8 @@ For rows and columns, we start counting at zero. It is real computer programming
 
 `object`: adds an object to the hero's objects
 
+`over`: game over
+
 `protected`: the hero can only come on this cell if he has got the appropriate object
 
 `question`: the hero can only come on this cell if he answers the question properly
@@ -452,6 +454,24 @@ The object event is used to add an object to the hero's objects.
 A "🔦" torch is added to the hero objects when he comes on the cell at the 3rd row, 4th column.
 
 There are some special objects, see below for detailed informations.
+
+
+# Over event
+
+This is the game over event.
+
+## Example
+
+```
+"r": 2,
+"c": 8,
+"type": "over",
+"message": "Argh. This liquor was poisoned",
+"icon": "🍶"
+```
+
+At cell at 3rd row, 9th column, the game ends with the message "🍶 Argh. This liquor was poisoned".
+
 
 # Protected event
 

@@ -3,8 +3,8 @@
   "light": 1,
   "cells": [
     ["tl", "tb", "tb", "tb", "tb", "tb", "t", "tb", "tb", "tr"],
-    ["rl", "tl", "tr", "tl", "tb", "tb", "b", "tb", "tr", "rl"],
-    ["l", "rb", "rbl", "rl", "tl", "tr", "tl", "t", "rb", "rl"],
+    ["rl", "tl", "tr", "tl", "tb", "tb", "b", "tb", "trb", "rl"],
+    ["l", "rb", "rbl", "rl", "tl", "tr", "tl", "t", "trb", "rl"],
     ["rl", "tl", "tr", "l", "rb", "bl", "rb", "rl", "trl", "rl"],
     ["rl", "rl", "rl", "rl", "tl", "tb", "tr", "rl", "bl", "rb"],
     ["l", "r", "rl", "rl", "l", "tr", "bl", "b", "tb", "trb"],
@@ -22,6 +22,13 @@
       "c": 9,
       "type": "win",
       "message": "You found the hidden treasure"
+    },
+    {
+      "r": 2,
+      "c": 8,
+      "type": "over",
+      "message": "Argh. This liquor was poisoned",
+      "icon": "🍶"
     },
     {
       "r": 0,
@@ -123,6 +130,9 @@
     },
     "You found the hidden treasure": {
       "fr": "Tu as trouvé le trésor caché"
+    },
+    "Argh. This liquor was poisoned": {
+      "fr": "Argh. Cette liqueur était empoisonnée"
     },
     "You're now a tiger": {
       "fr": "Tu t'es transformé en tigre"

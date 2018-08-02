@@ -103,12 +103,10 @@ const game = {
   },
   over: () => {
     if (hero.hp <= 0) {
-      const $body = $('body')
-      const message = t('Game over') + '<br><a href="' + document.location + '">' + t('Try again?') + '</a>'
-      game.status = 0
-      $body.classList.add('game-over')
-      maze.updateCellDiv(maze.current.r, maze.current.c, 'lose')
-      game.writeMessage('🕱', message, 'red')
+      action.over({
+        'message': t('You fall on the ground, exhausted'),
+        'icon': '🕱'
+      })
     }
   },
   writeMessage: (icon, message, color) => {
@@ -676,6 +674,16 @@ const action = {
     hero.updateCharacterDiv('earn')
     game.writeMessage(event.icon, message, 'green')
   },
+  over: (event) => {
+    const $body = $('body')
+    const message = t(event.message, game.translations)
+      + '<br>' + t('Game over', game.translations)
+      + '<br><a href="' + document.location + '">' + t('Try again?') + '</a>'
+    game.status = 0
+    $body.classList.add('game-over')
+    maze.updateCellDiv(maze.current.r, maze.current.c, 'lose')
+    game.writeMessage(event.icon, message, 'red')
+  }
 }
 
 /**

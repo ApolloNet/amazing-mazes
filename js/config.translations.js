@@ -47,6 +47,9 @@ export default {
   'Game over': {
     'fr': "Game over"
   },
+  'You fall on the ground, exhausted': {
+    'fr': "Tu tombes à terre, épuisé"
+  },
   'Try again?': {
     'fr': "Rejouer ?"
   },

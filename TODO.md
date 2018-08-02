@@ -1,6 +1,9 @@
 # TODO
 
 - Rename Reward to Chain
+- Question event: focus on the maze after answer
+- Question event: add a reward also on failure (hp loss, death...)
+- Question event: multiple answers
 - Which unicode subsets are not implemented on my Android phone?
 - Protected and question (and fight ?) events happens before you're on the cell
 - RWD
