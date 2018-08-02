@@ -21,8 +21,8 @@ A maze is defined in Json format, with these settings:
 
 `light` (int, optional):
 
-- "0": light off the entire maze (default)
-- "1": light on the entire maze
+- 0: light off the entire maze (default)
+- 1: light on the entire maze
 
 `hero` (object, optional): See below for detailed informations
 
