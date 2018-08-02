@@ -60,9 +60,9 @@
       "r": 9,
       "c": 9,
       "type": "object",
-      "message": "You found a torch",
+      "message": "You found a candle",
       "object": "torch",
-      "icon": "🔥"
+      "icon": "🕯"
     },
     {
       "r": 11,
@@ -308,8 +308,8 @@
     "A wild lizard stares at you": {
       "fr": "Un lézard féroce vous regarde fixement"
     },
-    "You found a torch": {
-      "fr": "Vous avez trouvé une torche"
+    "You found a candle": {
+      "fr": "Vous avez trouvé une bougie"
     },
     "You press on a switch": {
       "fr": "tu appuies sur un interrupteur"

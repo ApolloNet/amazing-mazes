@@ -3,7 +3,7 @@
  */
 import mazeFiles from './config.mazefiles.js'
 import borders from './config.borders.js'
-import encounters from './config.encounters.js'
+import randomEvents from './random-events.js'
 import defaultAttacks from './config.attacks.js'
 import icons from './config.icons.js'
 import {getRandomNumber, $, t, isTouch} from './helpers.js'
@@ -536,24 +536,6 @@ const hero = {
       $currentCell.classList.remove('direction-left')
     }
   },
-  encounter: () => {
-    const cell = maze.getCell(maze.current.r, maze.current.c)
-    if (cell.event) {
-      return
-    }
-    const random = getRandomNumber(60)
-    if (!encounters[random]) {
-      return
-    }
-    const encounter = encounters[random]
-    action.metrix({
-      'metrix': encounter.metrix,
-      'effect': 'lose',
-      'points': encounter.points,
-      'message': t(encounter.message),
-      'icon': encounter.icon
-    })
-  },
   hitAWall: (direction) => {
     const thereIsAWall = maze.isThereAWall(maze.current.r, maze.current.c, direction.shortname)
     if (!thereIsAWall) {
@@ -590,9 +572,9 @@ const hero = {
  */
 const action = {
   init: (event) => {
-    // No event : random encounter, and return.
+    // No event : random event, and return.
     if (!event || !event.type) {
-      hero.encounter()
+      action.random()
       return
     }
     // Execute.
@@ -603,6 +585,21 @@ const action = {
     if (event.once === 1) {
       maze.removeEventFromCell(event.r, event.c)
     }
+  },
+  random: () => {
+    // No random event on a cell that has an attached event.
+    const cell = maze.getCell(maze.current.r, maze.current.c)
+    if (cell.event) {
+      return
+    }
+    // Throw that multi-dimensional dice.
+    const random = getRandomNumber(100)
+    if (!randomEvents[random]) {
+      return
+    }
+    // There you go.
+    const event = randomEvents[random]
+    action[event.type](event)
   },
   fight: (event) => {
     fight.init(event)

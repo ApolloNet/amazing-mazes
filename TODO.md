@@ -1,9 +1,7 @@
 # TODO
 
 - Rename Reward to Chain
-- Rename Encounters to Random
 - Which unicode subsets are not implemented on my Android phone?
-- No more or less random events ? Dying on a random is harsh, it kills strategy and efforts
 - Protected and question (and fight ?) events happens before you're on the cell
 - RWD
   - Fight title

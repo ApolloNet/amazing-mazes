@@ -56,6 +56,15 @@ export default {
   'You hit a wall': {
     'fr': "Tu t'es cogné au mur"
   },
+  'You feel a breath on your neck': {
+    'fr': "Tu sens un souffle sur ton cou"
+  },
+  'You hear a whisper': {
+    'fr': "Tu entends un chuchotement"
+  },
+  'There are footprints on the ground': {
+    'fr': "Il y a des empreintes de pas par terre"
+  },
   'A rat bit your left foot': {
     'fr': "Un rat t'a mordu au pied gauche"
   },
