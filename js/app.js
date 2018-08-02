@@ -487,6 +487,7 @@ const hero = {
   },
   updateBag: () => {
     const $bag = $('#bag')
+    $bag.innerHTML = '';
     hero.objects.forEach((object) => {
       $bag.innerHTML += `<div class="object">${object.icon} ${game.t(object.name)}</div>`
     })
