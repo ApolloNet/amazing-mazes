@@ -4,6 +4,7 @@
     "name": "Salim",
     "icon": "🚶",
     "hp": 100,
+    "attacks": [],
     "objects": [
       {
         "type": "torch",

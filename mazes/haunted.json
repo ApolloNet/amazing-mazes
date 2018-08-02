@@ -121,6 +121,7 @@
       "icon": "🗡",
       "attack": {
         "name": "Golden sword",
+        "icon": "🗡",
         "hp": 77
       }
     },

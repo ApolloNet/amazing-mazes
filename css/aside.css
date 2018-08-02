@@ -10,6 +10,7 @@
 @media (min-width: 30rem) {
   .main-aside {
     order: -1;
+    padding: 1rem;
   }
 }
 
@@ -18,10 +19,14 @@
 }
 
 .main-character {
+  width: 100%;
   height: auto;
   min-height: 15rem;
   margin-left: auto;
   margin-right: auto;
+  padding: 0;
+  border: none;
+  border-bottom: var(--onepix) solid #222;
 }
 
 .touch .main-character {
@@ -55,9 +60,17 @@
   --messageColor: yellow;
 }
 
-/* Bag */
+/* Skills */
 
-.bag {
-  margin-top: 0.5rem;
+.hero-skills {
+  margin: 1rem 0;
   text-align: left;
+}
+
+.hero-skills h2 {
+  font-size: 0.9rem;
+}
+
+.hero-attacks {
+  margin-bottom: 0.5rem;
 }

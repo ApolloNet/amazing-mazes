@@ -467,7 +467,8 @@ const hero = {
     $hp.innerHTML = hero.hp
     $hpBar.setAttribute('data-hp-init', hero.hp)
     maze.updateCurrentCell()
-    hero.updateBag()
+    hero.updateObjectsMarkup()
+    hero.updateAttacksMarkup()
   },
   update: () => {
     const $hpBar = $('#hero-hp-bar')
@@ -485,11 +486,27 @@ const hero = {
     }, 500)
     
   },
-  updateBag: () => {
-    const $bag = $('#bag')
-    $bag.innerHTML = '';
+  updateObjectsMarkup: () => {
+    const $objects = $('#hero-objects')
+    $objects.innerHTML = '';
+    if (!hero.objects[0]) {
+      $objects.innerHTML = game.t('none');
+    }
     hero.objects.forEach((object) => {
-      $bag.innerHTML += `<div class="object">${object.icon} ${game.t(object.name)}</div>`
+      $objects.innerHTML += `<li class="object">${object.icon} ${game.t(object.name)}</li>`
+    })
+  },
+  updateAttacksMarkup: () => {
+    const $attacks = $('#hero-attacks')
+    $attacks.innerHTML = '';
+    if (!hero.attacks[0]) {
+      $attacks.innerHTML = game.t('none');
+    }
+    hero.attacks.forEach((attack) => {
+      if (attack.hp !== 0) {
+        attack.icon = attack.icon ? attack.icon : icons.attack;
+        $attacks.innerHTML += `<li class="attack">${attack.icon} ${game.t(attack.name)} ${attack.hp}</li>`
+      }
     })
   },
   move: (key) => {
@@ -628,6 +645,7 @@ const action = {
   learn: (event) => {
     hero.attacks.push(event.attack)
     hero.updateCharacterDiv('earn')
+    hero.updateAttacksMarkup()
     const message = `${game.t(event.message)}
       <br><em>${event.attack.name}</em> : ${event.attack.hp}HP`
     game.writeMessage(event.icon, message)
@@ -669,7 +687,7 @@ const action = {
   },
   object: (event) => {
     hero.objects.push(event.object)
-    hero.updateBag()
+    hero.updateObjectsMarkup()
     game.writeMessage(event.icon, game.t(event.message))
   },
   protected: (event) => {

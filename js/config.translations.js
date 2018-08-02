@@ -1,4 +1,7 @@
 export default {
+  'none': {
+    'fr': 'aucun'
+  },
   'you': {
     'fr': "tu"
   },

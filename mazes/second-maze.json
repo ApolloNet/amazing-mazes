@@ -2,7 +2,7 @@
   "name": "Second maze",
   "hero": {
     "name": "Robert",
-    "icon": "𐇐",
+    "icon": "🕺",
     "hp": 100
   },
   "cells": [

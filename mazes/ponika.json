@@ -70,9 +70,11 @@
       "c": 2,
       "type": "learn",
       "message": "You learnt a new attack",
+      "icon": "👊",
       "attack": {
         "name": "Croco punch",
-        "hp": 60
+        "hp": 60,
+        "icon": "👊"
       }
     },
     {

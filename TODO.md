@@ -1,9 +1,6 @@
 # TODO
 
 - Translate Load another and Help
-- Display Attacks somewhere ?
-- Attack points: increase attacks of the hero
-- Defense points: decrease attacks of the opponent
 - Question event: focus on the maze after answer
 - Question event: add a reward also on failure (hp loss, death...)
 - Which unicode subsets are not implemented on my Android phone?
@@ -11,9 +8,12 @@
 - RWD
   - Fight title
   - Change help message in touch context
-- "Find 5 something" => new event linked to objects
-- Add random events to json config ?
-- Fight: choose your attack in a set of attacks you got ?
+- Fight
+  - choose your attack in a set of attacks you got ?
+  - Attack points: increase attacks of the hero
+  - Defense points: decrease attacks of the opponent
+  - "Find 5 something" => new event linked to objects
+  - Add random events to json config ?
 - PWA + Offline
 - Document translation
 - Document default icons
