@@ -138,6 +138,8 @@ For rows and columns, we start counting at zero. It is real computer programming
 
 `protected`: the hero can only come on this cell if he has got the appropriate object
 
+`question`: the hero can only come on this cell if he answers the question properly
+
 `reveal`: switches the lights on of the some cells
 
 ## Required events
@@ -501,6 +503,61 @@ Of course, an object event was used elsewhere in the maze, with the `old key` ob
 "object": "old key"
 ```
 
+
+# Question event
+
+This event is used to ask the hero a question. If they answer properly, they can pass.
+
+## Params
+
+`success` (object, required): expected answer and icon and message displayed if answer is correct
+
+`failure` (object, required): icon and message displayed if answer is not correct
+
+`rewards` (object, optional): see the fight event for details
+
+Both `success` and `failure` objects must contain those params:
+
+`message` (string, required)
+
+`icon` (string, required)
+
+The `success` object also needs :
+
+`answer` (string, required): the answer to the question
+
+⚠ The answer **is not** case sensitive. Ie: 'Horcrux' will match 'HORCRUX' or 'horcrux'
+
+## Example
+
+```
+"r": 3,
+"c": 7,
+"type": "question",
+"message": "What's your animal name?",
+"icon": "🧝",
+"once": 1,
+"success": {
+  "answer": "tiger",
+  "message": "Right answer, you can pass",
+  "icon": "🐅"
+},
+"failure": {
+  "message": "Wrong answer, you shall not pass",
+  "icon": "🧝"
+},
+"rewards": [
+  {
+    "type": "metrix",
+    "message": "Here is an old Talisman, it will help you in your quest",
+    "object": "talisman",
+    "metrix": "hp",
+    "effect": "earn",
+    "points": 20,
+    "icon": "🉥"
+  }
+]
+```
 
 # Reveal event
 

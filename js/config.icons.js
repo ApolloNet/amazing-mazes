@@ -2,5 +2,6 @@ export default {
   'start': '🞋',
   'win': '👑',
   'light': '💡',
-  'learn': '👊'
+  'learn': '👊',
+  'question': '❔'
 }

@@ -1,13 +1,18 @@
 # TODO
 
+- Rename Reward to Chain
+- Rename Encounters to Random
+- Which unicode subsets are not implemented on my Android phone?
+- No more or less random events ? Dying on a random is harsh, it kills strategy and efforts
+- Protected and question (and fight ?) events happens before you're on the cell
 - RWD
   - Fight title
   - Change help message in touch context
 - Bag : Display objects 👜 👝 🛍 💰
 - "Find 5 something" => new event linked to objects
 - Add random events to json config ?
-- Protected event with an input text to unlock (ie: you found letters one by one, they form a word...)
 - Fight: choose your attack in a set of attacks you got ?
+- Replace "fight" with "interaction" : conversation, question, objects...
 - PWA + Offline
 - Document translation
 - Document default icons
@@ -35,3 +40,4 @@
 - Stairs and floors
 - Limited time ?
 - Sound ?
+- Moving opponents ?

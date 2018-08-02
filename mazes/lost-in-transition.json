@@ -52,6 +52,34 @@
       }
     },
     {
+      "r": 3,
+      "c": 7,
+      "type": "question",
+      "message": "What's your animal name?",
+      "icon": "🧝",
+      "once": 1,
+      "success": {
+        "answer": "tiger",
+        "message": "Right answer, you can pass",
+        "icon": "🐅"
+      },
+      "failure": {
+        "message": "Wrong answer, you shall not pass",
+        "icon": "🧝"
+      },
+      "rewards": [
+        {
+          "type": "metrix",
+          "message": "Here is an old Talisman, it will help you in your quest",
+          "object": "talisman",
+          "metrix": "hp",
+          "effect": "earn",
+          "points": 20,
+          "icon": "🉥"
+        }
+      ]
+    },
+    {
       "r": 2,
       "c": 2,
       "type": "move",

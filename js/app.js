@@ -284,12 +284,70 @@ const maze = {
     return walls.includes(direction) || false
   },
   openTheDoor: (nextCell) => {
+    const thereIsADoor = (nextCell.event && nextCell.event.type === 'protected')
+    if (!thereIsADoor) {
+      return
+    }
+    maze.updateSeenCell(nextCell.r, nextCell.c)
     const heroHasTheObject = hero.hasObject(nextCell.event.success.object)
     if (!heroHasTheObject) {
       game.writeMessage(nextCell.event.icon, t(nextCell.event.message, game.translations))
       return false
     }
     return true
+  },
+  answerTheQuestion: (nextCell) => {
+    const thereIsAQuestion = (nextCell.event && nextCell.event.type === 'question')
+    if (!thereIsAQuestion) {
+      return
+    }
+    // Pause.
+    game.status = 0
+    // Hilight the cell.
+    maze.updateSeenCell(nextCell.r, nextCell.c)
+    // Question.
+    const formId = nextCell.r + nextCell.c
+    const form = `<form id="question${formId}">
+      <input type="text" name="answer" id="answer${formId}" autocomplete="off">
+      <input type="submit">
+      </form>`
+    const message = t(nextCell.event.message, game.translations) + form
+    game.writeMessage(nextCell.event.icon, message)
+    // Answer.
+    const $question = $(`#question${formId}`)
+    const $answer = $(`#answer${formId}`)
+    $answer.focus()
+    $question.addEventListener('submit', (eventSubmit) => {
+      eventSubmit.preventDefault()
+      // Un-pause.
+      game.status = 1
+      $answer.setAttribute('disabled', 'disabled')
+      $answer.blur()
+      // Success.
+      if ($answer.value.toLowerCase() === nextCell.event.success.answer.toLowerCase()) {
+        // Move.
+        action.init({
+          'type': 'move',
+          'to': {
+            'r': nextCell.event.r,
+            'c': nextCell.event.c
+          },
+          'message': nextCell.event.success.message,
+          'icon': nextCell.event.success.icon
+        })
+        // Rewards.
+        if (nextCell.event.rewards) {
+          nextCell.event.rewards.forEach((reward) => {
+            action.init(reward)
+          })
+        }
+        maze.removeEventFromCell(nextCell.event.r, nextCell.event.c)
+        return
+      }
+      // Failure.
+      game.writeMessage(nextCell.event.failure.icon, nextCell.event.failure.message)
+    }, false)
+    return false
   },
   updateCurrentCell: () => {
     maze.updateCurrentCellCSS()
@@ -424,26 +482,47 @@ const hero = {
     if (!direction) {
       return
     }
-    const thereIsAWall = maze.isThereAWall(maze.current.r, maze.current.c, direction.shortname)
-    if (thereIsAWall) {
-      hero.rotate(direction.name)
-      hero.hitAWall()
+    const heroCanMove = hero.canMove(direction)
+    if (!heroCanMove) {
       return
     }
-    const nextCell = maze.getNextCell(direction)
-    const thereIsADoor = (nextCell.event && nextCell.event.type === 'protected')
-    if (thereIsADoor) {
-      const doorIsOpen = maze.openTheDoor(nextCell)
-      if (!doorIsOpen) {
-        return
-      }
-    }
+    // Move.
     maze.setCurrentFromDirection(direction)
+    maze.updateCurrentCell(maze.current.r, maze.current.c)
+    // Rotate.
+    hero.rotate(direction.name)
+    // Event.
     const event = maze.getEventFromCell(maze.current.r, maze.current.c)
     action.init(event)
-    maze.updateCurrentCell(maze.current.r, maze.current.c)
-    hero.rotate(direction.name)
+    // Over?
     game.over()
+  },
+  canMove: (direction) => {
+    // Next cell.
+    const nextCell = maze.getNextCell(direction)
+    if (!nextCell) {
+      return
+    }
+    // Wall.
+    const thereIsAWall = maze.isThereAWall(maze.current.r, maze.current.c, direction.shortname)
+    if (thereIsAWall) {
+      hero.hitAWall(direction)
+      return false
+    }
+    // Protected.
+    const thereIsADoor = (nextCell.event && nextCell.event.type === 'protected')
+    const doorIsOpen = maze.openTheDoor(nextCell)
+    if (thereIsADoor && !doorIsOpen) {
+      return false
+    }
+    // Question.
+    const thereIsAQuestion = (nextCell.event && nextCell.event.type === 'question')
+    const questionIsAnswered = maze.answerTheQuestion(nextCell)
+    if (thereIsAQuestion && !questionIsAnswered) {
+      return false
+    }
+    // Yes they can.
+    return true
   },
   rotate: (directionName) => {
     const $currentCell = $('.current')
@@ -475,7 +554,11 @@ const hero = {
       'icon': encounter.icon
     })
   },
-  hitAWall: () => {
+  hitAWall: (direction) => {
+    const thereIsAWall = maze.isThereAWall(maze.current.r, maze.current.c, direction.shortname)
+    if (!thereIsAWall) {
+      return
+    }
     const random = getRandomNumber(10)
     if (random != 1) {
       return
@@ -570,6 +653,9 @@ const action = {
     game.writeMessage(event.icon, t(event.message, game.translations))
   },
   protected: (event) => {
+    game.writeMessage(event.success.icon, t(event.success.message, game.translations))
+  },
+  question: (event) => {
     game.writeMessage(event.success.icon, t(event.success.message, game.translations))
   },
   reveal: (event) => {
