@@ -30,6 +30,9 @@ const game = {
     }
     const params = new URLSearchParams(document.location.search.substring(1))
     const mazeFile = params.get('load')
+    if (!mazeFile) {
+      return
+    }
     return mazeFile + '.json'
   },
   loadRandomMaze: () => {
@@ -675,12 +678,12 @@ const action = {
     const help = $('#help')
     maze.setCurrent(event.r, event.c)
     game.help()
-    help.click()
     game.writeMessage(event.icon, t(event.message, game.translations))
   },
   win: (event) => {
     const message = t(event.message, game.translations)
-      + '<br><a href="' + document.location + '">' + t('Replay?') + '</a>'
+      + '<br><a href="' + document.location + '">' + t('Replay') + '</a>'
+      + ' or <a href="?load=">' + t('Load another') + '</a>'
     game.status = 0
     maze.updateCellDiv(maze.current.r, maze.current.c, 'win')
     hero.updateCharacterDiv('earn')

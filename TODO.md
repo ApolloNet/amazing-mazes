@@ -4,7 +4,7 @@
 
 - Translate Load another and Help
 
-- Display Attacks somewhere, ?
+- Display Attacks somewhere ?
 - Attack points: increase attacks of the hero
 - Defense points: decrease attacks of the opponent
 - Question event: focus on the maze after answer

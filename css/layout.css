@@ -17,6 +17,15 @@
   margin: 0 0.5rem;
 }
 
+.main-header button {
+  text-decoration: none;
+}
+
+.main-header button:focus,
+.main-header button:hover {
+  text-decoration: underline
+}
+
 @media (min-width: 30rem) {
   .main-header {
     display: flex;
