@@ -1,4 +1,4 @@
-.keyboard-wrapper {
+.main-footer {
   display: none;
   justify-content: center;
   align-items: center;
@@ -6,12 +6,13 @@
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 7rem;
+  height: 16vh;
+  min-height: 7rem;
   background: #000;
   border-top: var(--onepix) solid #111;
 }
 
-.touch .keyboard-wrapper {
+.touch .main-footer {
   display: flex;
 }
 

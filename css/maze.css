@@ -5,9 +5,9 @@
 }
 
 .game {
-  position: relative;
   overflow: auto;
-  height: 80vh;
+  position: relative;
+  height: 78vh;
   padding: 0.5rem;
 }
 
@@ -20,6 +20,7 @@
 /* Maze */
 
 .maze {
+  overflow: auto;
   display: grid;
   gap: 0.1rem;
   margin: 0 auto;

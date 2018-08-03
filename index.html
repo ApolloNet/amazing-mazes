@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="css/mazes-list.css">
 </head>
 
-<body class="waiting">
+<body class="waiting touch">
 
   <header id="main-header" class="main-header">
     <nav class="main-nav">
@@ -29,9 +29,9 @@
 
     <div id="hero" class="hero">
       <h2 id="hero-name" class="hero-name">Hero</h2>
-      <div id="hero-icon" class="icon">🤓</div>
+      <div id="hero-icon" class="icon hero-icon">🤓</div>
       <div class="hero-hp"><span id="hero-hp">100</span> HP</div>
-      <div id="hero-hp-bar" class="character-hp-bar" data-hp-init=""></div>
+      <div id="hero-hp-bar" class="hero-hp-bar character-hp-bar" data-hp-init=""></div>
     </div>
 
     <div class="hero-attacks">
@@ -45,11 +45,13 @@
     </div>
 
     <div class="messages">
+      <h2>Logs</h2>
       <div id="messages"></div>
     </div>
   </header>
 
   <main id="game" class="game">
+    
     <div id="maze" class="maze"></div>
 
     <div id="fight" class="fight">
@@ -75,9 +77,10 @@
         <ul></ul>
       </div>
     </div>
+
   </main>
 
-  <footer class="keyboard-wrapper">
+  <footer class="main-footer">
     <div class="keyboard--arrows">
       <button data-key="ArrowUp" class="keyboard--key keyboard--arrow keyboard--arrow--up">↑</button>
       <button data-key="ArrowRight" class="keyboard--key keyboard--arrow keyboard--arrow--right">→</button>

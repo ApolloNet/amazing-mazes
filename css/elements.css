@@ -2,10 +2,14 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: 0.9em;
+}
+
 body {
   background-color: #000;
   color: #fff;
-  font-size: 0.9rem;
+  font-size: 1rem;
   line-height: 1.4;
 }
 

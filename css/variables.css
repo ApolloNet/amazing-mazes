@@ -1,3 +1,4 @@
 :root {
+  --colorGrey: #666;
   --onepix: calc(1rem / 16);
 }

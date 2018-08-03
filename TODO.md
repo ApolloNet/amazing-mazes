@@ -6,8 +6,7 @@
 - Refacto: Protected and question (and fight ?) events happens before you're on the cell...
 - What if i want a move event that make lose HP ?
 - RWD
-  - Fight title
-  - Hide help button in touch context
+  - How to display messages ? As notifications ?
   - Which unicode subsets are not implemented on my Android phone?
 - Fight
   - choose your attack in a set of attacks you got ?

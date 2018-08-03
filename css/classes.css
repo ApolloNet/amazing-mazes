@@ -3,7 +3,7 @@
 }
 
 .description {
-  color: #666;
+  color: var(--colorGrey);
 }
 
 .icon {

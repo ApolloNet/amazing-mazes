@@ -2,7 +2,7 @@
 
 .main-header {
   display: none;
-  flex-direction: column;
+  flex-wrap: wrap;
   justify-content: flex-start;
   align-content: space-around;
   border-bottom: var(--onepix) solid #333;
@@ -13,27 +13,66 @@
 }
 
 .main-header > * {
-  padding: 0.5rem;
+  flex-basis: 100%;
+  padding: 1rem 0.5rem;
 }
 
 .main-header h2 {
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 
 /* Main nav */
 
-.main-title {
-  margin-bottom: 1.5rem;
+.main-nav {
+  border-bottom: var(--onepix) solid #222;
 }
 
 .main-header button {
   margin-right: 0.5rem;
 }
 
+.touch .help {
+  display: none;
+}
+
 /* Hero */
 
 .hero {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
   text-align: center;
+}
+
+.hero-icon,
+.hero-name,
+.hero-hp {
+  margin: 0.5rem;
+}
+
+.hero-name,
+.hero-hp,
+.hero-hp-bar {
+  order: 2;
+}
+
+.hero-icon {
+  font-size: 3rem;
+}
+
+.hero-hp {
+  color: var(--colorGrey);
+}
+
+.hero-hp-bar {
+  flex-basis: 100%;
+}
+
+/* Skills */
+
+.hero-attacks,
+.hero-objects {
+  flex-basis: 50%;
 }
 
 /* Messages */
@@ -42,6 +81,7 @@
   height: 16vh;
   min-height: 8rem;
   overflow: auto;
+  border-top: var(--onepix) solid #222;
 }
 
 .message {
@@ -62,7 +102,7 @@
 }
 
 .message .icon {
-  width: 3rem;
+  flex-basis: 4rem;
   text-align: center;
 }
 
@@ -71,6 +111,7 @@
 @media (min-width: 30rem) {
   .main-header {
     display: flex;
+    flex-wrap: nowrap;
     flex-direction: row;
     justify-content: center;
   }
@@ -81,14 +122,35 @@
     border-right: var(--onepix) solid #222;
   }
 
+  .main-title {
+    margin-bottom: 1.5rem;
+  }
+
   .main-nav {
     flex-grow: 1;
     flex-basis: 18rem;
+    border-bottom: none;
+  }
+
+  .hero {
+    display: block;
+  }
+
+  .hero-name,
+  .hero-hp,
+  .hero-hp-bar {
+    order: 1;
+  }
+
+  .hero .icon,
+  .hero-hp {
+    margin-bottom: 0.5rem.
   }
 
   .messages {
     flex-grow: 2;
     flex-basis: 20rem;
+    border-top: none;
     border-right: none;
   }
 }

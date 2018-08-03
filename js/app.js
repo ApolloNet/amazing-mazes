@@ -493,7 +493,7 @@ const hero = {
     hero.attacks.forEach((attack) => {
       if (attack.hp !== 0) {
         attack.icon = attack.icon ? attack.icon : icons.attack;
-        $attacks.innerHTML += `<li class="attack">${attack.icon} ${game.t(attack.name)} ${attack.hp}</li>`
+        $attacks.innerHTML += `<li class="attack">${attack.icon} ${game.t(attack.name)}</li>`
       }
     })
   },
