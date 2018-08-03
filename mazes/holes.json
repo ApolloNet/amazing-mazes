@@ -1,13 +1,13 @@
 {
-  "name": "Second maze",
+  "name": "Holes",
   "hero": {
     "name": "Robert",
     "icon": "🕺",
     "hp": 100
   },
   "cells": [
-    ["trl", "tbl", "tb", "tr"],
-    ["rl", "tl", "tb", "rb"],
+    ["trl", "tl", "tb", "trb"],
+    ["rl", "l", "tb", "trb"],
     ["l", "r", "tl", "tr"],
     ["rbl", "bl", "rb", "rbl"]
   ],
@@ -25,7 +25,7 @@
     },
     {
       "r": 0,
-      "c": 1,
+      "c": 3,
       "type": "win",
       "message": "You found your beloved princess",
       "icon": "👸"
@@ -38,8 +38,25 @@
       "icon": "🕳",
       "metrix": "hp",
       "effect": "lose",
-      "points": 30,
+      "points": 90,
       "once": 0
+    },
+    {
+      "r": 1,
+      "c": 0,
+      "type": "metrix",
+      "message": "You found a fried shrimp",
+      "icon": "🍤",
+      "metrix": "hp",
+      "effect": "earn",
+      "points": 10
+    },
+    {
+      "r": 3,
+      "c": 0,
+      "type": "over",
+      "message": "You fell into a very deep hole",
+      "icon": "🕳"
     },
     {
       "r": 1,
@@ -55,13 +72,25 @@
     },
     {
       "r": 1,
-      "c": 0,
+      "c": 2,
       "type": "metrix",
-      "message": "You found a fried shrimp",
-      "icon": "🍤",
+      "message": "You fell into a hole",
+      "icon": "🕳",
       "metrix": "hp",
-      "effect": "earn",
-      "points": 10
+      "effect": "lose",
+      "points": 90,
+      "once": 0
+    },
+    {
+      "r": 0,
+      "c": 2,
+      "type": "move",
+      "message": "You jumped over the hole",
+      "icon": "🕳",
+      "to": {
+        "r": 0,
+        "c": 3
+      }
     }
   ],
   "translations": {
@@ -73,6 +102,12 @@
     },
     "You fell into a hole": {
       "fr": "Tu es tombé dans un trou"
+    },
+    "You fell into a very deep hole": {
+      "fr": "Tu es tombé dans une oubliette"
+    },
+    "You jumped over the hole": {
+      "fr": "Tu as sauté par-dessus le trou"
     },
     "You found a torch. You can see farther": {
       "fr": "Tu as trouvé une torche. Tu peux voir plus loin."

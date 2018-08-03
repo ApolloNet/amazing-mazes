@@ -175,6 +175,7 @@ const maze = {
     maze.initCells(data)
     maze.initEvents(data)
     maze.drawCells()
+    maze.updateCurrentCell()
     maze.updateMazeCSS()
     maze.switchLight()
   },
@@ -398,10 +399,6 @@ const maze = {
       }
     })
   },
-  getEventFromCell: (r, c) => {
-    const cell = maze.getCell(r, c)
-    return cell.event
-  },
   removeEventFromCell: (r, c) => {
     maze.cells.forEach((cell, index) => {
       if (cell.r === r && cell.c === c) {
@@ -425,14 +422,12 @@ const maze = {
   getCellDiv: (r, c) => {
     return $(`.cell[data-r="${r}"][data-c="${c}"]`)
   },
-  setCurrent: (r, c) => {
+  setCurrent: (r, c, updateCell) => {
     maze.current.r = r
     maze.current.c = c
-  },
-  setCurrentFromDirection: (direction) => {
-    maze.current.r += direction.r
-    maze.current.c += direction.c
-    maze.updateCurrentCell()
+    if (updateCell !== false) {
+      maze.updateCurrentCell()
+    }
   },
   getNextCell: (direction) => {
     const nextCellR = maze.current.r + direction.r
@@ -521,16 +516,12 @@ const hero = {
     if (!heroCanMove) {
       return
     }
-    // Move.
-    maze.setCurrentFromDirection(direction)
-    maze.updateCurrentCell(maze.current.r, maze.current.c)
-    // Rotate.
+    maze.setCurrent(
+      maze.current.r + direction.r, 
+      maze.current.c + direction.c
+    )
     hero.rotate(direction.name)
-    // Event.
-    const event = maze.getEventFromCell(maze.current.r, maze.current.c)
-    action.init(event)
-    // Over?
-    game.over()
+    hero.postMove()
   },
   canMove: (direction) => {
     // Next cell.
@@ -602,6 +593,13 @@ const hero = {
       return object.type === objectType
     })
     return yes ? true : false
+  },
+  postMove: () => {
+    // Event.
+    const cell = maze.getCell(maze.current.r, maze.current.c)
+    action.init(cell.event)
+    // Over?
+    game.over()
   }
 }
 
@@ -678,8 +676,8 @@ const action = {
   },
   move: (event) => {
     maze.setCurrent(event.to.r, event.to.c)
-    maze.updateCurrentCell()
     game.writeMessage(event.icon, game.t(event.message))
+    hero.postMove()
   },
   mutate: (event) => {
     hero.init(event.hero)
@@ -704,7 +702,7 @@ const action = {
   },
   start: (event) => {
     const help = $('#help')
-    maze.setCurrent(event.r, event.c)
+    maze.setCurrent(event.r, event.c, false)
     game.help()
     game.writeMessage(event.icon, game.t(event.message))
   },

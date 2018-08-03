@@ -4,8 +4,8 @@ export default  {
     'icon': '🧛',
     'size': '3x3'
   },
-  'second-maze': {
-    'name': 'Second maze',
+  'holes': {
+    'name': 'Holes',
     'icon': '🕳',
     'size': '4x4'
   },

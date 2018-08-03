@@ -5,6 +5,7 @@
 - Question event: add a reward also on failure (hp loss, death...)
 - Which unicode subsets are not implemented on my Android phone?
 - Refacto: Protected and question (and fight ?) events happens before you're on the cell...
+- What if i want a move event that make lose HP ?
 - RWD
   - Fight title
   - Change help message in touch context
