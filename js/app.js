@@ -127,12 +127,20 @@ const game = {
     }
   },
   writeMessage: (icon, message) => {
+    const $notifications = $('#notifications')
     const $messages = $('#messages')
-    const $message = document.createElement('div')
-    $message.innerHTML = `<div class="icon">${(icon ? icon : '')}</div>`
-    $message.innerHTML += `<div class="text">${message}</div>`
-    $message.classList.add('message')
-    $messages.insertBefore($message, $messages.childNodes[0])
+    const $message = `<div class="message">
+      <div class="icon">${(icon ? icon : '')}</div>
+      <div class="text">${message}</div>
+      </div>`
+    $messages.innerHTML = $message + $messages.innerHTML
+    if (true) {
+      $notifications.innerHTML = $message
+      $notifications.classList.add('active')
+      window.setTimeout(() => {
+        $notifications.classList.remove('active')
+      }, 2000)
+    }
   }
 }
 
