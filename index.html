@@ -10,68 +10,70 @@
   <link rel="stylesheet" href="css/variables.css">
   <link rel="stylesheet" href="css/elements.css">
   <link rel="stylesheet" href="css/classes.css">
-  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/header.css">
   <link rel="stylesheet" href="css/maze.css">
-  <link rel="stylesheet" href="css/character.css">
   <link rel="stylesheet" href="css/fight.css">
-  <link rel="stylesheet" href="css/aside.css">
   <link rel="stylesheet" href="css/keyboard.css">
   <link rel="stylesheet" href="css/mazes-list.css">
 </head>
 
 <body class="waiting">
-  <div class="main-content">
-    <header id="main-header" class="main-header">
+
+  <header id="main-header" class="main-header">
+    <nav class="main-nav">
       <h1 class="main-title">🞋 <span id="maze-title">Amazing Mazes</span></h1>
-      <button id="mazes-list--open">Load another</button>
+      <button id="mazes-list--open" class="load-another">➭ Load another</button>
       <button id="help">❔ Help</button>
-      <a class="fork-me" href="https://github.com/ApolloNet/amazing-mazes/" title="Fork me at Github">
-        <img src="images/github.svg" width="32" height="32" alt="Fork me at Github">
-      </a>
+      <a class="fork-me" href="https://github.com/ApolloNet/amazing-mazes/">Fork me</a>
       <div id="mazes-list" class="mazes-list">
         <button id="mazes-list--close" class="button">Close</button>
         <h2>Mazes</h2>
         <ul></ul>
       </div>
-    </header>
-    <main id="game" class="game">
-      <div id="maze" class="maze"></div>
-      <div id="fight" class="fight">
-        <div id="fight-hero" class="character fight-hero">
-          <div id="fight-hero-name" class="character-name"></div>
-          <div id="fight-hero-icon" class="character-icon"></div>
-          <div class="character-hp"><span id="fight-hero-hp"></span> HP</div>
-          <div id="fight-hero-hp-bar" class="character-hp-bar" data-hp-init=""></div>
-        </div>
-        <div class="fight-versus">VS</div>
-        <div id="fight-opponent" class="character fight-opponent">
-          <div id="fight-opponent-name" class="character-name"></div>
-          <div id="fight-opponent-icon" class="character-icon"></div>
-          <div class="character-hp"><span id="fight-opponent-hp"></span> HP</div>
-          <div id="fight-opponent-hp-bar" class="character-hp-bar" data-hp-init=""></div>
-        </div>
-      </div>
-    </main>
-  </div>
-  <aside class="main-aside">
-    <div id="hero" class="main-character character fight-hero">
-      <div id="hero-name" class="character-name"></div>
-      <div id="hero-icon" class="character-icon"></div>
-      <div class="character-hp"><span id="hero-hp"></span> HP</div>
+    </nav>
+
+    <div id="hero" class="hero">
+      <h2 id="hero-name" class="hero-name">Hero</h2>
+      <div id="hero-icon" class="icon">🤓</div>
+      <div class="hero-hp"><span id="hero-hp">100</span> HP</div>
       <div id="hero-hp-bar" class="character-hp-bar" data-hp-init=""></div>
-      <div class="hero-skills">
-        <div class="hero-attacks">
-          <h2>Attacks</h2>
-          <ul id="hero-attacks"></ul>
-        </div>
-        <div class="hero-objects">
-          <h2>Objects</h2>
-          <ul id="hero-objects"></ul>
-        </div>
+    </div>
+
+    <div class="hero-attacks">
+      <h2>Attacks</h2>
+      <ul id="hero-attacks"></ul>
+    </div>
+
+    <div class="hero-objects">
+      <h2>Objects</h2>
+      <ul id="hero-objects"></ul>
+    </div>
+
+    <div class="messages">
+      <h2>Messages</h2>
+      <div id="messages"></div>
+    </div>
+  </header>
+
+  <main id="game" class="game">
+    <div id="maze" class="maze"></div>
+    <div id="fight" class="fight">
+      <div id="fight-hero" class="character fight-hero">
+        <div id="fight-hero-name" class="character-name"></div>
+        <div id="fight-hero-icon" class="character-icon"></div>
+        <div class="character-hp"><span id="fight-hero-hp"></span> HP</div>
+        <div id="fight-hero-hp-bar" class="character-hp-bar" data-hp-init=""></div>
+      </div>
+      <div class="fight-versus">VS</div>
+      <div id="fight-opponent" class="character fight-opponent">
+        <div id="fight-opponent-name" class="character-name"></div>
+        <div id="fight-opponent-icon" class="character-icon"></div>
+        <div class="character-hp"><span id="fight-opponent-hp"></span> HP</div>
+        <div id="fight-opponent-hp-bar" class="character-hp-bar" data-hp-init=""></div>
       </div>
     </div>
-    <div id="messages" class="messages"></div>
-  </aside>
+  </main>
+
   <footer class="keyboard-wrapper">
     <div class="keyboard--arrows">
       <button data-key="ArrowUp" class="keyboard--key keyboard--arrow keyboard--arrow--up">↑</button>
@@ -82,6 +84,7 @@
     <button class="keyboard--key keyboard--key--action">👊</button>
     <button id="navigation-toogle" class="keyboard--key navigation-toggle">☰</button>
   </footer>
+
   <script nomodule src="js/fallback.js"></script>
   <script src="js/d3-fetch.v1.min.js"></script>
   <script type="module" src="js/app.js"></script>

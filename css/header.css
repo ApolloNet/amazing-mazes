@@ -1,0 +1,100 @@
+/* Main header */
+
+.main-header {
+  border-bottom: var(--onepix) solid #333;
+}
+
+.main-header > * {
+  flex-basis: 12.5rem;
+  padding: 0.5rem;
+}
+
+.main-header h2 {
+  font-size: 0.9rem;
+}
+
+.main-header button {
+  display: block;
+  text-decoration: none;
+}
+
+.main-header button:focus,
+.main-header button:hover {
+  text-decoration: underline
+}
+
+/* Main nav */
+
+.main-nav {
+  flex-grow: 2;
+}
+
+.load-another {
+  background-color: #eee;
+  color: #000;
+}
+
+.load-another:focus,
+.load-another:hover {
+  color: #000;
+}
+
+/* Hero */
+
+.hero {
+
+}
+
+
+/* Messages */
+
+.messages {
+  flex-grow: 2;
+  flex-basis: 25rem;
+  height: 8rem;
+  overflow: auto;
+}
+
+.message {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 0;
+}
+
+.message .icon {
+  width: 3rem;
+  text-align: center;
+}
+
+.text {
+  --messageColor: #fff;
+  color: var(--messageColor);
+}
+
+.text a {
+  color: var(--messageColor);
+}
+
+.red .text {
+  --messageColor: red;
+}
+
+.yellow .text {
+  --messageColor: yellow;
+}
+
+/* Skills */
+
+.hero-attacks {
+  
+}
+
+/* Responsive */
+
+@media (min-width: 30rem) {
+  .main-header {
+    display: flex;
+    justify-content: center;
+  }
+}
+

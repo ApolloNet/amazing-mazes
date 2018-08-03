@@ -1,14 +1,16 @@
 # TODO
 
-- Translate Load another and Help
+- Bug on rotate
+
+- Translate Load another, Help, Attacks, Objects
 - Question event: focus on the maze after answer
 - Question event: add a reward also on failure (hp loss, death...)
-- Which unicode subsets are not implemented on my Android phone?
 - Refacto: Protected and question (and fight ?) events happens before you're on the cell...
 - What if i want a move event that make lose HP ?
 - RWD
   - Fight title
-  - Change help message in touch context
+  - Hide help button in touch context
+  - Which unicode subsets are not implemented on my Android phone?
 - Fight
   - choose your attack in a set of attacks you got ?
   - Attack points: increase attacks of the hero

@@ -677,6 +677,11 @@ const action = {
   move: (event) => {
     maze.setCurrent(event.to.r, event.to.c)
     game.writeMessage(event.icon, game.t(event.message))
+    // If move is both side, don't infinite loop, once is enough.
+    const cell = maze.getCell(maze.current.r, maze.current.c)
+    if (cell.event.to.r === event.r && cell.event.to.c === event.c) {
+      return
+    }
     hero.postMove()
   },
   mutate: (event) => {

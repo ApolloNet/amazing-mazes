@@ -1,3 +1,22 @@
+/* Game */
+
+.waiting .game {
+  display: none;
+}
+
+.game {
+  overflow: auto;
+  padding: 0.5rem;
+}
+
+@media (min-width: 30rem) {
+  .game {
+    padding: 2rem;
+  }
+}
+
+/* Maze */
+
 .maze {
   display: grid;
   gap: 0.1rem;

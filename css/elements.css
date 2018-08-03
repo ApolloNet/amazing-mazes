@@ -9,18 +9,12 @@ body {
   line-height: 1.4;
 }
 
-@media (min-width: 30rem) {
-  body {
-    display: flex;
-  }
-}
-
 h1 {
   
 }
 
 h2 {
-  text-align: center;
+  
 }
 
 p {
