@@ -126,15 +126,12 @@ const game = {
       })
     }
   },
-  writeMessage: (icon, message, color) => {
+  writeMessage: (icon, message) => {
     const $messages = $('#messages')
     const $message = document.createElement('div')
     $message.innerHTML = `<div class="icon">${(icon ? icon : '')}</div>`
     $message.innerHTML += `<div class="text">${message}</div>`
     $message.classList.add('message')
-    if (color) {
-      $message.classList.add(color)
-    }
     $messages.insertBefore($message, $messages.childNodes[0])
   }
 }
@@ -673,14 +670,14 @@ const action = {
     game.writeMessage(event.icon, game.t(event.message))
     // If move is both side, don't infinite loop, once is enough.
     const cell = maze.getCell(maze.current.r, maze.current.c)
-    if (cell.event.to.r === event.r && cell.event.to.c === event.c) {
+    if (cell.event && cell.event.to && cell.event.to.r === event.r && cell.event.to.c === event.c) {
       return
     }
     hero.postMove()
   },
   mutate: (event) => {
     hero.init(event.hero)
-    game.writeMessage(event.icon, game.t(event.message), 'yellow')
+    game.writeMessage(event.icon, game.t(event.message))
   },
   object: (event) => {
     hero.objects.push(event.object)
@@ -721,7 +718,7 @@ const action = {
     game.status = 0
     $body.classList.add('game-over')
     maze.updateCellDiv(maze.current.r, maze.current.c, 'lose')
-    game.writeMessage(event.icon, message, 'red')
+    game.writeMessage(event.icon, message)
   }
 }
 
@@ -862,7 +859,7 @@ const fight = {
   win: () => {
     const message = `${game.t('You defeated')} ${fight.opponent}`
     game.status = 1
-    game.writeMessage('✌', message, 'red')
+    game.writeMessage('✌', message)
     fight.changeBodyClass()
     if (!fight.rewards) {
       return
