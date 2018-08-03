@@ -5,13 +5,15 @@
 }
 
 .game {
+  position: relative;
   overflow: auto;
+  height: 80vh;
   padding: 0.5rem;
 }
 
 @media (min-width: 30rem) {
   .game {
-    padding: 2rem;
+    padding: 1rem;
   }
 }
 

@@ -25,11 +25,6 @@
       <button id="mazes-list--open" class="load-another">➭ Load another game</button>
       <button id="help" class="help">❓ Help</button>
       <a class="fork-me" href="https://github.com/ApolloNet/amazing-mazes/">Fork me</a>
-      <div id="mazes-list" class="mazes-list">
-        <button id="mazes-list--close" class="button">Close</button>
-        <h2>Mazes</h2>
-        <ul></ul>
-      </div>
     </nav>
 
     <div id="hero" class="hero">
@@ -57,6 +52,7 @@
 
   <main id="game" class="game">
     <div id="maze" class="maze"></div>
+
     <div id="fight" class="fight">
       <div id="fight-hero" class="character fight-hero">
         <div id="fight-hero-name" class="character-name"></div>
@@ -70,6 +66,14 @@
         <div id="fight-opponent-icon" class="character-icon"></div>
         <div class="character-hp"><span id="fight-opponent-hp"></span> HP</div>
         <div id="fight-opponent-hp-bar" class="character-hp-bar" data-hp-init=""></div>
+      </div>
+    </div>
+
+    <div id="mazes-list" class="mazes-list">
+      <div class="wrapper">
+        <button id="mazes-list--close" class="button">Close</button>
+        <h2>Load a game</h2>
+        <ul></ul>
       </div>
     </div>
   </main>

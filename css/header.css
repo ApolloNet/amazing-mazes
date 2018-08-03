@@ -39,7 +39,8 @@
 /* Messages */
 
 .messages {
-  height: 8rem;
+  height: 16vh;
+  min-height: 8rem;
   overflow: auto;
 }
 
