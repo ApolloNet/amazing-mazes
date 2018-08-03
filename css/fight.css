@@ -21,11 +21,6 @@
   font-style: italic;
 }
 
-.fight-current {
-  background-color: #222;
-  border: var(--onepix) solid #333;
-}
-
 .character {
   width: 8rem;
   height: 8rem;
@@ -34,6 +29,11 @@
   border: var(--onepix) solid #333;
   text-align: center;
   transition: background-color 0.5s ease;
+}
+
+.fight-current {
+  background-color: #222;
+  border: var(--onepix) solid #333;
 }
 
 .character-name {

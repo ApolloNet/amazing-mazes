@@ -103,7 +103,13 @@ const game = {
     const $header = $('#main-header')
     const $button = $('#navigation-toogle')
     $button.addEventListener('click', () => {
-      $header.classList.toggle('hidden')
+      const hash = document.location.hash
+      if (hash === '') {
+        document.location.hash = 'main-header'
+      }
+      else {
+        document.location.hash = ''
+      }
     })
   },
   hpPercent: ($element, hp) => {
@@ -160,10 +166,8 @@ const maze = {
   },
   isLoaded: () => {
     const $body = $('body')
-    const $header = $('#main-header')
     if (isTouch()) {
       $body.classList.add('touch')
-      $header.classList.add('hidden')
     }
     $body.classList.toggle('waiting')
     game.status = 1
@@ -473,14 +477,6 @@ const hero = {
     const metrixDiv = $('#hero-' + metrix)
     metrixDiv.innerHTML = hero[metrix]
   },
-  updateCharacterDiv: (effect) => {
-    const $hero = $('#hero')
-    $hero.classList.add('character-' + effect)
-    window.setTimeout(() => {
-      $hero.classList.remove('character-' + effect)
-    }, 500)
-    
-  },
   updateObjectsMarkup: () => {
     const $objects = $('#hero-objects')
     $objects.innerHTML = '';
@@ -642,7 +638,6 @@ const action = {
   },
   learn: (event) => {
     hero.attacks.push(event.attack)
-    hero.updateCharacterDiv('earn')
     hero.updateAttacksMarkup()
     const message = `${game.t(event.message)}
       <br><em>${event.attack.name}</em> : ${event.attack.hp}HP`
@@ -664,7 +659,6 @@ const action = {
       hero[event.metrix] = 0
     }
     hero.update()
-    hero.updateCharacterDiv(event.effect)
     hero.updateMetrixDiv(event.metrix)
     if (!event.message) {
       return
@@ -717,7 +711,6 @@ const action = {
       or <a href="?load=">${game.t('Load another')}</a>`
     game.status = 0
     maze.updateCellDiv(maze.current.r, maze.current.c, 'win')
-    hero.updateCharacterDiv('earn')
     game.writeMessage(event.icon, message)
   },
   over: (event) => {
@@ -741,6 +734,7 @@ const fight = {
   icon: '',
   hp: '',
   attacks: [],
+  delay: 1000,
   init: (event) => {
     game.status = 2
     game.writeMessage(event.icon, game.t(event.message))
@@ -826,7 +820,7 @@ const fight = {
     fight.updateHpBars()
     game.writeMessage(icon, message)
     if (fight.hp <= 0) {
-      fight.win()
+      window.setTimeout(fight.win, fight.delay)
       return
     }
     fight.whoplays = 'opponent'
@@ -853,7 +847,7 @@ const fight = {
     fight.updateHpBars()
     game.writeMessage(icon, message)
     if (hero.hp <= 0) {
-      game.over()
+      window.setTimeout(game.over, fight.delay)
       return
     }
     fight.whoplays = 'hero'
@@ -863,8 +857,7 @@ const fight = {
     if (fight.whoplays !== 'opponent') {
       return
     }
-    const delay = 1000
-    window.setTimeout(fight.opponentAttacks, delay)
+    window.setTimeout(fight.opponentAttacks, fight.delay)
   },
   win: () => {
     const message = `${game.t('You defeated')} ${fight.opponent}`

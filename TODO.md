@@ -1,7 +1,5 @@
 # TODO
 
-- Bug on rotate
-
 - Translate Load another, Help, Attacks, Objects
 - Question event: focus on the maze after answer
 - Question event: add a reward also on failure (hp loss, death...)

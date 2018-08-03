@@ -1,11 +1,18 @@
 /* Main header */
 
 .main-header {
+  display: none;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-content: space-around;
   border-bottom: var(--onepix) solid #333;
 }
 
+.main-header:target {
+  display: flex;
+}
+
 .main-header > * {
-  flex-basis: 12.5rem;
   padding: 0.5rem;
 }
 
@@ -13,44 +20,25 @@
   font-size: 0.9rem;
 }
 
-.main-header button {
-  display: block;
-  text-decoration: none;
-}
-
-.main-header button:focus,
-.main-header button:hover {
-  text-decoration: underline
-}
-
 /* Main nav */
 
-.main-nav {
-  flex-grow: 2;
+.main-title {
+  margin-bottom: 1.5rem;
 }
 
-.load-another {
-  background-color: #eee;
-  color: #000;
-}
-
-.load-another:focus,
-.load-another:hover {
-  color: #000;
+.main-header button {
+  margin-right: 0.5rem;
 }
 
 /* Hero */
 
 .hero {
-
+  text-align: center;
 }
-
 
 /* Messages */
 
 .messages {
-  flex-grow: 2;
-  flex-basis: 25rem;
   height: 8rem;
   overflow: auto;
 }
@@ -59,6 +47,15 @@
   display: flex;
   align-items: center;
   padding: 0.5rem 0;
+}
+
+.message a {
+  text-decoration: underline;
+}
+
+.message a:focus,
+.message a:hover {
+  text-decoration: none;
 }
 
 .message .icon {
@@ -83,18 +80,30 @@
   --messageColor: yellow;
 }
 
-/* Skills */
-
-.hero-attacks {
-  
-}
-
 /* Responsive */
 
 @media (min-width: 30rem) {
   .main-header {
     display: flex;
+    flex-direction: row;
     justify-content: center;
+  }
+
+  .main-header > * {
+    flex-basis: 12.5rem;
+    padding: 0.5rem 1rem;
+    border-right: var(--onepix) solid #222;
+  }
+
+  .main-nav {
+    flex-grow: 1;
+    flex-basis: 18rem;
+  }
+
+  .messages {
+    flex-grow: 2;
+    flex-basis: 20rem;
+    border-right: none;
   }
 }
 

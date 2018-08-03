@@ -3,7 +3,14 @@
   "hero": {
     "name": "Robert",
     "icon": "🕺",
-    "hp": 100
+    "hp": 100,
+    "attacks": [
+      {
+        "name": "Just dance",
+        "icon": "🕺",
+        "hp": 1
+      }
+    ]
   },
   "cells": [
     ["trl", "tl", "tb", "trb"],
@@ -76,6 +83,18 @@
       "type": "metrix",
       "message": "You fell into a hole",
       "icon": "🕳",
+      "metrix": "hp",
+      "effect": "lose",
+      "points": 90,
+      "once": 0
+    },
+    {
+      "r": 1,
+      "c": 3,
+      "type": "metrix",
+      "message": "You fell into a hole",
+      "icon": "🕳",
+      "visible": 0,
       "metrix": "hp",
       "effect": "lose",
       "points": 90,
