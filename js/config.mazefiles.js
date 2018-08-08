@@ -27,6 +27,13 @@ export default  {
   'haunted': {
     'name': 'Haunted',
     'icon': '🕵',
-    'size': '12x12'
+    'size': '12x12',
+    'created': '18-07-24'
+  },
+  'rainbow': {
+    'name': 'Rainbow',
+    'icon': '🌈',
+    'size': '7x7',
+    'created': '18-08-08'
   }
 }

@@ -1,0 +1,229 @@
+{
+  "name": "Rainbow",
+  "hero": {
+    "name": "Helleborine Sparkle",
+    "icon": "🦄",
+    "hp": 100,
+    "attacks": [],
+    "objects": [
+      {
+        "name": "Telescope",
+        "icon": "🔭"
+      },
+      {
+        "name": "Stardust",
+        "icon": "🌠"
+      }
+    ]
+  },
+  "cells": [
+    ["tbl", "trb", "tl", "t", "t", "tb", "trb"],
+    ["tl", "tr", "l", "", "rb", "tbl", "tr"],
+    ["rl", "rl", "rbl", "rl", "tbl", "trb", "rl"],
+    ["rl", "bl", "tb", "", "tb", "tb", "r"],
+    ["bl", "tr", "trbl", "rl", "trl", "trl", "rl"],
+    ["trl", "l", "tb", "rb", "rl", "bl", "rb"],
+    ["rbl", "bl", "tb", "tb", "rb", "tbl", "trb"]
+  ],
+  "events": [
+    {
+      "r": 0,
+      "c": 0,
+      "type": "start",
+      "message": "Travel through space and time to find your friend Dolfino",
+      "icon": "🐬"
+    },
+    {
+      "r": 6,
+      "c": 6,
+      "type": "win",
+      "message": "You found your friend Dolfino",
+      "icon": "🐬"
+    },
+    {
+      "r": 0,
+      "c": 1,
+      "type": "move",
+      "message": "You teleported",
+      "icon": "🌀",
+      "once": 0,
+      "to": {
+        "r": 2,
+        "c": 5
+      }
+    },
+    {
+      "r": 2,
+      "c": 5,
+      "type": "move",
+      "message": "You teleported",
+      "icon": "🌀",
+      "once": 0,
+      "to": {
+        "r": 0,
+        "c": 1
+      }
+    },
+    {
+      "r": 2,
+      "c": 4,
+      "type": "move",
+      "message": "You teleported",
+      "icon": "🌀",
+      "once": 0,
+      "to": {
+        "r": 3,
+        "c": 3
+      }
+    },
+    {
+      "r": 3,
+      "c": 3,
+      "type": "move",
+      "message": "You teleported",
+      "icon": "🌀",
+      "once": 0,
+      "to": {
+        "r": 2,
+        "c": 4
+      }
+    },
+    {
+      "r": 1,
+      "c": 5,
+      "type": "move",
+      "message": "You teleported",
+      "icon": "🌀",
+      "once": 0,
+      "to": {
+        "r": 5,
+        "c": 0
+      }
+    },
+    {
+      "r": 5,
+      "c": 0,
+      "type": "move",
+      "message": "You teleported",
+      "icon": "🌀",
+      "once": 0,
+      "to": {
+        "r": 1,
+        "c": 5
+      }
+    },
+    {
+      "r": 6,
+      "c": 0,
+      "type": "move",
+      "message": "You teleported",
+      "icon": "🌀",
+      "once": 0,
+      "to": {
+        "r": 6,
+        "c": 4
+      }
+    },
+    {
+      "r": 6,
+      "c": 4,
+      "type": "move",
+      "message": "You teleported",
+      "icon": "🌀",
+      "once": 0,
+      "to": {
+        "r": 6,
+        "c": 0
+      }
+    },
+    {
+      "r": 0,
+      "c": 3,
+      "type": "move",
+      "message": "You teleported",
+      "icon": "🌀",
+      "once": 0,
+      "to": {
+        "r": 0,
+        "c": 5
+      }
+    },
+    {
+      "r": 0,
+      "c": 5,
+      "type": "move",
+      "message": "You teleported",
+      "icon": "🌀",
+      "once": 0,
+      "to": {
+        "r": 0,
+        "c": 3
+      }
+    },
+    {
+      "r": 0,
+      "c": 6,
+      "type": "move",
+      "message": "You teleported",
+      "icon": "🌀",
+      "to": {
+        "r": 4,
+        "c": 2
+      }
+    },
+    {
+      "r": 4,
+      "c": 2,
+      "type": "over",
+      "message": "Oh no",
+      "icon": "💭"
+    },
+    {
+      "r": 2,
+      "c": 2,
+      "type": "move",
+      "message": "You teleported",
+      "icon": "🌀",
+      "once": 0,
+      "to": {
+        "r": 4,
+        "c": 5
+      }
+    },
+    {
+      "r": 4,
+      "c": 5,
+      "type": "move",
+      "message": "You teleported",
+      "icon": "🌀",
+      "once": 0,
+      "to": {
+        "r": 2,
+        "c": 2
+      }
+    },
+    {
+      "r": 4,
+      "c": 4,
+      "type": "move",
+      "message": "You teleported",
+      "icon": "🌀",
+      "once": 0,
+      "to": {
+        "r": 6,
+        "c": 5
+      }
+    }
+  ],
+  "translations": {
+    "Travel through space and stars to find your friend Dolfino": {
+      "fr": "Voyage à travers l'espace et les étoiles pour retrouver ton ami Dolfino"
+    },
+    "You found your friend Dolfino": {
+      "fr": "Tu as retrouvé ton ami Dolfino"
+    },
+    "Oh no": {
+      "fr": "Oh non"
+    }
+  }
+}

@@ -4,9 +4,9 @@
 - Question event: focus on the maze after answer
 - Question event: add a reward also on failure (hp loss, death...)
 - Refacto: Protected and question (and fight ?) events happens before you're on the cell...
-- What if i want a move event that make lose HP ?
+- What if i want a move event that make lose HP ? Reward?
 - RWD
-  - How to display messages ? As notifications ?
+  - Move logs to a tab ?
   - Which unicode subsets are not implemented on my Android phone?
 - Fight
   - choose your attack in a set of attacks you got ?
