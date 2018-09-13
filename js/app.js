@@ -3,7 +3,7 @@
  */
 import mazeFiles from './config.mazefiles.js'
 import borders from './config.borders.js'
-import randomEvents from './random-events.js'
+import defaultRandomEvents from './random-events.js'
 import defaultAttacks from './config.attacks.js'
 import icons from './config.icons.js'
 import defaultTranslations from './config.translations.js'
@@ -183,6 +183,7 @@ const maze = {
     maze.displayAuthors(data.authors)
     maze.initCells(data)
     maze.initEvents(data)
+    maze.initRandomEvents(data)
     maze.drawCells()
     maze.updateCurrentCell()
     maze.updateMazeCSS()
@@ -233,6 +234,9 @@ const maze = {
         action.init(event)
       }
     })
+  },
+  initRandomEvents: (data) => {
+    maze.randomEvents = data.randomEvents ? data.randomEvents : defaultRandomEvents;
   },
   updateMazeCSS: () => {
     const $maze = $('#maze')
@@ -631,11 +635,11 @@ const action = {
     }
     // Throw that multi-dimensional dice.
     const random = getRandomNumber(100)
-    if (!randomEvents[random]) {
+    if (!maze.randomEvents[random]) {
       return
     }
     // There you go.
-    const event = randomEvents[random]
+    const event = maze.randomEvents[random]
     action[event.type](event)
   },
   fight: (event) => {
