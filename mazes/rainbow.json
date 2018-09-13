@@ -25,6 +25,7 @@
     ["trl", "l", "tb", "rb", "rl", "bl", "rb"],
     ["rbl", "bl", "tb", "tb", "rb", "tbl", "trb"]
   ],
+  "randomEvents": [],
   "events": [
     {
       "r": 0,
