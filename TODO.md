@@ -1,15 +1,10 @@
 # TODO
 
-- Question event: focus on the maze after answer
-- Question event: add a reward also on failure (hp loss, death...)
+- Logs are they needed ? Juste display notifications ?
 - RWD
   - Move logs to a tab ?
   - Which unicode subsets are not implemented on my Android phone?
   - PWA + Offline
-- Fight
-  - choose your attack in a set of attacks you got ?
-  - Attack points: increase attacks of the hero
-  - Defense points: decrease attacks of the opponent
 - English language review
   - Rename protected / success => lock / unlock ?
   - Is 'earn' the righ verb ? Win ? Gain ?
@@ -19,6 +14,13 @@
 
 ## Maybe later
 
+- Question event
+  - Focus on the maze after answer
+  - Add a reward also on failure (hp loss, death...)
+- Fight
+  - choose your attack in a set of attacks you got ?
+  - Attack points: increase attacks of the hero
+  - Defense points: decrease attacks of the opponent
 - Question event: multiple answers
 - Replace "fight" with "interaction" : conversation, question, objects...
 - Opponents, multiple
