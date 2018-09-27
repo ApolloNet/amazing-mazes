@@ -3,8 +3,6 @@
 - Translate Load another, Help, Attacks, Objects
 - Question event: focus on the maze after answer
 - Question event: add a reward also on failure (hp loss, death...)
-- Refacto: Protected and question (and fight ?) events happens before you're on the cell...
-- What if i want a move event that make lose HP ? Reward?
 - RWD
   - Move logs to a tab ?
   - Which unicode subsets are not implemented on my Android phone?
@@ -13,24 +11,13 @@
   - Attack points: increase attacks of the hero
   - Defense points: decrease attacks of the opponent
   - "Find 5 something" => new event linked to objects
-  - Add random events to json config ?
 - PWA + Offline
-- Document translation
-- Document default icons
 - English language review
-- Rename protected / success => lock / unlock ?
-- Is 'earn' the righ verb ? Win ? Gain ?
+  - Rename protected / success => lock / unlock ?
+  - Is 'earn' the righ verb ? Win ? Gain ?
 - Code architecture
-- A11y
-- Document functions, params, returns... What is the JS standard ?
-- Move that TODO.md to Github issues ?
+- Document the code with [JsDoc](https://fr.wikipedia.org/wiki/JSDoc)
 - Add Twitters Cards, Facebook Graph...
-
-## Games
-
-- Create a detective game 🕵
-- Create mazes/adventures in space, school, street, office, ...
-- Some icons : 🍱 bento box, 🥊 boxing glove
 
 ## Maybe later
 

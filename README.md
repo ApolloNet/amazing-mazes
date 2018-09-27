@@ -496,7 +496,7 @@ At cell at 3rd row, 9th column, the game ends with the message "🍶 Argh. This 
 
 # Protected event
 
-The protected event can be used to lock cells that are reachable only if the hero has got a certain object.
+The protected event can be used to lock cells that are reachable only if the hero has got a certain object, or a certain attack.
 
 The simple usage is: a cell is locked behind a door, it needs a key to be unlocked.
 
@@ -506,11 +506,15 @@ The simple usage is: a cell is locked behind a door, it needs a key to be unlock
 
 The `success` object is defined like :
 
-`object` (string, required): the object's (exact same) name that can unlock this protected cell
+`object` (string, optional): the object's (exact same) `type` that can unlock this protected cell
+
+`attack` (string, optional): the attack's (exact same) `name` that can unlock this protected cell
 
 `message` (string, required): the message to display when it's unlocked
 
 `icon` (string, required): the icon to display when it's unlocked
+
+**Either `object` or `attack` is required.**
 
 ## Example
 

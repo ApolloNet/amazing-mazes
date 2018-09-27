@@ -313,7 +313,8 @@ const maze = {
     }
     maze.updateSeenCell(nextCell.r, nextCell.c)
     const heroHasTheObject = hero.hasObject(nextCell.event.success.object)
-    if (!heroHasTheObject) {
+    const heroHasTheAttack = hero.hasAttack(nextCell.event.success.attack)
+    if (!heroHasTheObject && !heroHasTheAttack) {
       game.writeMessage(nextCell.event.icon, game.t(nextCell.event.message))
       return false
     }
@@ -358,12 +359,6 @@ const maze = {
           'message': nextCell.event.success.message,
           'icon': nextCell.event.success.icon
         })
-        // Rewards.
-        if (nextCell.event.rewards) {
-          nextCell.event.rewards.forEach((reward) => {
-            action.init(reward)
-          })
-        }
         maze.removeEventFromCell(nextCell.event.r, nextCell.event.c)
         return
       }
@@ -599,6 +594,12 @@ const hero = {
     })
     return yes ? true : false
   },
+  hasAttack: (attackName) => {
+    const yes = hero.attacks.some((attack) => {
+      return attack.name === attackName
+    })
+    return yes ? true : false
+  },
   postMove: () => {
     // Event.
     const cell = maze.getCell(maze.current.r, maze.current.c)
@@ -625,6 +626,12 @@ const action = {
     // Event happens once.
     if (event.once === 1) {
       maze.removeEventFromCell(event.r, event.c)
+    }
+    // Rewards.
+    if (event.rewards && event.type != 'fight') {
+      event.rewards.forEach((reward) => {
+        action.init(reward)
+      })
     }
   },
   random: () => {
