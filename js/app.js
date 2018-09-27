@@ -103,7 +103,6 @@ const game = {
   },
   t: (string) => {
     const language = navigator.language
-    console.log(game.translations[string])
     if (game.translations[string] && game.translations[string][language]) {
       return game.translations[string][language]
     }
