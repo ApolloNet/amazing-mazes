@@ -14,16 +14,33 @@ import {getRandomNumber, $, isTouch} from './helpers.js'
  */
 const game = {
   status: 0,
-  translations: {},
+  translations: defaultTranslations,
   init: () => {
     const mazeFile = game.loadMazeFromURL()
     if (!mazeFile) {
       game.loadRandomMaze()
       return
     }
+    game.translateElements()
     game.toggleNavigation()
     game.initMazesList()
     maze.load(mazeFile)
+  },
+  translateElements: () => {
+    const translations = {
+      't-load-another': "Load another game",
+      't-help': "Help",
+      't-fork': "Fork me",
+      't-attacks': "Attacks",
+      't-objects': "Objects",
+      't-logs': "Logs",
+      't-close': "Close",
+      't-load-a-game': "Load a game"
+    }
+    for (let translation in translations) {
+      const $element = $('#' + translation)
+      $element.innerHTML = game.t(translations[translation])
+    }
   },
   loadMazeFromURL: () => {
     if (!document.location.search) {
@@ -86,6 +103,7 @@ const game = {
   },
   t: (string) => {
     const language = navigator.language
+    console.log(game.translations[string])
     if (game.translations[string] && game.translations[string][language]) {
       return game.translations[string][language]
     }

@@ -22,9 +22,10 @@
   <header id="main-header" class="main-header">
     <nav class="main-nav">
       <h1 class="main-title">🞋 <span id="maze-title">Amazing Mazes</span></h1>
-      <button id="mazes-list--open" class="load-another">➭ Load another game</button>
-      <button id="help" class="help">❓ Help</button>
-      <a class="fork-me" href="https://github.com/ApolloNet/amazing-mazes/">Fork me</a>
+      <p class="main-prez">Amazing mazes is little game engine created just for fun. It is still in development.</p>
+      <button id="mazes-list--open" class="load-another main-nav-link">💾 <span id="t-load-another">Load another game</span></button>
+      <button id="help" class="help main-nav-link">❓ <span id="t-help">Help</span></button>
+      <a id="fork" class="fork-me main-nav-link" href="https://github.com/ApolloNet/amazing-mazes/">🐙 <span id="t-fork">Fork me</span></a>
     </nav>
 
     <div id="hero" class="hero">
@@ -35,17 +36,17 @@
     </div>
 
     <div class="hero-attacks">
-      <h2>Attacks</h2>
+      <h2 id="t-attacks">Attacks</h2>
       <ul id="hero-attacks"></ul>
     </div>
 
     <div class="hero-objects">
-      <h2>Objects</h2>
+      <h2 id="t-objects">Objects</h2>
       <ul id="hero-objects"></ul>
     </div>
 
     <div class="messages">
-      <h2>Logs</h2>
+      <h2 id="t-logs">Logs</h2>
       <div id="messages"></div>
     </div>
   </header>
@@ -74,8 +75,8 @@
 
     <div id="mazes-list" class="mazes-list">
       <div class="wrapper">
-        <button id="mazes-list--close" class="button">Close</button>
-        <h2>Load a game</h2>
+        <button id="mazes-list--close" class="button"><span id="t-close">Close</span></button>
+        <h2 id="t-load-a-game">Load a game</h2>
         <ul></ul>
       </div>
     </div>

@@ -1,17 +1,15 @@
 # TODO
 
-- Translate Load another, Help, Attacks, Objects
 - Question event: focus on the maze after answer
 - Question event: add a reward also on failure (hp loss, death...)
 - RWD
   - Move logs to a tab ?
   - Which unicode subsets are not implemented on my Android phone?
+  - PWA + Offline
 - Fight
   - choose your attack in a set of attacks you got ?
   - Attack points: increase attacks of the hero
   - Defense points: decrease attacks of the opponent
-  - "Find 5 something" => new event linked to objects
-- PWA + Offline
 - English language review
   - Rename protected / success => lock / unlock ?
   - Is 'earn' the righ verb ? Win ? Gain ?
@@ -31,3 +29,4 @@
 - Limited time ?
 - Sound ?
 - Moving opponents ?
+- "Find 5 something" => new event linked to objects

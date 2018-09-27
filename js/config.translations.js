@@ -1,4 +1,28 @@
 export default {
+  'Load another game': {
+    'fr': 'Charger un autre jeu'
+  },
+  'Help': {
+    'fr': 'Aide'
+  },
+  'Fork me': {
+    'fr': 'Github'
+  },
+  'Attacks': {
+    'fr': 'Attaques'
+  },
+  'Objects': {
+    'fr': 'Objets'
+  },
+  'Logs': {
+    'fr': 'Logs'
+  },
+  'Close': {
+    'fr': 'Fermer'
+  },
+  'Load a game': {
+    'fr': 'Charger un jeu'
+  },
   'none': {
     'fr': 'aucun'
   },
