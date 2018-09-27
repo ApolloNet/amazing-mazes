@@ -64,7 +64,7 @@ Attacks is an array of objects. Each one contains :
 
 `icon` (string, optional, default: hero icon): icon of the attack
 
-Defaults are stored in the /js/config.attacks.js file
+Defaults are stored in the `/js/config.attacks.js` file
 
 ## Objects
 
@@ -541,7 +541,11 @@ Of course, an object event was used elsewhere in the maze, with the `old key` ob
 "type": "object",
 "message": "You found an old key",
 "icon": "🗝",
-"object": "old key"
+"object": {
+  "type": "old key",
+  "name": "old key",
+  "icon": "🗝"
+}
 ```
 
 
@@ -634,6 +638,58 @@ When the hero is on the cell at 9th row, 8th column, the "room" defined by the `
 # Special objects
 
 - `torch`: lights on the cells nearby the current one.
+
+
+# Random events
+
+There are defaults random events. You can override them like in the following example.
+
+Remove random events with an empty `randomEvents` array in your json file.
+
+## Example
+
+```
+"randomEvents": [
+  {
+    'type': 'message',
+    'message': 'There are footprints on the ground',
+    'icon': '👣'
+  },
+  {
+    'type': 'metrix',
+    'message': 'An little ogre tried to catch you',
+    'icon': '👹',
+    'metrix': 'hp',
+    'effect': 'lose',
+    'points': 3
+  }
+]
+```
+
+
+# Translations
+
+Each string written in your json file can be translated to the languages you want: messages, attack names...
+
+There are defaults translations, see the `/js/config.translations.js` file.
+
+Adding yours is optional.
+
+## Example
+
+```
+"translations": {
+  "You woke up a dragon": {
+    "fr": "Tu as réveillé un dragon"
+  },
+  "Red fire": {
+    "fr": "Feu rouge"
+  },
+  "You found a Broccoli": {
+    "fr": "Tu as trouvé un Broccoli"
+  }
+}
+```
 
 
 # Add a new maze to the game
