@@ -23,12 +23,22 @@
 
 /* Main nav */
 
+.main-title,
+.main-prez {
+  margin-bottom: 0.5rem;
+}
+
+.main-prez {
+  color: var(--colorGrey);
+}
+
 .main-nav {
   border-bottom: var(--onepix) solid #222;
 }
 
-.main-header button {
+.main-nav-link {
   margin-right: 0.5rem;
+  padding: 0;
 }
 
 .touch .help {
@@ -47,7 +57,7 @@
 .hero-icon,
 .hero-name,
 .hero-hp {
-  margin: 0.5rem;
+  margin: 0 0.5rem 0.5rem 0.5rem;
 }
 
 .hero-name,
@@ -102,7 +112,7 @@
 }
 
 .message .icon {
-  flex-basis: 4rem;
+  min-width: 5rem;
   text-align: center;
 }
 
@@ -120,10 +130,6 @@
     flex-basis: 12.5rem;
     padding: 0.5rem 1rem;
     border-right: var(--onepix) solid #222;
-  }
-
-  .main-title {
-    margin-bottom: 1.5rem;
   }
 
   .main-nav {
@@ -144,7 +150,7 @@
 
   .hero .icon,
   .hero-hp {
-    margin-bottom: 0.5rem.
+    margin-bottom: 0.5rem;
   }
 
   .messages {
