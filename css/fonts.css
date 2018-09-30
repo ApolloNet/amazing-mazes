@@ -1,0 +1,8 @@
+/* Twemoji webfonts, thanks to https://github.com/xem/twemoji-webfont */
+@font-face {
+  font-family: 'twemoji';
+  src: url('../fonts/twemoji.woff2') format('woff2'),
+       url('../fonts/twemoji.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
