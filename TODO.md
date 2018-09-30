@@ -1,6 +1,9 @@
 # TODO
 
 - Logs are they needed ? Juste display notifications ?
+- Defaults
+  - Remove defaults icons
+  - Remove defaults random events
 - RWD
   - Move logs to a tab ?
   - Which unicode subsets are not implemented on my Android phone?
@@ -10,7 +13,6 @@
   - Is 'earn' the righ verb ? Win ? Gain ?
 - Code architecture
 - Document the code with [JsDoc](https://fr.wikipedia.org/wiki/JSDoc)
-- Add Twitters Cards, Facebook Graph...
 
 ## Maybe later
 
