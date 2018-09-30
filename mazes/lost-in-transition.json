@@ -15,13 +15,15 @@
       "r": 0,
       "c": 0,
       "type": "start",
-      "message": "Find the hidden treasure"
+      "message": "Find the hidden treasure",
+      "icon": "👑"
     },
     {
       "r": 6,
       "c": 9,
       "type": "win",
-      "message": "You found the hidden treasure"
+      "message": "You found the hidden treasure",
+      "icon": "👑"
     },
     {
       "r": 2,
@@ -34,6 +36,7 @@
       "r": 0,
       "c": 3,
       "type": "light",
+      "icon": "💡",
       "once": 0
     },
     {

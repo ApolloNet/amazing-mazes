@@ -2,7 +2,7 @@
 
 - Logs: are they needed ? Just display notifications ?
 - Defaults
-  - Remove defaults icons
+  - Remove defaults icons ?
   - Remove defaults random events
 - RWD
   - Move logs to a tab ?

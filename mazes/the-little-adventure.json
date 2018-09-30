@@ -23,13 +23,15 @@
       "r": 2,
       "c": 2,
       "type": "start",
-      "message": "Find the hidden treasure<br>but beware of the vampire"
+      "message": "Find the hidden treasure<br>but beware of the vampire",
+      "icon": "👑"
     },
     {
       "r": 1,
       "c": 1,
       "type": "win",
-      "message": "You found the hidden treasure"
+      "message": "You found the hidden treasure",
+      "icon": "👑"
     },
     {
       "r": 1,

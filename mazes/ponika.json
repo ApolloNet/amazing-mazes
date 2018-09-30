@@ -28,13 +28,15 @@
       "r": 5,
       "c": 3,
       "type": "start",
-      "message": "Hi! You are Tooth, a smart crododile. Find the hidden treasure"
+      "message": "Hi! You are Tooth, a smart crododile. Find the hidden treasure",
+      "icon": "👑"
     },
     {
       "r": 0,
       "c": 0,
       "type": "win",
-      "message": "You found the hidden treasure"
+      "message": "You found the hidden treasure",
+      "icon": "👑"
     },
     {
       "r": 4,
