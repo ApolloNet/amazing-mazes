@@ -835,10 +835,7 @@ const fight = {
     game.hpPercent($opponentBar, fight.hp)
   },
   heroAttacks: () => {
-    if (game.status !== 2) {
-      return
-    }
-    if (fight.whoplays !== 'hero') {
+    if (game.status !== 2 || fight.whoplays !== 'hero') {
       return
     }
     const $opponentHp = $('#fight-opponent-hp')
