@@ -1,6 +1,6 @@
 # TODO
 
-- Logs are they needed ? Juste display notifications ?
+- Logs: are they needed ? Just display notifications ?
 - Defaults
   - Remove defaults icons
   - Remove defaults random events
@@ -11,8 +11,9 @@
 - English language review
   - Rename protected / success => lock / unlock ?
   - Is 'earn' the righ verb ? Win ? Gain ?
-- Code architecture
-- Document the code with [JsDoc](https://fr.wikipedia.org/wiki/JSDoc)
+- Code
+  - Code architecture : module pattern, getters, setters
+  - Document the code with [JsDoc](https://fr.wikipedia.org/wiki/JSDoc)
 
 ## Maybe later
 
@@ -23,7 +24,6 @@
   - choose your attack in a set of attacks you got ?
   - Attack points: increase attacks of the hero
   - Defense points: decrease attacks of the opponent
-- Question event: multiple answers
 - Replace "fight" with "interaction" : conversation, question, objects...
 - Opponents, multiple
 - Allow multiple events on a cell ?

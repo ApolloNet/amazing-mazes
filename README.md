@@ -573,7 +573,7 @@ Both `success` and `failure` objects must contain those params:
 
 The `success` object also needs :
 
-`answer` (string, required): the answer to the question
+`answers` (array, required): right answers to the question
 
 ⚠ The answer **is not** case sensitive. Ie: 'Horcrux' will match 'HORCRUX' or 'horcrux'
 
@@ -587,7 +587,7 @@ The `success` object also needs :
 "icon": "🧝",
 "once": 1,
 "success": {
-  "answer": "tiger",
+  "answers": ["tiger", "big cat"],
   "message": "Right answer, you can pass",
   "icon": "🐅"
 },

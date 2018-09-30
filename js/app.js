@@ -365,7 +365,11 @@ const maze = {
       $answer.setAttribute('disabled', 'disabled')
       $answer.blur()
       // Success.
-      if ($answer.value.toLowerCase() === nextCell.event.success.answer.toLowerCase()) {
+      const playerAnswer = game.t($answer.value.toLowerCase())
+      const gameAnswers = nextCell.event.success.answers.map((answer) => {
+        return game.t(answer.toLowerCase())
+      })
+      if (gameAnswers.includes(playerAnswer)) {
         // Move.
         action.init({
           'type': 'move',
@@ -376,7 +380,6 @@ const maze = {
           'message': nextCell.event.success.message,
           'icon': nextCell.event.success.icon
         })
-        maze.removeEventFromCell(nextCell.event.r, nextCell.event.c)
         return
       }
       // Failure.
