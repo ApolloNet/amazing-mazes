@@ -26,6 +26,9 @@ export default {
   'none': {
     'fr': 'aucun'
   },
+  'or': {
+    'fr': 'ou'
+  },
   'you': {
     'fr': "tu"
   },
@@ -79,6 +82,9 @@ export default {
   },
   'Try again?': {
     'fr': "Rejouer ?"
+  },
+  'Replay': {
+    'fr': "Rejouer"
   },
   'Replay?': {
     'fr': "Rejouer ?"

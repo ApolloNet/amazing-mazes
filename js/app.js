@@ -741,7 +741,7 @@ const action = {
   win: (event) => {
     const message = `${game.t(event.message)}
       <br><a href="${document.location}">${game.t('Replay')}</a>
-      or <a href="?load=">${game.t('Load another')}</a>`
+      ${game.t('or')} <a href="#mazes-list">${game.t('Load another game')}</a>`
     game.status = 0
     maze.updateCellDiv(maze.current.r, maze.current.c, 'win')
     game.writeMessage(event.icon, message)
