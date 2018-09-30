@@ -12,7 +12,7 @@
       },
       {
         "name": "Stardust",
-        "icon": "🌠"
+        "icon": "✨"
       }
     ]
   },
@@ -217,6 +217,12 @@
     }
   ],
   "translations": {
+    "Telescope": {
+      "fr": "Téléscope"
+    },
+    "Stardust": {
+      "fr": "Poussière d'étoiles"
+    },
     "Travel through space and stars to find your friend Dolfino": {
       "fr": "Voyage à travers l'espace et les étoiles pour retrouver ton ami Dolfino"
     },

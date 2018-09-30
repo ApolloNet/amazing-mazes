@@ -2,7 +2,7 @@ export default [
   {
     'type': 'message',
     'message': 'You feel a breath on your neck',
-    'icon': '🌫'
+    'icon': '💨'
   },
   {
     'type': 'message',
