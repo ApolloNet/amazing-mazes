@@ -1,5 +1,6 @@
 # TODO
 
+- Display maze authors :)
 - Logs: are they needed ? Just display notifications ?
 - Defaults
   - Remove defaults icons ?
