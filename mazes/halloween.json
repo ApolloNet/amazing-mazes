@@ -1,0 +1,105 @@
+{
+  "name": "Halloween",
+  "light": 0,
+  "hero": {
+    "name": "Jack O'Lantern",
+    "icon": "🎃",
+    "hp": 100
+  },
+  "cells": [
+    ["tl", "tb", "t", "tb", "tb", "tb", "tb", "tb", "tb", "tr"],
+    ["rl", "trl", "bl", "tb", "tb", "tb", "tb", "tb", "tr", "rl"],
+    ["rl", "rl", "tl", "tb", "tb", "tb", "tb", "tr", "rl", "rl"],
+    ["rl", "rl", "rl", "tl", "t", "tb", "tr", "rl", "rl", "rl"],
+    ["rl", "l", "r", "rl", "bl", "tr", "rbl", "rl", "rl", "rbl"],
+    ["rl", "rl", "rl", "rl", "tbl", "rb", "tl", "r", "rl", "trl"],
+    ["rl", "rl", "rl", "bl", "tb", "tb", "rb", "rl", "rl", "rl"],
+    ["rl", "rl", "bl", "tb", "tb", "tb", "tb", "rb", "l", "rb"],
+    ["rl", "bl", "tb", "tb", "tr", "tbl", "tb", "tb", "rb", "trl"],
+    ["bl", "tb", "tb", "tb", "b", "tb", "tb", "tb", "tb", "rb"]
+  ],
+  "events": [
+    {
+      "r": 0,
+      "c": 4,
+      "type": "start",
+      "message": "Find the hidden treasure",
+      "icon": "💎"
+    },
+    {
+      "r": 5,
+      "c": 4,
+      "type": "win",
+      "message": "You found the hidden treasure",
+      "icon": "💎"
+    },
+    {
+      "r": 5,
+      "c": 9,
+      "type": "object",
+      "message": "You found an old key",
+      "icon": "🗝",
+      "object": {
+        "type": "old key",
+        "name": "old key",
+        "icon": "🗝"
+      }
+    },
+    {
+      "r": 5,
+      "c": 5,
+      "type": "protected",
+      "message": "The door is locked. You should find a key",
+      "icon": "🚪",
+      "success": {
+        "object": "old key",
+        "message": "You unlocked the door with the old key",
+        "icon": "🗝"
+      }
+    },
+    {
+      "c": 5,
+      "r": 8,
+      "type": "fight",
+      "mesage": "A bat want to bit you",
+      "opponent": "Bat",
+      "icon": "🦇",
+      "whoplays": "opponent",
+      "hp": 60,
+      "attacks": [
+        {
+          "name": "Bite",
+          "hp": 14
+        },
+        {
+          "name": "Fail",
+          "hp": 0
+        }
+      ],
+      "rewards": [
+        {
+          "type": "object",
+          "message": "You found a little star that shines in the darkness",
+          "icon": "🔦",
+          "object": {
+            "type": "torch",
+            "name": "little star",
+            "icon": "🔦"
+          }
+        }
+      ]
+    },
+    {
+      "c": 4,
+      "r": 2,
+      "type": "metrix",
+      "message": "You were burnt by the fire",
+      "metrix": "hp",
+      "effect": "lose",
+      "points": 20,
+      "icon": "👻",
+      "once": 0
+    }
+
+  ]
+}

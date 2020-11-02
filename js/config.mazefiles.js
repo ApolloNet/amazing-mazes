@@ -35,5 +35,11 @@ export default  {
     'icon': '🌈',
     'size': '7x7',
     'created': '18-08-08'
+  },
+  'halloween': {
+    'name': 'Halloween',
+    'icon': '🎃',
+    'size': '10x10',
+    'created': '20-11-01'
   }
 }
