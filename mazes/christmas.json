@@ -1,0 +1,124 @@
+{
+  "name": "Santa Claus's long night",
+  "authors": "Manech & Raphael",
+  "light": 0,
+  "hero": {
+    "name": "Santa Claus",
+    "icon": "🎅",
+    "hp": 100
+  },
+  "cells": [
+    ["tl", "tb", "tb", "tb", "tb", "t", "tb", "tb", "tb", "tr"],
+    ["rl","tl","tb","t","tb","r","tbl","tb","tr","rl"],
+    ["rl","rl","tl","b","trb","l","tb","trb","rl","rl"],
+    ["rl","rbl","rl","tl","tb","rb","tl","tb","rb","rbl"],
+    ["l","tr","rl","rbl","tl","trb","l","t","trb","trl"],
+    ["rl","rl","l","tb","rb","tbl","rb","rl","tbl","r"],
+    ["rl","rl","bl","tb","trb","tbl","tb","r","tbl","r"],
+    ["rbl","l","tb","tr","tbl","tr","trl","bl","tb","r"],
+    ["tl","rb","trl","bl","tr","rl","rl","tl","tb","rb"],
+    ["bl","tb","b","trb","bl","b","b","b","tb","trb"]
+  ],
+  "events": [
+    {
+      "r": 1,
+      "c": 6,
+      "type": "start",
+      "message": "Bring the lost gift under the Christmas tree",
+      "icon": "🎄"
+    },
+    {
+      "r": 5,
+      "c": 5,
+      "type": "win",
+      "message": "You win a child's smile",
+      "icon": "🎄"
+    },
+    {
+      "r": 5,
+      "c": 6,
+      "type": "protected",
+      "message": "Oh wait! You forgot the gift.",
+      "icon": "🚪",
+      "success": {
+        "object": "gift",
+        "message": "You enter silently. Sleeping children should not be woken up",
+        "icon": "🎁"
+      }
+    },
+    {
+      "r": 4,
+      "c": 5,
+      "type": "object",
+      "message": "You found a gift",
+      "icon": "🎁",
+      "object": {
+        "type": "gift",
+        "name": "Gift",
+        "icon": "🎁"
+      }
+    },
+    {
+      "r": 2,
+      "c": 7,
+      "type": "object",
+      "message": "Cool ! a star to light your way",
+      "icon": "🌟",
+      "object": {
+        "type": "torch",
+        "name": "Little star",
+        "icon": "🌟"
+      }
+    },
+    {
+      "r": 8,
+      "c": 1,
+      "type": "metrix",
+      "message": "The sled has hit a tree",
+      "metrix": "hp",
+      "effect": "lose",
+      "points": 10,
+      "icon": "🌳"
+    },
+    {
+      "r": 1,
+      "c": 1,
+      "type": "metrix",
+      "message": "The sled has hit a tree",
+      "metrix": "hp",
+      "effect": "lose",
+      "points": 10,
+      "icon": "🌳"
+    },
+    {
+      "r": 6,
+      "c": 3,
+      "type": "metrix",
+      "message": "The sled has hit a tree",
+      "metrix": "hp",
+      "effect": "lose",
+      "points": 10,
+      "icon": "🌳"
+    },
+    {
+      "r": 5,
+      "c": 9,
+      "type": "metrix",
+      "message": "The sled has hit a tree",
+      "metrix": "hp",
+      "effect": "lose",
+      "points": 10,
+      "icon": "🌳"
+    },
+    {
+      "r": 3,
+      "c": 9,
+      "type": "metrix",
+      "message": "The sled has hit a tree",
+      "metrix": "hp",
+      "effect": "lose",
+      "points": 10,
+      "icon": "🌳"
+    }
+  ]
+}

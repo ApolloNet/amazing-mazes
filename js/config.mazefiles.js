@@ -41,5 +41,11 @@ export default  {
     'icon': '🎃',
     'size': '10x10',
     'created': '20-11-01'
+  },
+  'christmas': {
+    'name': 'Father Christmas',
+    'icon': '🎅',
+    'size': '10x10',
+    'created': '20-12-09'
   }
 }
