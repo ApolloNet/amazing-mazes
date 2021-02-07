@@ -5,7 +5,14 @@
   "hero": {
     "name": "Santa Claus",
     "icon": "🎅",
-    "hp": 100
+    "hp": 100,
+    "attacks": [
+      {
+        "name": "Ho Ho Ho",
+        "icon": "✨",
+        "hp": 1
+      }
+    ]
   },
   "cells": [
     ["tl", "tb", "tb", "tb", "tb", "t", "tb", "tb", "tb", "tr"],
@@ -38,7 +45,7 @@
       "r": 5,
       "c": 6,
       "type": "protected",
-      "message": "Oh wait! You forgot the gift.",
+      "message": "Oh wait! You forgot the gift",
       "icon": "🚪",
       "success": {
         "object": "gift",
@@ -62,7 +69,7 @@
       "r": 2,
       "c": 7,
       "type": "object",
-      "message": "Cool ! a star to light your way",
+      "message": "Cool! A star to light your way",
       "icon": "🌟",
       "object": {
         "type": "torch",
@@ -74,7 +81,7 @@
       "r": 8,
       "c": 1,
       "type": "metrix",
-      "message": "The sled has hit a tree",
+      "message": "The sled hit a tree",
       "metrix": "hp",
       "effect": "lose",
       "points": 10,
@@ -84,7 +91,7 @@
       "r": 1,
       "c": 1,
       "type": "metrix",
-      "message": "The sled has hit a tree",
+      "message": "The sled hit a tree",
       "metrix": "hp",
       "effect": "lose",
       "points": 10,
@@ -94,7 +101,7 @@
       "r": 6,
       "c": 3,
       "type": "metrix",
-      "message": "The sled has hit a tree",
+      "message": "The sled hit a tree",
       "metrix": "hp",
       "effect": "lose",
       "points": 10,
@@ -104,7 +111,7 @@
       "r": 5,
       "c": 9,
       "type": "metrix",
-      "message": "The sled has hit a tree",
+      "message": "The sled hit a tree",
       "metrix": "hp",
       "effect": "lose",
       "points": 10,
@@ -114,11 +121,37 @@
       "r": 3,
       "c": 9,
       "type": "metrix",
-      "message": "The sled has hit a tree",
+      "message": "The sled hit a tree",
       "metrix": "hp",
       "effect": "lose",
       "points": 10,
       "icon": "🌳"
     }
-  ]
+  ],
+  "translations": {
+    "Bring the lost gift under the Christmas tree": {
+      "fr": "Apporte le cadeau perdu sous le sapin de noël"
+    },
+    "You win a child's smile": {
+      "fr": "Tu as gagné le sourire d'un enfant"
+    },
+    "Oh wait! You forgot the gift": {
+      "fr": "Attends ! Tu as oublié le cadeau"
+    },
+    "You enter silently. Sleeping children should not be woken up": {
+      "fr": "Tu entres silencieusement. Les enfants endormis ne doivent pas être réveillés"
+    },
+    "You found a gift": {
+      "fr": "Tu as trouvé un cadeau"
+    },
+    "Cool! A star to light your way": {
+      "fr": "Cool ! Une étoile pour éclairer ton chemin"
+    },
+    "Little star": {
+      "fr": "Petite étoile"
+    },
+    "The sled hit a tree": {
+      "fr": "Le traineau a percuté un arbre"
+    }
+  }
 }
