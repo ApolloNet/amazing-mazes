@@ -646,9 +646,7 @@ When the hero is on the cell at 9th row, 8th column, the "room" defined by the `
 
 # Random events
 
-There are defaults random events. You can override them like in the following example.
-
-Remove random events with an empty `randomEvents` array in your json file.
+Add random events with a `randomEvents` array in your json config file.
 
 ## Example
 

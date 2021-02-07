@@ -3,7 +3,6 @@
  */
 import mazeFiles from './config.mazefiles.js'
 import borders from './config.borders.js'
-import defaultRandomEvents from './random-events.js'
 import defaultAttacks from './config.attacks.js'
 import icons from './config.icons.js'
 import defaultTranslations from './config.translations.js'
@@ -253,7 +252,7 @@ const maze = {
     })
   },
   initRandomEvents: (data) => {
-    maze.randomEvents = data.randomEvents ? data.randomEvents : defaultRandomEvents;
+    maze.randomEvents = data.randomEvents ? data.randomEvents : [];
   },
   updateMazeCSS: () => {
     const $maze = $('#maze')
